@@ -1,0 +1,1 @@
+START "Reporting module api" "c:\program files\IIS Express\IISExpress.exe" /config:..\.vs\config\applicationHost.config /site:ReportingModule.Website

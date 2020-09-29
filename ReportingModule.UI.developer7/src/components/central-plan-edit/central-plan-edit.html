@@ -1,0 +1,171 @@
+<template>
+    <div if.bind="centralPlan">
+        <div class="row">
+            <div class="col-lg-12">
+                <plan-report-header header-data.bind="headerData"></plan-report-header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <plan-report-shell item-id.bind="planid" report-status.bind="centralPlan.reportStatus" organization-type.bind="centralPlan.organization.organizationType">
+                    <div class="card">
+                        <div class="card-header bg-info text-white" if.bind="!isDirty">
+                          <div class="row">
+                              <div class="col" align="left">
+                                  ${centralPlan.reportingPeriod | reportingPeriod}
+                              </div>
+                              <div class="col" align="right">
+                                ${centralPlan.timestamp | convertToLocalDate}
+                              </div>
+                            </div>
+
+                        </div>
+                        <div class="card-header bg-warning text-white" if.bind="isDirty">${centralPlan.reportingPeriod | reportingPeriod} - Unsaved Changes</div>
+                        <div class="card-body">
+                            <plan-manpower-edit
+                                associate-member-plan-data.bind="centralPlan.associateMemberPlanData"
+                                associate-member-plan-generated-data.bind="centralPlan.associateMemberPlanGeneratedData"
+                                preliminary-member-plan-data.bind="centralPlan.preliminaryMemberPlanData"
+                                preliminary-member-plan-generated-data.bind="centralPlan.preliminaryMemberPlanGeneratedData"
+                                supporter-member-plan-data.bind="centralPlan.supporterMemberPlanData"
+                                supporter-member-plan-generated-data.bind="centralPlan.supporterMemberPlanGeneratedData"
+                                member-member-plan-data.bind="centralPlan.memberMemberPlanData"
+                                member-member-plan-generated-data.bind="centralPlan.memberMemberPlanGeneratedData">
+                            </plan-manpower-edit>
+                            <plan-regular-meetings-edit
+                                worker-meeting-program-plan-data.bind="centralPlan.workerMeetingProgramPlanData"
+                                worker-meeting-program-plan-generated-data.bind="centralPlan.workerMeetingProgramPlanGeneratedData"
+                                cms-meeting-program-plan-data.bind="centralPlan.cmsMeetingProgramPlanData"
+                                cms-meeting-program-plan-generated-data.bind="centralPlan.cmsMeetingProgramPlanGeneratedData"
+                                sm-meeting-program-plan-data.bind="centralPlan.smMeetingProgramPlanData"
+                                sm-meeting-program-plan-generated-data.bind="centralPlan.smMeetingProgramPlanGeneratedData"
+                                member-meeting-program-plan-data.bind="centralPlan.memberMeetingProgramPlanData"
+                                member-meeting-program-plan-generated-data.bind="centralPlan.memberMeetingProgramPlanGeneratedData"
+                                dawah-meeting-program-plan-data.bind="centralPlan.dawahMeetingProgramPlanData"
+                                dawah-meeting-program-plan-generated-data.bind="centralPlan.dawahMeetingProgramPlanGeneratedData"
+                                state-leader-meeting-program-plan-data.bind="centralPlan.stateLeaderMeetingProgramPlanData"
+                                state-leader-meeting-program-plan-generated-data.bind="centralPlan.stateLeaderMeetingProgramPlanGeneratedData"
+                                state-outing-meeting-program-plan-data.bind="centralPlan.stateOutingMeetingProgramPlanData"
+                                state-outing-meeting-program-plan-generated-data.bind="centralPlan.stateOutingMeetingProgramPlanGeneratedData"
+                                iftar-meeting-program-plan-data.bind="centralPlan.iftarMeetingProgramPlanData"
+                                iftar-meeting-program-plan-generated-data.bind="centralPlan.iftarMeetingProgramPlanGeneratedData"
+                                learning-meeting-program-plan-data.bind="centralPlan.learningMeetingProgramPlanData"
+                                learning-meeting-program-plan-generated-data.bind="centralPlan.learningMeetingProgramPlanGeneratedData"
+                                social-dawah-meeting-program-plan-data.bind="centralPlan.socialDawahMeetingProgramPlanData"
+                                social-dawah-meeting-program-plan-generated-data.bind="centralPlan.socialDawahMeetingProgramPlanGeneratedData"
+                                dawah-group-meeting-program-plan-data.bind="centralPlan.dawahGroupMeetingProgramPlanData"
+                                dawah-group-meeting-program-plan-generated-data.bind="centralPlan.dawahGroupMeetingProgramPlanGeneratedData"
+                                next-g-meeting-program-plan-data.bind="centralPlan.nextGMeetingProgramPlanData"
+                                next-g-meeting-program-plan-generated-data.bind="centralPlan.nextGMeetingProgramPlanGeneratedData"
+                                tafsir-meeting-program-plan-data.bind="centralPlan.tafsirMeetingProgramPlanData"
+                                tafsir-meeting-program-plan-generated-data.bind="centralPlan.tafsirMeetingProgramPlanGeneratedData"
+                                unit-meeting-program-plan-data.bind="centralPlan.unitMeetingProgramPlanData"
+                                unit-meeting-program-plan-generated-data.bind="centralPlan.unitMeetingProgramPlanGeneratedData"
+                                bbq-meeting-program-plan-data.bind="centralPlan.bbqMeetingProgramPlanData"
+                                bbq-meeting-program-plan-generated-data.bind="centralPlan.bbqMeetingProgramPlanGeneratedData"
+                                gathering-meeting-program-plan-data.bind="centralPlan.gatheringMeetingProgramPlanData"
+                                gathering-meeting-program-plan-generated-data.bind="centralPlan.gatheringMeetingProgramPlanGeneratedData"
+                                family-visit-meeting-program-plan-data.bind="centralPlan.familyVisitMeetingProgramPlanData"
+                                family-visit-meeting-program-plan-generated-data.bind="centralPlan.familyVisitMeetingProgramPlanGeneratedData"
+                                eid-reunion-meeting-program-plan-data.bind="centralPlan.eidReunionMeetingProgramPlanData"
+                                eid-reunion-meeting-program-plan-generated-data.bind="centralPlan.eidReunionMeetingProgramPlanGeneratedData"
+                                other-meeting-program-plan-data.bind="centralPlan.otherMeetingProgramPlanData"
+                                other-meeting-program-plan-generated-data.bind="centralPlan.otherMeetingProgramPlanGeneratedData">
+                            </plan-regular-meetings-edit>
+                            <plan-teaching-edit
+                                group-study-teaching-learning-program-plan-data.bind="centralPlan.groupStudyTeachingLearningProgramPlanData"
+                                group-study-teaching-learning-program-plan-generated-data.bind="centralPlan.groupStudyTeachingLearningProgramPlanGeneratedData"
+                                study-circle-for-associate-member-teaching-learning-program-plan-data.bind="centralPlan.studyCircleForAssociateMemberTeachingLearningProgramPlanData"
+                                study-circle-for-associate-member-teaching-learning-program-plan-generated-data.bind="centralPlan.studyCircleForAssociateMemberTeachingLearningProgramPlanGeneratedData"
+                                study-circle-teaching-learning-program-plan-data.bind="centralPlan.studyCircleTeachingLearningProgramPlanData"
+                                study-circle-teaching-learning-program-plan-generated-data.bind="centralPlan.studyCircleTeachingLearningProgramPlanGeneratedData"
+                                practice-dars-teaching-learning-program-plan-data.bind="centralPlan.practiceDarsTeachingLearningProgramPlanData"
+                                practice-dars-teaching-learning-program-plan-generated-data.bind="centralPlan.practiceDarsTeachingLearningProgramPlanGeneratedData"
+                                state-learning-camp-teaching-learning-program-plan-data.bind="centralPlan.stateLearningCampTeachingLearningProgramPlanData"
+                                state-learning-camp-teaching-learning-program-plan-generated-data.bind="centralPlan.stateLearningCampTeachingLearningProgramPlanGeneratedData"
+                                quran-study-teaching-learning-program-plan-data.bind="centralPlan.quranStudyTeachingLearningProgramPlanData"
+                                quran-study-teaching-learning-program-plan-generated-data.bind="centralPlan.quranStudyTeachingLearningProgramPlanGeneratedData"
+                                hadith-teaching-learning-program-plan-data.bind="centralPlan.hadithTeachingLearningProgramPlanData"
+                                hadith-teaching-learning-program-plan-generated-data.bind="centralPlan.hadithTeachingLearningProgramPlanGeneratedData"
+                                quran-class-teaching-learning-program-plan-data.bind="centralPlan.quranClassTeachingLearningProgramPlanData"
+                                quran-class-teaching-learning-program-plan-generated-data.bind="centralPlan.quranClassTeachingLearningProgramPlanGeneratedData"
+                                weekend-islamic-school-teaching-learning-program-plan-data.bind="centralPlan.weekendIslamicSchoolTeachingLearningProgramPlanData"
+                                weekend-islamic-school-teaching-learning-program-plan-generated-data.bind="centralPlan.weekendIslamicSchoolTeachingLearningProgramPlanGeneratedData"
+                                memorizing-ayat-teaching-learning-program-plan-data.bind="centralPlan.memorizingAyatTeachingLearningProgramPlanData"
+                                memorizing-ayat-teaching-learning-program-plan-generated-data.bind="centralPlan.memorizingAyatTeachingLearningProgramPlanGeneratedData"
+                                memorizing-hadith-teaching-learning-program-plan-data.bind="centralPlan.memorizingHadithTeachingLearningProgramPlanData"
+                                memorizing-hadith-teaching-learning-program-plan-generated-data.bind="centralPlan.memorizingHadithTeachingLearningProgramPlanGeneratedData"
+                                memorizing-doa-teaching-learning-program-plan-data.bind="centralPlan.memorizingDoaTeachingLearningProgramPlanData"
+                                memorizing-doa-teaching-learning-program-plan-generated-data.bind="centralPlan.memorizingDoaTeachingLearningProgramPlanGeneratedData"
+                                state-learning-session-teaching-learning-program-plan-data.bind="centralPlan.stateLearningSessionTeachingLearningProgramPlanData"
+                                state-learning-session-teaching-learning-program-plan-generated-data.bind="centralPlan.stateLearningSessionTeachingLearningProgramPlanGeneratedData"
+                                state-qiyamul-lail-teaching-learning-program-plan-data.bind="centralPlan.stateQiyamulLailTeachingLearningProgramPlanData"
+                                state-qiyamul-lail-teaching-learning-program-plan-generated-data.bind="centralPlan.stateQiyamulLailTeachingLearningProgramPlanGeneratedData"
+                                other-teaching-learning-program-plan-data.bind="centralPlan.otherTeachingLearningProgramPlanData"
+                                other-teaching-learning-program-plan-generated-data.bind="centralPlan.otherTeachingLearningProgramPlanGeneratedData">
+                            </plan-teaching-edit>
+                            <plan-material-edit
+                                book-sale-material-plan-data.bind="centralPlan.bookSaleMaterialPlanData"
+                                book-sale-material-plan-generated-data.bind="centralPlan.bookSaleMaterialPlanGeneratedData"
+                                book-distribution-material-plan-data.bind="centralPlan.bookDistributionMaterialPlanData"
+                                book-distribution-material-plan-generated-data.bind="centralPlan.bookDistributionMaterialPlanGeneratedData"
+                                vhs-sale-material-plan-data.bind="centralPlan.vhsSaleMaterialPlanData"
+                                vhs-sale-material-plan-generated-data.bind="centralPlan.vhsSaleMaterialPlanGeneratedData"
+                                vhs-distribution-material-plan-data.bind="centralPlan.vhsDistributionMaterialPlanData"
+                                vhs-distribution-material-plan-generated-data.bind="centralPlan.vhsDistributionMaterialPlanGeneratedData"
+                                email-distribution-material-plan-data.bind="centralPlan.emailDistributionMaterialPlanData"
+                                email-distribution-material-plan-generated-data.bind="centralPlan.emailDistributionMaterialPlanGeneratedData"
+                                ipdc-leaflet-distribution-material-plan-data.bind="centralPlan.ipdcLeafletDistributionMaterialPlanData"
+                                ipdc-leaflet-distribution-material-plan-generated-data.bind="centralPlan.ipdcLeafletDistributionMaterialPlanGeneratedData"
+                                other-sale-material-plan-data.bind="centralPlan.otherSaleMaterialPlanData"
+                                other-sale-material-plan-generated-data.bind="centralPlan.otherSaleMaterialPlanGeneratedData"
+                                other-distribution-material-plan-data.bind="centralPlan.otherDistributionMaterialPlanData"
+                                other-distribution-material-plan-generated-data.bind="centralPlan.otherDistributionMaterialPlanGeneratedData">
+                            </plan-material-edit>
+                            <plan-finance-edit
+                                baitul-mal-finance-plan-data.bind="centralPlan.baitulMalFinancePlanData"
+                                baitul-mal-finance-plan-generated-data.bind="centralPlan.baitulMalFinancePlanGeneratedData"
+                                a-day-masjid-project-finance-plan-data.bind="centralPlan.aDayMasjidProjectFinancePlanData"
+                                a-day-masjid-project-finance-plan-generated-data.bind="centralPlan.aDayMasjidProjectFinancePlanGeneratedData"
+                                masjid-table-bank-finance-plan-data.bind="centralPlan.masjidTableBankFinancePlanData"
+                                masjid-table-bank-finance-plan-generated-data.bind="centralPlan.masjidTableBankFinancePlanGeneratedData">
+                            </plan-finance-edit>
+                            <plan-socialwelfare-edit
+                                qarde-hasana-social-welfare-plan-data.bind="centralPlan.qardeHasanaSocialWelfarePlanData"
+                                qarde-hasana-social-welfare-plan-generated-data.bind="centralPlan.qardeHasanaSocialWelfarePlanGeneratedData"
+                                patient-visit-social-welfare-plan-data.bind="centralPlan.patientVisitSocialWelfarePlanData"
+                                patient-visit-social-welfare-plan-generated-data.bind="centralPlan.patientVisitSocialWelfarePlanGeneratedData"
+                                social-visit-social-welfare-plan-data.bind="centralPlan.socialVisitSocialWelfarePlanData"
+                                social-visit-social-welfare-plan-generated-data.bind="centralPlan.socialVisitSocialWelfarePlanGeneratedData"
+                                transport-social-welfare-plan-data.bind="centralPlan.transportSocialWelfarePlanData"
+                                transport-social-welfare-plan-generated-data.bind="centralPlan.transportSocialWelfarePlanGeneratedData"
+                                shifting-social-welfare-plan-data.bind="centralPlan.shiftingSocialWelfarePlanData"
+                                shifting-social-welfare-plan-generated-data.bind="centralPlan.shiftingSocialWelfarePlanGeneratedData"
+                                shopping-social-welfare-plan-data.bind="centralPlan.shoppingSocialWelfarePlanData"
+                                shopping-social-welfare-plan-generated-data.bind="centralPlan.shoppingSocialWelfarePlanGeneratedData"
+                                food-distribution-social-welfare-plan-data.bind="centralPlan.foodDistributionSocialWelfarePlanData"
+                                food-distribution-social-welfare-plan-generated-data.bind="centralPlan.foodDistributionSocialWelfarePlanGeneratedData"
+                                clean-up-australia-social-welfare-plan-data.bind="centralPlan.cleanUpAustraliaSocialWelfarePlanData"
+                                clean-up-australia-social-welfare-plan-generated-data.bind="centralPlan.cleanUpAustraliaSocialWelfarePlanGeneratedData"
+                                other-social-welfare-plan-data.bind="centralPlan.otherSocialWelfarePlanData"
+                                other-social-welfare-plan-generated-data.bind="centralPlan.otherSocialWelfarePlanGeneratedData">
+                            </plan-socialwelfare-edit>
+                            <button type="button" class="btn btn-primary" click.delegate="save()" disabled.bind="!canSave">
+                                <i class="fas fa-cloud-upload-alt" if.bind="!isSaving"></i>
+                                <i class="fas fa-spinner fa-spin" if.bind="isSaving"></i> Save
+                            </button>&nbsp;
+                            <button type="button" class="btn btn-warning" click.delegate="cancelChanges()" disabled.bind="!canCancel">
+                                <i class="fas fa-eraser" if.bind="!isCancelling"></i>
+                                <i class="fas fa-spinner fa-spin" if.bind="isCancelling"></i> Cancel Changes
+                            </button>
+                            <button type="button" class="btn btn-success" click.delegate="saveAndSubmitPlan()" disabled.bind="!canSubmit">
+                                <i class="fas fa-chart-line" if.bind="!isSubmitting"></i>
+                                <i class="fas fa-spinner fa-spin" if.bind="isSubmitting"></i> Submit Plan
+                            </button>
+                        </div>
+                    </div>
+                </plan-report-shell>
+            </div>
+        </div>
+    </div>
+</template>

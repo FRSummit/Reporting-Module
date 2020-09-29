@@ -1,0 +1,51 @@
+<template>
+    <div class="table-responsive">
+        <h5 class="card-title">Social Welfare</h5>
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Type</th>
+                    <th>Target No.</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Qard-e-Hasana</td>
+                    <td><input-number input-number.bind="qardeHasanaSocialWelfarePlanData.target" generated.bind="qardeHasanaSocialWelfarePlanGeneratedData.target"></input-number></td>
+                </tr>
+                <tr>
+                    <td>Patient Visit</td>
+                    <td><input-number input-number.bind="patientVisitSocialWelfarePlanData.target" generated.bind="patientVisitSocialWelfarePlanGeneratedData.target"></input-number></td>
+                </tr>
+                <tr>
+                    <td>Social Visit</td>
+                    <td><input-number input-number.bind="socialVisitSocialWelfarePlanData.target" generated.bind="socialVisitSocialWelfarePlanGeneratedData.target"></input-number></td>
+                </tr>
+                <tr>
+                    <td>Transport</td>
+                    <td><input-number input-number.bind="transportSocialWelfarePlanData.target" generated.bind="transportSocialWelfarePlanGeneratedData.target"></input-number></td>
+                </tr>
+                <tr>
+                    <td>Shifting</td>
+                    <td><input-number input-number.bind="shiftingSocialWelfarePlanData.target" generated.bind="shiftingSocialWelfarePlanGeneratedData.target"></input-number></td>
+                </tr>
+                <tr>
+                    <td>Shopping</td>
+                    <td><input-number input-number.bind="shoppingSocialWelfarePlanData.target" generated.bind="shoppingSocialWelfarePlanGeneratedData.target"></input-number></td>
+                </tr>
+                <tr>
+                    <td>Food Distribution</td>
+                    <td><input-number input-number.bind="foodDistributionSocialWelfarePlanData.target" generated.bind="foodDistributionSocialWelfarePlanGeneratedData.target"></input-number></td>
+                </tr>
+                <tr>
+                    <td>Clean Up Australia</td>
+                    <td><input-number input-number.bind="cleanUpAustraliaSocialWelfarePlanData.target" generated.bind="cleanUpAustraliaSocialWelfarePlanGeneratedData.target"></input-number></td>
+                </tr>
+                <tr>
+                    <td>Other</td>
+                    <td><input-number input-number.bind="otherSocialWelfarePlanData.target" generated.bind="otherSocialWelfarePlanGeneratedData.target"></input-number></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</template>

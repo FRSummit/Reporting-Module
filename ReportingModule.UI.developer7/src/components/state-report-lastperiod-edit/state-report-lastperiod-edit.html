@@ -1,0 +1,76 @@
+<template>
+    <div if.bind="stateReport">
+        <div class="row">
+            <div class="col-lg-12">
+                <plan-report-header header-data.bind="headerData"></plan-report-header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <plan-report-shell item-id.bind="reportid" report-status.bind="stateReport.reportStatus" organization-type.bind="stateReport.organization.organizationType">
+                    <div class="card">
+                        <div class="card-header bg-info text-white" if.bind="!isDirty">
+                           <div class="row">
+                              <div class="col" align="left">
+                                  ${stateReport.reportingPeriod | reportingPeriod}
+                              </div>
+                              <div class="col" align="right">
+                                ${stateReport.timestamp | convertToLocalDate}
+                              </div>
+                            </div>
+
+                        </div>
+
+                        <div class="card-header bg-warning text-white" if.bind="isDirty">
+                           <div class="row">
+                              <div class="col" align="left">
+                                  ${stateReport.reportingPeriod | reportingPeriod} - Unsaved Changes
+                              </div>
+                              <div class="col" align="right">
+                                ${stateReport.timestamp | convertToLocalDate}
+                              </div>
+                            </div>
+                        
+                        </div>
+                        <div class="card-body">
+                            <report-manpower-lastperiod-edit
+                                associate-member-data.bind="stateReport.associateMemberData"
+                                associate-member-generated-data.bind="stateReport.associateMemberGeneratedData"
+                                preliminary-member-data.bind="stateReport.preliminaryMemberData"
+                                preliminary-member-generated-data.bind="stateReport.preliminaryMemberGeneratedData"
+                                supporter-member-data.bind="stateReport.supporterMemberData"
+                                supporter-member-generated-data.bind="stateReport.supporterMemberGeneratedData"
+                                member-member-data.bind="stateReport.memberMemberData"
+                                member-member-generated-data.bind="stateReport.memberMemberGeneratedData">
+                            </report-manpower-lastperiod-edit>
+                            <report-library-lastperiod-edit
+                                book-library-stock-data.bind="stateReport.bookLibraryStockData"
+                                book-library-stock-generated-data.bind="stateReport.bookLibraryStockGeneratedData"
+                                vhs-library-stock-data.bind="stateReport.vhsLibraryStockData"
+                                vhs-library-stock-generated-data.bind="stateReport.vhsLibraryStockGeneratedData"
+                                other-library-stock-data.bind="stateReport.otherLibraryStockData"
+                                other-library-stock-generated-data.bind="stateReport.otherLibraryStockGeneratedData">
+                            </report-library-lastperiod-edit>
+                            <report-finance-lastperiod-edit
+                                baitul-mal-finance-data.bind="stateReport.baitulMalFinanceData"
+                                baitul-mal-finance-generated-data.bind="stateReport.baitulMalFinanceGeneratedData"
+                                a-day-masjid-project-finance-data.bind="stateReport.aDayMasjidProjectFinanceData"
+                                a-day-masjid-project-finance-generated-data.bind="stateReport.aDayMasjidProjectFinanceGeneratedData"
+                                masjid-table-bank-finance-data.bind="stateReport.masjidTableBankFinanceData"
+                                masjid-table-bank-finance-generated-data.bind="stateReport.masjidTableBankFinanceGeneratedData">
+                            </report-finance-lastperiod-edit>
+                            <button type="button" class="btn btn-primary" click.delegate="save()" disabled.bind="!canSave">
+                                <i class="fas fa-cloud-upload-alt" if.bind="!isSaving"></i>
+                                <i class="fas fa-spinner fa-spin" if.bind="isSaving"></i> Save
+                            </button>&nbsp;
+                            <button type="button" class="btn btn-warning" click.delegate="cancelChanges()" disabled.bind="!canCancel">
+                                <i class="fas fa-eraser" if.bind="!isCancelling"></i>
+                                <i class="fas fa-spinner fa-spin" if.bind="isCancelling"></i> Cancel Changes
+                            </button>
+                        </div>
+                    </div>
+                </plan-report-shell>
+            </div>
+        </div>
+    </div>
+</template>

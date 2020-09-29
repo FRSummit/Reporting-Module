@@ -1,0 +1,72 @@
+<template>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header bg-primary">
+                    <h5 class="text-white">Create Organization User</h5>
+                </div>
+
+                <div class="card-body">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-lg-1">
+                                <label class="form-label" for="username">Username</label>
+                            </div>
+                            <div class="form-group col-lg-5">
+                                <div><input id="username" class="form-control" value.bind="username"></div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-lg-1">
+                                <label class="form-label" for="organizationType">Role</label>
+                            </div>
+                            <div class="form-group">
+                                <organization-role-type-selector id="organizationalRoleType" selected-role-type.bind="selectedOrganizationRoleType"
+                                    exclude-choose-option.bind="true">
+                                </organization-role-type-selector>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-lg-1">
+                                <label class="form-label">Organization</label>
+                            </div>
+                            <div class="form-group">
+                                <div if.bind="nodatafound" class="my-2">
+                                    <h4 class="text-warning">No data found</h4>
+                                </div>
+                                <div class="table-responsive" if.bind="items.length > 0">
+                                    <table class="table table-striped table-hover">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th>Description</th>
+                                                <th>Organization Type</th>
+                                                <th>Reporting Frequency</th>
+                                                <th>Parent</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody repeat.for="item of items">
+                                            <tr class.bind="selectedOrganization !== undefined && item.id === selectedOrganization.id ? 'bg-info text-white' : ''">
+                                                <td style="cursor: pointer" click.delegate="$parent.selectOrganization(item)">${item.description}</td>
+                                                <td style="cursor: pointer" click.delegate="$parent.selectOrganization(item)">${item.organizationType
+                                                    | organizationType}</td>
+                                                <td style="cursor: pointer" click.delegate="$parent.selectOrganization(item)">${item.reportingFrequency
+                                                    | reportingFrequency}</td>
+                                                <td style="cursor: pointer" click.delegate="$parent.selectOrganization(item)">${item.parent.description}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-success" click.delegate="createOrganizationUser()"
+                            disabled.bind="isCreatingOrganizationUser">
+                            <i class="fas fa-plus" if.bind="!isCreatingOrganizationUser"></i>
+                            <i class="fas fa-spinner fa-spin" if.bind="isCreatingOrganizationUser"></i> Create User
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>>

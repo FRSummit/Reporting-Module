@@ -1,0 +1,3 @@
+Truncate table BaitulMalFinanceData
+Truncate table BaitulMalFinanceGeneratedData
+GO

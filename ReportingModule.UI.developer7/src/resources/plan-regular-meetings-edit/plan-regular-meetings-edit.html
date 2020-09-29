@@ -1,0 +1,340 @@
+<template>
+    <div class="table-responsive">
+        <h5 class="card-title">Regular & Special Meetings/Programs</h5>
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Weekly Meetings</th>
+                    <th>Target No.</th>
+                    <th>Date & Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Worker Meetings</td>
+                    <td>
+                        <div class="input-group" if.bind="$this.workerMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="workerMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                            <div class="input-group-append align-middle">
+                                <span class="badge badge-info">
+                                    ${workerMeetingProgramPlanGeneratedData.target}
+                                </span>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.workerMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="workerMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>							
+                    <td><input class="form-control" value.bind="workerMeetingProgramPlanData.dateAndAction"></td>
+                </tr>
+                <tr>
+                    <td>CMS Meetings</td>
+                    <td>
+                        <div class="input-group" if.bind="$this.cmsMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="cmsMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                            <div class="input-group-append align-middle">
+                                <span class="badge badge-info">
+                                    ${cmsMeetingProgramPlanGeneratedData.target}
+                                </span>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.cmsMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="cmsMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>							
+                    <td><input class="form-control" value.bind="cmsMeetingProgramPlanData.dateAndAction"></td>
+                </tr>
+                <tr>
+                    <td>SM Meetings</td>
+                    <td>
+                        <div class="input-group" if.bind="$this.smMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="smMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                            <div class="input-group-append align-middle">
+                                <span class="badge badge-info">
+                                    ${smMeetingProgramPlanGeneratedData.target}
+                                </span>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.smMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="smMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>							
+                    <td><input class="form-control" value.bind="smMeetingProgramPlanData.dateAndAction"></td>
+                </tr>
+                <tr>
+                    <td>Member Meetings</td>
+                    <td>
+                        <div class="input-group" if.bind="$this.memberMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="memberMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                            <div class="input-group-append align-middle">
+                                <span class="badge badge-info">
+                                    ${memberMeetingProgramPlanGeneratedData.target}
+                                </span>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.memberMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="memberMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>							
+                    <td><input class="form-control" value.bind="memberMeetingProgramPlanData.dateAndAction"></td>
+                </tr>
+                <tr>
+                    <td>Dawah Meetings</td>
+                    <td>
+                        <div class="input-group" if.bind="$this.dawahMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="dawahMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                            <div class="input-group-append align-middle">
+                                <span class="badge badge-info">
+                                    ${dawahMeetingProgramPlanGeneratedData.target}
+                                </span>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.dawahMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="dawahMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>							
+                    <td><input class="form-control" value.bind="dawahMeetingProgramPlanData.dateAndAction"></td>
+                </tr>
+                <tr>
+                    <td>State Leader Meetings</td>
+                    <td>
+                        <div class="input-group" if.bind="$this.stateLeaderMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="stateLeaderMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                            <div class="input-group-append align-middle">
+                                <span class="badge badge-info">
+                                    ${stateLeaderMeetingProgramPlanGeneratedData.target}
+                                </span>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.stateLeaderMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="stateLeaderMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>							
+                    <td><input class="form-control" value.bind="stateLeaderMeetingProgramPlanData.dateAndAction"></td>
+                </tr>
+                <tr>
+                    <td>State Outing</td>
+                    <td>
+                        <div class="input-group" if.bind="$this.stateOutingMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="stateOutingMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                            <div class="input-group-append align-middle">
+                                <span class="badge badge-info">
+                                    ${stateOutingMeetingProgramPlanGeneratedData.target}
+                                </span>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.stateOutingMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="stateOutingMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>							
+                    <td><input class="form-control" value.bind="stateOutingMeetingProgramPlanData.dateAndAction"></td>
+                </tr>
+                <tr>
+                    <td>Iftar Gatherings</td>
+                    <td>
+                        <div class="input-group" if.bind="$this.iftarMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="iftarMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                            <div class="input-group-append align-middle">
+                                <span class="badge badge-info">
+                                    ${iftarMeetingProgramPlanGeneratedData.target}
+                                </span>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.iftarMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="iftarMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>							
+                    <td><input class="form-control" value.bind="iftarMeetingProgramPlanData.dateAndAction"></td>
+                </tr>
+                <tr>
+                    <td>Learning Meetings</td>
+                    <td>
+                        <div class="input-group" if.bind="$this.learningMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="learningMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                            <div class="input-group-append align-middle">
+                                <span class="badge badge-info">
+                                    ${learningMeetingProgramPlanGeneratedData.target}
+                                </span>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.learningMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="learningMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>							
+                    <td><input class="form-control" value.bind="learningMeetingProgramPlanData.dateAndAction"></td>
+                </tr>
+                <tr>
+                    <td>Social Dawah Programs</td>
+                    <td>
+                        <div class="input-group" if.bind="$this.socialDawahMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="socialDawahMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                            <div class="input-group-append align-middle">
+                                <span class="badge badge-info">
+                                    ${socialDawahMeetingProgramPlanGeneratedData.target}
+                                </span>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.socialDawahMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="socialDawahMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>							
+                    <td><input class="form-control" value.bind="socialDawahMeetingProgramPlanData.dateAndAction"></td>
+                </tr>
+                <tr>
+                    <td>Dawah Groups</td>
+                    <td>
+                        <div class="input-group" if.bind="$this.dawahGroupMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="dawahGroupMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                            <div class="input-group-append align-middle">
+                                <span class="badge badge-info">
+                                    ${dawahGroupMeetingProgramPlanGeneratedData.target}
+                                </span>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.dawahGroupMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="dawahGroupMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>							
+                    <td><input class="form-control" value.bind="dawahGroupMeetingProgramPlanData.dateAndAction"></td>
+                </tr>
+                <tr>
+                    <td>NextG Meetings</td>
+                    <td>
+                        <div class="input-group" if.bind="$this.nextGMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="nextGMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                            <div class="input-group-append align-middle">
+                                <span class="badge badge-info">
+                                    ${nextGMeetingProgramPlanGeneratedData.target}
+                                </span>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.nextGMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="nextGMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>							
+                    <td><input class="form-control" value.bind="nextGMeetingProgramPlanData.dateAndAction"></td>
+                </tr>
+                <tr>
+                    <td>Tafsir Meetings</td>
+                    <td>
+                        <div class="input-group" if.bind="$this.tafsirMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="tafsirMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                            <div class="input-group-append align-middle">
+                                <span class="badge badge-info">
+                                    ${tafsirMeetingProgramPlanGeneratedData.target}
+                                </span>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.tafsirMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="tafsirMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>							
+                    <td><input class="form-control" value.bind="tafsirMeetingProgramPlanData.dateAndAction"></td>
+                </tr>
+                <tr>
+                    <td>Unit Meetings</td>
+                    <td>
+                        <div class="input-group" if.bind="$this.unitMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="unitMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                            <div class="input-group-append align-middle">
+                                <span class="badge badge-info">
+                                    ${unitMeetingProgramPlanGeneratedData.target}
+                                </span>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.unitMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="unitMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>							
+                    <td><input class="form-control" value.bind="unitMeetingProgramPlanData.dateAndAction"></td>
+                </tr>
+                <tr>
+                    <td>BBQ Meetings</td>
+                    <td>
+                        <div class="input-group" if.bind="$this.bbqMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="bbqMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                            <div class="input-group-append align-middle">
+                                <span class="badge badge-info">
+                                    ${bbqMeetingProgramPlanGeneratedData.target}
+                                </span>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.bbqMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="bbqMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>							
+                    <td><input class="form-control" value.bind="bbqMeetingProgramPlanData.dateAndAction"></td>
+                </tr>
+                <tr>
+                    <td>Gathering Meetings</td>
+                    <td>
+                        <div class="input-group" if.bind="$this.gatheringMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="gatheringMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                            <div class="input-group-append align-middle">
+                                <span class="badge badge-info">
+                                    ${gatheringMeetingProgramPlanGeneratedData.target}
+                                </span>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.gatheringMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="gatheringMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>							
+                    <td><input class="form-control" value.bind="gatheringMeetingProgramPlanData.dateAndAction"></td>
+                </tr>
+                
+                <tr>
+                    <td>Family Visit Meetings</td>
+                    <td>
+                        <div class="input-group" if.bind="$this.familyVisitMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="familyVisitMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                            <div class="input-group-append align-middle">
+                                <span class="badge badge-info">
+                                    ${familyVisitMeetingProgramPlanGeneratedData.target}
+                                </span>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.familyVisitMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="familyVisitMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>							
+                    <td><input class="form-control" value.bind="familyVisitMeetingProgramPlanData.dateAndAction"></td>
+                </tr>
+                <tr>
+                    <td>Eid Re-union Meetings</td>
+                    <td>
+                        <div class="input-group" if.bind="$this.eidReunionMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="eidReunionMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                            <div class="input-group-append align-middle">
+                                <span class="badge badge-info">
+                                    ${eidReunionMeetingProgramPlanGeneratedData.target}
+                                </span>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.eidReunionMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="eidReunionMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>							
+                    <td><input class="form-control" value.bind="eidReunionMeetingProgramPlanData.dateAndAction"></td>
+                </tr>
+                <tr>
+                    <td>Other Meetings</td>
+                    <td>
+                        <div class="input-group" if.bind="$this.otherMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="otherMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                            <div class="input-group-append align-middle">
+                                <span class="badge badge-info">
+                                    ${otherMeetingProgramPlanGeneratedData.target}
+                                </span>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.otherMeetingProgramPlanGeneratedData">
+                            <input class="form-control" value.bind="otherMeetingProgramPlanData.target | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>							
+                    <td><input class="form-control" value.bind="otherMeetingProgramPlanData.dateAndAction"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</template>

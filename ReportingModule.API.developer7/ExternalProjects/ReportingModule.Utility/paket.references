@@ -1,0 +1,3 @@
+group net472
+log4net
+Newtonsoft.Json

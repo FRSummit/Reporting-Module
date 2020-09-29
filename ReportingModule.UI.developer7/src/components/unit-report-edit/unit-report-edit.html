@@ -1,0 +1,138 @@
+<template>
+    <div if.bind="unitReport">
+        <div class="row">
+            <div class="col-lg-12">
+                <plan-report-header header-data.bind="headerData"></plan-report-header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <plan-report-shell item-id.bind="reportid" report-status.bind="unitReport.reportStatus" organization-type.bind="unitReport.organization.organizationType">
+                    <div class="card">
+                        <div class="card-header bg-info text-white" if.bind="!isDirty">
+                           <div class="row">
+                              <div class="col" align="left">
+                                  ${unitReport.reportingPeriod | reportingPeriod}
+                              </div>
+                              <div class="col" align="right">
+                                ${unitReport.timestamp | convertToLocalDate}
+                              </div>
+                            </div>
+
+                        </div>
+
+                        <div class="card-header bg-warning text-white" if.bind="isDirty">
+                           <div class="row">
+                              <div class="col" align="left">
+                                  ${unitReport.reportingPeriod | reportingPeriod} - Unsaved Changes
+                              </div>
+                              <div class="col" align="right">
+                                ${unitReport.timestamp | convertToLocalDate}
+                              </div>
+                            </div>
+                        
+                        </div>
+                        <div class="card-body">
+                            <report-manpower-edit
+                                associate-member-data.bind="unitReport.associateMemberData"
+                                preliminary-member-data.bind="unitReport.preliminaryMemberData"
+                                supporter-member-data.bind="unitReport.supporterMemberData"
+                                member-member-data.bind="unitReport.memberMemberData">
+                            </report-manpower-edit>
+                            <report-regular-meetings-edit
+                                worker-meeting-program-data.bind="unitReport.workerMeetingProgramData"
+                                cms-meeting-program-data.bind="unitReport.cmsMeetingProgramData"
+                                sm-meeting-program-data.bind="unitReport.smMeetingProgramData"
+                                member-meeting-program-data.bind="unitReport.memberMeetingProgramData"
+                                dawah-meeting-program-data.bind="unitReport.dawahMeetingProgramData"
+                                state-leader-meeting-program-data.bind="unitReport.stateLeaderMeetingProgramData"
+                                state-outing-meeting-program-data.bind="unitReport.stateOutingMeetingProgramData"
+                                iftar-meeting-program-data.bind="unitReport.iftarMeetingProgramData"
+                                learning-meeting-program-data.bind="unitReport.learningMeetingProgramData"
+                                social-dawah-meeting-program-data.bind="unitReport.socialDawahMeetingProgramData"
+                                dawah-group-meeting-program-data.bind="unitReport.dawahGroupMeetingProgramData"
+                                next-g-meeting-program-data.bind="unitReport.nextGMeetingProgramData"
+                                tafsir-meeting-program-data.bind="unitReport.tafsirMeetingProgramData"
+                                unit-meeting-program-data.bind="unitReport.unitMeetingProgramData"
+                                bbq-meeting-program-data.bind="unitReport.bbqMeetingProgramData"
+                                gathering-meeting-program-data.bind="unitReport.gatheringMeetingProgramData"
+                                family-visit-meeting-program-data.bind="unitReport.familyVisitMeetingProgramData"
+                                eid-reunion-meeting-program-data.bind="unitReport.eidReunionMeetingProgramData"
+                                other-meeting-program-data.bind="unitReport.otherMeetingProgramData">
+                            </report-regular-meetings-edit>
+                            <report-teaching-edit
+                            group-study-teaching-learning-program-data.bind="unitReport.groupStudyTeachingLearningProgramData"
+                            study-circle-for-associate-member-teaching-learning-program-data.bind="unitReport.studyCircleForAssociateMemberTeachingLearningProgramData"
+                            study-circle-teaching-learning-program-data.bind="unitReport.studyCircleTeachingLearningProgramData"
+                            practice-dars-teaching-learning-program-data.bind="unitReport.practiceDarsTeachingLearningProgramData"
+                            state-learning-camp-teaching-learning-program-data.bind="unitReport.stateLearningCampTeachingLearningProgramData"
+                            quran-study-teaching-learning-program-data.bind="unitReport.quranStudyTeachingLearningProgramData"
+                            hadith-teaching-learning-program-data.bind="unitReport.hadithTeachingLearningProgramData"
+                            quran-class-teaching-learning-program-data.bind="unitReport.quranClassTeachingLearningProgramData"
+                            weekend-islamic-school-teaching-learning-program-data.bind="unitReport.weekendIslamicSchoolTeachingLearningProgramData"
+                            memorizing-ayat-teaching-learning-program-data.bind="unitReport.memorizingAyatTeachingLearningProgramData"
+                            memorizing-hadith-teaching-learning-program-data.bind="unitReport.memorizingHadithTeachingLearningProgramData"
+                            memorizing-doa-teaching-learning-program-data.bind="unitReport.memorizingDoaTeachingLearningProgramData"
+                            state-learning-session-teaching-learning-program-data.bind="unitReport.stateLearningSessionTeachingLearningProgramData"
+                            state-qiyamul-lail-teaching-learning-program-data.bind="unitReport.stateQiyamulLailTeachingLearningProgramData"
+                            other-teaching-learning-program-data.bind="unitReport.otherTeachingLearningProgramData">
+                            </report-teaching-edit>
+                            <report-material-edit
+                                book-sale-material-data.bind="unitReport.bookSaleMaterialData"
+                                book-distribution-material-data.bind="unitReport.bookDistributionMaterialData"
+                                vhs-sale-material-data.bind="unitReport.vhsSaleMaterialData"
+                                vhs-distribution-material-data.bind="unitReport.vhsDistributionMaterialData"
+                                email-distribution-material-data.bind="unitReport.emailDistributionMaterialData"
+                                ipdc-leaflet-distribution-material-data.bind="unitReport.ipdcLeafletDistributionMaterialData"
+                                other-sale-material-data.bind="unitReport.otherSaleMaterialData"
+                                other-distribution-material-data.bind="unitReport.otherDistributionMaterialData"
+>
+                            </report-material-edit>
+                            <report-library-edit
+                                book-library-stock-data.bind="unitReport.bookLibraryStockData"
+                                vhs-library-stock-data.bind="unitReport.vhsLibraryStockData"
+                                other-library-stock-data.bind="unitReport.otherLibraryStockData">
+                            </report-library-edit>
+                            <report-finance-edit
+                                baitul-mal-finance-data.bind="unitReport.baitulMalFinanceData"
+                                a-day-masjid-project-finance-data.bind="unitReport.aDayMasjidProjectFinanceData"
+                                masjid-table-bank-finance-data.bind="unitReport.masjidTableBankFinanceData">
+                            </report-finance-edit>                    
+                            <report-socialwelfare-edit
+                                qarde-hasana-social-welfare-data.bind="unitReport.qardeHasanaSocialWelfareData"
+                                patient-visit-social-welfare-data.bind="unitReport.patientVisitSocialWelfareData"
+                                social-visit-social-welfare-data.bind="unitReport.socialVisitSocialWelfareData"
+                                transport-social-welfare-data.bind="unitReport.transportSocialWelfareData"
+                                shifting-social-welfare-data.bind="unitReport.shiftingSocialWelfareData"
+                                shopping-social-welfare-data.bind="unitReport.shoppingSocialWelfareData"
+                                food-distribution-social-welfare-data.bind="unitReport.foodDistributionSocialWelfareData"
+                                clean-up-australia-social-welfare-data.bind="unitReport.cleanUpAustraliaSocialWelfareData"
+                                other-social-welfare-data.bind="unitReport.otherSocialWelfareData">
+                            </report-socialwelfare-edit>
+                            <div>
+                                <h5 class="card-title">Comment</h5>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <textarea value.bind="unitReport.comment" style="width: 100%" rows="10"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary" click.delegate="save()" disabled.bind="!canSave">
+                                <i class="fas fa-cloud-upload-alt" if.bind="!isSaving"></i>
+                                <i class="fas fa-spinner fa-spin" if.bind="isSaving"></i> Save
+                            </button>&nbsp;
+                            <button type="button" class="btn btn-warning" click.delegate="cancelChanges()" disabled.bind="!canCancel">
+                                <i class="fas fa-eraser" if.bind="!isCancelling"></i>
+                                <i class="fas fa-spinner fa-spin" if.bind="isCancelling"></i> Cancel Changes
+                            </button>
+                            <button type="button" class="btn btn-success" click.delegate="saveAndSubmitReport()" disabled.bind="!canSubmit">
+                                <i class="fas fa-chart-line" if.bind="!isSubmitting"></i>
+                                <i class="fas fa-spinner fa-spin" if.bind="isSubmitting"></i> Submit Report
+                            </button>
+                        </div>
+                    </div>
+                </plan-report-shell>
+            </div>
+        </div>
+    </div>
+</template>

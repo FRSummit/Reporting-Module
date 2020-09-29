@@ -1,0 +1,174 @@
+<template>
+    <div if.bind="centralReport">
+    <div class="row">
+        <div class="col-lg-12">
+            <plan-report-header header-data.bind="headerData"></plan-report-header>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <plan-report-shell item-id.bind="reportid" report-status.bind="centralReport.reportStatus" organization-type.bind="centralReport.organization.organizationType">
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                           <div class="row">
+                              <div class="col" align="left">
+                                  ${centralReport.reportingPeriod | reportingPeriod}
+                              </div>
+                              <div class="col" align="right">
+                                ${centralReport.timestamp | convertToLocalDate}
+                              </div>
+                            </div>
+
+                    </div>
+                    <div class="card-body">
+                        <report-manpower-view
+                            associate-member-data.bind="centralReport.associateMemberData"
+                            associate-member-generated-data.bind="centralReport.associateMemberGeneratedData"
+                            preliminary-member-data.bind="centralReport.preliminaryMemberData"
+                            preliminary-member-generated-data.bind="centralReport.preliminaryMemberGeneratedData"
+                            supporter-member-data.bind="centralReport.supporterMemberData"
+                            supporter-member-generated-data.bind="centralReport.supporterMemberGeneratedData"
+                            member-member-data.bind="centralReport.memberMemberData"
+                            member-member-generated-data.bind="centralReport.memberMemberGeneratedData">
+                        </report-manpower-view>
+                        <report-regular-meetings-view
+                            worker-meeting-program-data.bind="centralReport.workerMeetingProgramData"
+                            worker-meeting-program-generated-data.bind="centralReport.workerMeetingProgramGeneratedData"
+                            cms-meeting-program-data.bind="centralReport.cmsMeetingProgramData"
+                            cms-meeting-program-generated-data.bind="centralReport.cmsMeetingProgramGeneratedData"
+                            sm-meeting-program-data.bind="centralReport.smMeetingProgramData"
+                            sm-meeting-program-generated-data.bind="centralReport.smMeetingProgramGeneratedData"
+                            member-meeting-program-data.bind="centralReport.memberMeetingProgramData"
+                            member-meeting-program-generated-data.bind="centralReport.memberMeetingProgramGeneratedData"
+                            dawah-meeting-program-data.bind="centralReport.dawahMeetingProgramData"
+                            dawah-meeting-program-generated-data.bind="centralReport.dawahMeetingProgramGeneratedData"
+                            state-leader-meeting-program-data.bind="centralReport.stateLeaderMeetingProgramData"
+                            state-leader-meeting-program-generated-data.bind="centralReport.stateLeaderMeetingProgramGeneratedData"
+                            state-outing-meeting-program-data.bind="centralReport.stateOutingMeetingProgramData"
+                            state-outing-meeting-program-generated-data.bind="centralReport.stateOutingMeetingProgramGeneratedData"
+                            iftar-meeting-program-data.bind="centralReport.iftarMeetingProgramData"
+                            iftar-meeting-program-generated-data.bind="centralReport.iftarMeetingProgramGeneratedData"
+                            learning-meeting-program-data.bind="centralReport.learningMeetingProgramData"
+                            learning-meeting-program-generated-data.bind="centralReport.learningMeetingProgramGeneratedData"
+                            social-dawah-meeting-program-data.bind="centralReport.socialDawahMeetingProgramData"
+                            social-dawah-meeting-program-generated-data.bind="centralReport.socialDawahMeetingProgramGeneratedData"
+                            dawah-group-meeting-program-data.bind="centralReport.dawahGroupMeetingProgramData"
+                            dawah-group-meeting-program-generated-data.bind="centralReport.dawahGroupMeetingProgramGeneratedData"
+                            next-g-meeting-program-data.bind="centralReport.nextGMeetingProgramData"
+                            next-g-meeting-program-generated-data.bind="centralReport.nextGMeetingProgramGeneratedData"
+                            tafsir-meeting-program-data.bind="centralReport.tafsirMeetingProgramData"
+                            tafsir-meeting-program-generated-data.bind="centralReport.tafsirMeetingProgramGeneratedData"
+                            unit-meeting-program-data.bind="centralReport.unitMeetingProgramData"
+                            unit-meeting-program-generated-data.bind="centralReport.unitMeetingProgramGeneratedData"
+                            bbq-meeting-program-data.bind="centralReport.bbqMeetingProgramData"
+                            bbq-meeting-program-generated-data.bind="centralReport.bbqMeetingProgramGeneratedData"
+                            gathering-meeting-program-data.bind="centralReport.gatheringMeetingProgramData"
+                            gathering-meeting-program-generated-data.bind="centralReport.gatheringMeetingProgramGeneratedData"
+                            family-visit-meeting-program-data.bind="centralReport.familyVisitMeetingProgramData"
+                            family-visit-meeting-program-generated-data.bind="centralReport.familyVisitMeetingProgramGeneratedData"
+                            eid-reunion-meeting-program-data.bind="centralReport.eidReunionMeetingProgramData"
+                            eid-reunion-meeting-program-generated-data.bind="centralReport.eidReunionMeetingProgramGeneratedData"
+                            other-meeting-program-data.bind="centralReport.otherMeetingProgramData"
+                            other-meeting-program-generated-data.bind="centralReport.otherMeetingProgramGeneratedData">
+                        </report-regular-meetings-view>
+                        <report-teaching-view
+                            group-study-teaching-learning-program-data.bind="centralReport.groupStudyTeachingLearningProgramData"
+                            group-study-teaching-learning-program-generated-data.bind="centralReport.groupStudyTeachingLearningProgramGeneratedData"
+                            study-circle-for-associate-member-teaching-learning-program-data.bind="centralReport.studyCircleForAssociateMemberTeachingLearningProgramData"
+                            study-circle-for-associate-member-teaching-learning-program-generated-data.bind="centralReport.studyCircleForAssociateMemberTeachingLearningProgramGeneratedData"
+                            study-circle-teaching-learning-program-data.bind="centralReport.studyCircleTeachingLearningProgramData"
+                            study-circle-teaching-learning-program-generated-data.bind="centralReport.studyCircleTeachingLearningProgramGeneratedData"
+                            practice-dars-teaching-learning-program-data.bind="centralReport.practiceDarsTeachingLearningProgramData"
+                            practice-dars-teaching-learning-program-generated-data.bind="centralReport.practiceDarsTeachingLearningProgramGeneratedData"
+                            state-learning-camp-teaching-learning-program-data.bind="centralReport.stateLearningCampTeachingLearningProgramData"
+                            state-learning-camp-teaching-learning-program-generated-data.bind="centralReport.stateLearningCampTeachingLearningProgramGeneratedData"
+                            quran-study-teaching-learning-program-data.bind="centralReport.quranStudyTeachingLearningProgramData"
+                            quran-study-teaching-learning-program-generated-data.bind="centralReport.quranStudyTeachingLearningProgramGeneratedData"
+                            hadith-teaching-learning-program-data.bind="centralReport.hadithTeachingLearningProgramData"
+                            hadith-teaching-learning-program-generated-data.bind="centralReport.hadithTeachingLearningProgramGeneratedData"
+                            quran-class-teaching-learning-program-data.bind="centralReport.quranClassTeachingLearningProgramData"
+                            quran-class-teaching-learning-program-generated-data.bind="centralReport.quranClassTeachingLearningProgramGeneratedData"
+                            weekend-islamic-school-teaching-learning-program-data.bind="centralReport.weekendIslamicSchoolTeachingLearningProgramData"
+                            weekend-islamic-school-teaching-learning-program-generated-data.bind="centralReport.weekendIslamicSchoolTeachingLearningProgramGeneratedData"
+                            memorizing-ayat-teaching-learning-program-data.bind="centralReport.memorizingAyatTeachingLearningProgramData"
+                            memorizing-ayat-teaching-learning-program-generated-data.bind="centralReport.memorizingAyatTeachingLearningProgramGeneratedData"
+                            memorizing-hadith-teaching-learning-program-data.bind="centralReport.memorizingHadithTeachingLearningProgramData"
+                            memorizing-hadith-teaching-learning-program-generated-data.bind="centralReport.memorizingHadithTeachingLearningProgramGeneratedData"
+                            memorizing-doa-teaching-learning-program-data.bind="centralReport.memorizingDoaTeachingLearningProgramData"
+                            memorizing-doa-teaching-learning-program-generated-data.bind="centralReport.memorizingDoaTeachingLearningProgramGeneratedData"
+                            state-learning-session-teaching-learning-program-data.bind="centralReport.stateLearningSessionTeachingLearningProgramData"
+                            state-learning-session-teaching-learning-program-generated-data.bind="centralReport.stateLearningSessionTeachingLearningProgramGeneratedData"
+                            state-qiyamul-lail-teaching-learning-program-data.bind="centralReport.stateQiyamulLailTeachingLearningProgramData"
+                            state-qiyamul-lail-teaching-learning-program-generated-data.bind="centralReport.stateQiyamulLailTeachingLearningProgramGeneratedData"
+                            other-teaching-learning-program-data.bind="centralReport.otherTeachingLearningProgramData"
+                            other-teaching-learning-program-generated-data.bind="centralReport.otherTeachingLearningProgramGeneratedData">
+                        </report-teaching-view>
+                        <report-material-view
+                            book-sale-material-data.bind="centralReport.bookSaleMaterialData"
+                            book-sale-material-generated-data.bind="centralReport.bookSaleMaterialGeneratedData"
+                            book-distribution-material-data.bind="centralReport.bookDistributionMaterialData"
+                            book-distribution-material-generated-data.bind="centralReport.bookDistributionMaterialGeneratedData"
+                            vhs-sale-material-data.bind="centralReport.vhsSaleMaterialData"
+                            vhs-sale-material-generated-data.bind="centralReport.vhsSaleMaterialGeneratedData"
+                            vhs-distribution-material-data.bind="centralReport.vhsDistributionMaterialData"
+                            vhs-distribution-material-generated-data.bind="centralReport.vhsDistributionMaterialGeneratedData"
+                            email-distribution-material-data.bind="centralReport.emailDistributionMaterialData"
+                            email-distribution-material-generated-data.bind="centralReport.emailDistributionMaterialGeneratedData"
+                            ipdc-leaflet-distribution-material-data.bind="centralReport.ipdcLeafletDistributionMaterialData"
+                            ipdc-leaflet-distribution-material-generated-data.bind="centralReport.ipdcLeafletDistributionMaterialGeneratedData"
+                            other-sale-material-data.bind="centralReport.otherSaleMaterialData"
+                            other-sale-material-generated-data.bind="centralReport.otherSaleMaterialGeneratedData"
+                            other-distribution-material-data.bind="centralReport.otherDistributionMaterialData"
+                            other-distribution-material-generated-data.bind="centralReport.otherDistributionMaterialGeneratedData">
+                        </report-material-view>
+                        <report-library-view
+                            book-library-stock-data.bind="centralReport.bookLibraryStockData"
+                            book-library-stock-generated-data.bind="centralReport.bookLibraryStockGeneratedData"
+                            vhs-library-stock-data.bind="centralReport.vhsLibraryStockData"
+                            vhs-library-stock-generated-data.bind="centralReport.vhsLibraryStockGeneratedData"
+                            other-library-stock-data.bind="centralReport.otherLibraryStockData"
+                            other-library-stock-generated-data.bind="centralReport.otherLibraryStockGeneratedData">
+                        </report-library-view>
+                        <report-finance-view
+                            baitul-mal-finance-data.bind="centralReport.baitulMalFinanceData"
+                            baitul-mal-finance-generated-data.bind="centralReport.baitulMalFinanceGeneratedData"
+                            a-day-masjid-project-finance-data.bind="centralReport.aDayMasjidProjectFinanceData"
+                            a-day-masjid-project-finance-generated-data.bind="centralReport.aDayMasjidProjectFinanceGeneratedData"
+                            masjid-table-bank-finance-data.bind="centralReport.masjidTableBankFinanceData"
+                            masjid-table-bank-finance-generated-data.bind="centralReport.masjidTableBankFinanceGeneratedData">
+                        </report-finance-view>
+                        <report-socialwelfare-view
+                            qarde-hasana-social-welfare-data.bind="centralReport.qardeHasanaSocialWelfareData"
+                            qarde-hasana-social-welfare-generated-data.bind="centralReport.qardeHasanaSocialWelfareGeneratedData"
+                            patient-visit-social-welfare-data.bind="centralReport.patientVisitSocialWelfareData"
+                            patient-visit-social-welfare-generated-data.bind="centralReport.patientVisitSocialWelfareGeneratedData"
+                            social-visit-social-welfare-data.bind="centralReport.socialVisitSocialWelfareData"
+                            social-visit-social-welfare-generated-data.bind="centralReport.socialVisitSocialWelfareGeneratedData"
+                            transport-social-welfare-data.bind="centralReport.transportSocialWelfareData"
+                            transport-social-welfare-generated-data.bind="centralReport.transportSocialWelfareGeneratedData"
+                            shifting-social-welfare-data.bind="centralReport.shiftingSocialWelfareData"
+                            shifting-social-welfare-generated-data.bind="centralReport.shiftingSocialWelfareGeneratedData"
+                            shopping-social-welfare-data.bind="centralReport.shoppingSocialWelfareData"
+                            shopping-social-welfare-generated-data.bind="centralReport.shoppingSocialWelfareGeneratedData"
+                            food-distribution-social-welfare-data.bind="centralReport.foodDistributionSocialWelfareData"
+                            food-distribution-social-welfare-generated-data.bind="centralReport.foodDistributionSocialWelfareGeneratedData"
+                            clean-up-australia-social-welfare-data.bind="centralReport.cleanUpAustraliaSocialWelfareData"
+                            clean-up-australia-social-welfare-generated-data.bind="centralReport.cleanUpAustraliaSocialWelfareGeneratedData"
+                            other-social-welfare-data.bind="centralReport.otherSocialWelfareData"
+                            other-social-welfare-generated-data.bind="centralReport.otherSocialWelfareGeneratedData">
+                        </report-socialwelfare-view>
+                        <div>
+                            <h5 class="card-title">Comment</h5>
+                            <div class="card">
+                                <div class="card-body">
+                                    <textarea value.bind="centralReport.comment" style="width: 100%" rows="10" disabled></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </plan-report-shell>
+        </div>
+    </div>
+    </div>
+</template>

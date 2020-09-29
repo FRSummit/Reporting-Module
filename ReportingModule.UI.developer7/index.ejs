@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><%- htmlWebpackPlugin.options.metadata.title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://cdn.auth0.com/js/lock/11.16.0/lock.min.js"></script>
+    <link rel="preconnect" href="//fonts.gstatic.com/" crossorigin>
+    <link rel="shortcut icon" href="/favicon_inverted.ico" type="image/x-icon" />
+    <link href="/appstack-1-2-2/dist/css/corporate.css" rel="stylesheet">
+    <base href="<%- htmlWebpackPlugin.options.metadata.baseUrl %>">
+    <!-- imported CSS are concatenated and added automatically -->
+    <style>
+      .splash {
+          text-align: center;
+          margin: 10% 0 0 0;
+          box-sizing: border-box;
+      }
+
+      .splash .message {
+          font-size: 72px;
+          line-height: 72px;
+          text-shadow: rgba(0, 0, 0, 0.5) 0 0 15px;
+          text-transform: uppercase;
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+
+      .splash .fa-spinner {
+          text-align: center;
+          display: inline-block;
+          font-size: 72px;
+          margin-top: 50px;
+      }
+      .splashimg {
+        -webkit-filter: invert(1);
+        filter: invert(1);
+      }
+      body {
+        font-weight: 600
+      }
+    </style>
+  </head>
+  <body>
+    <div aurelia-app="main">
+      <div class="splash">
+          <img src="/s5_logo_inverted.png" style="width: 50%">  
+          <div class="message">IPDC Reporting System</div>
+          <i class="fa fa-spinner fa-spin"></i>    
+      </div>
+    </div>
+    <script type="text/javascript" src="/appstack-1-2-2/dist/js/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/signalr.js/2.4.0/jquery.signalR.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+<template>
+    <select class="form-control" value.bind="selectedReportingTerm">
+        <option repeat.for="reportingTerm of reportingTerms" model.bind="reportingTerm.id">
+            ${reportingTerm.description}
+        </option>
+    </select>
+</template>

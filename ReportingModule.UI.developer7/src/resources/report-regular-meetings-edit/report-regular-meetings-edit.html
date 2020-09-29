@@ -1,0 +1,720 @@
+<template>
+    <div class="table-responsive">
+        <h5 class="card-title">Regular & Special Meetings/Programs</h5>
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Weekly Meetings</th>
+                    <th>Target</th>
+                    <th>Actual</th>
+                    <th>Average Attendance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Worker Meetings</td>
+                    <td>
+                        <div if.bind="$this.workerMeetingProgramGeneratedData">
+                            ${workerMeetingProgramData.target} <span class="badge badge-pill badge-info">${workerMeetingProgramGeneratedData.target}</span>
+                        </div>
+                        <div if.bind="!$this.workerMeetingProgramGeneratedData">
+                            ${workerMeetingProgramData.target}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.workerMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="workerMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${workerMeetingProgramGeneratedData.actual}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.workerMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="workerMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.workerMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="workerMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${workerMeetingProgramGeneratedData.averageAttendance}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.workerMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="workerMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>CMS Meetings</td>
+                    <td>
+                        <div if.bind="$this.cmsMeetingProgramGeneratedData">
+                            ${cmsMeetingProgramData.target} <span class="badge badge-pill badge-info">${cmsMeetingProgramGeneratedData.target}</span>
+                        </div>
+                        <div if.bind="!$this.cmsMeetingProgramGeneratedData">
+                            ${cmsMeetingProgramData.target}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.cmsMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="cmsMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${cmsMeetingProgramGeneratedData.actual}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.cmsMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="cmsMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.cmsMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="cmsMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${cmsMeetingProgramGeneratedData.averageAttendance}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.cmsMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="cmsMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>SM Meetings</td>
+                    <td>
+                        <div if.bind="$this.smMeetingProgramGeneratedData">
+                            ${smMeetingProgramData.target} <span class="badge badge-pill badge-info">${smMeetingProgramGeneratedData.target}</span>
+                        </div>
+                        <div if.bind="!$this.smMeetingProgramGeneratedData">
+                            ${smMeetingProgramData.target}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.smMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="smMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${smMeetingProgramGeneratedData.actual}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.smMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="smMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.smMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="smMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${smMeetingProgramGeneratedData.averageAttendance}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.smMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="smMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Member Meetings</td>
+                    <td>
+                        <div if.bind="$this.memberMeetingProgramGeneratedData">
+                            ${memberMeetingProgramData.target} <span class="badge badge-pill badge-info">${memberMeetingProgramGeneratedData.target}</span>
+                        </div>
+                        <div if.bind="!$this.memberMeetingProgramGeneratedData">
+                            ${memberMeetingProgramData.target}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.memberMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="memberMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${memberMeetingProgramGeneratedData.actual}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.memberMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="memberMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.memberMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="memberMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${memberMeetingProgramGeneratedData.averageAttendance}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.memberMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="memberMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Dawah Meetings</td>
+                    <td>
+                        <div if.bind="$this.dawahMeetingProgramGeneratedData">
+                            ${dawahMeetingProgramData.target} <span class="badge badge-pill badge-info">${dawahMeetingProgramGeneratedData.target}</span>
+                        </div>
+                        <div if.bind="!$this.dawahMeetingProgramGeneratedData">
+                            ${dawahMeetingProgramData.target}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.dawahMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="dawahMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${dawahMeetingProgramGeneratedData.actual}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.dawahMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="dawahMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.dawahMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="dawahMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${dawahMeetingProgramGeneratedData.averageAttendance}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.dawahMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="dawahMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>State Leader Meetings</td>
+                    <td>
+                        <div if.bind="$this.stateLeaderMeetingProgramGeneratedData">
+                            ${stateLeaderMeetingProgramData.target} <span class="badge badge-pill badge-info">${stateLeaderMeetingProgramGeneratedData.target}</span>
+                        </div>
+                        <div if.bind="!$this.stateLeaderMeetingProgramGeneratedData">
+                            ${stateLeaderMeetingProgramData.target}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.stateLeaderMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="stateLeaderMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${stateLeaderMeetingProgramGeneratedData.actual}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.stateLeaderMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="stateLeaderMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.stateLeaderMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="stateLeaderMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${stateLeaderMeetingProgramGeneratedData.averageAttendance}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.stateLeaderMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="stateLeaderMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>State Outing</td>
+                    <td>
+                        <div if.bind="$this.stateOutingMeetingProgramGeneratedData">
+                            ${stateOutingMeetingProgramData.target} <span class="badge badge-pill badge-info">${stateOutingMeetingProgramGeneratedData.target}</span>
+                        </div>
+                        <div if.bind="!$this.stateOutingMeetingProgramGeneratedData">
+                            ${stateOutingMeetingProgramData.target}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.stateOutingMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="stateOutingMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${stateOutingMeetingProgramGeneratedData.actual}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.stateOutingMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="stateOutingMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.stateOutingMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="stateOutingMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${stateOutingMeetingProgramGeneratedData.averageAttendance}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.stateOutingMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="stateOutingMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Iftar Gatherings</td>
+                    <td>
+                        <div if.bind="$this.iftarMeetingProgramGeneratedData">
+                            ${iftarMeetingProgramData.target} <span class="badge badge-pill badge-info">${iftarMeetingProgramGeneratedData.target}</span>
+                        </div>
+                        <div if.bind="!$this.iftarMeetingProgramGeneratedData">
+                            ${iftarMeetingProgramData.target}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.iftarMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="iftarMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${iftarMeetingProgramGeneratedData.actual}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.iftarMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="iftarMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.iftarMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="iftarMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${iftarMeetingProgramGeneratedData.averageAttendance}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.iftarMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="iftarMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Learning Meetings</td>
+                    <td>
+                        <div if.bind="$this.learningMeetingProgramGeneratedData">
+                            ${learningMeetingProgramData.target} <span class="badge badge-pill badge-info">${learningMeetingProgramGeneratedData.target}</span>
+                        </div>
+                        <div if.bind="!$this.learningMeetingProgramGeneratedData">
+                            ${learningMeetingProgramData.target}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.learningMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="learningMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${learningMeetingProgramGeneratedData.actual}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.learningMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="learningMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.learningMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="learningMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${learningMeetingProgramGeneratedData.averageAttendance}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.learningMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="learningMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Social Dawah Programs</td>
+                    <td>
+                        <div if.bind="$this.socialDawahMeetingProgramGeneratedData">
+                            ${socialDawahMeetingProgramData.target} <span class="badge badge-pill badge-info">${socialDawahMeetingProgramGeneratedData.target}</span>
+                        </div>
+                        <div if.bind="!$this.socialDawahMeetingProgramGeneratedData">
+                            ${socialDawahMeetingProgramData.target}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.socialDawahMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="socialDawahMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${socialDawahMeetingProgramGeneratedData.actual}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.socialDawahMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="socialDawahMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.socialDawahMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="socialDawahMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${socialDawahMeetingProgramGeneratedData.averageAttendance}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.socialDawahMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="socialDawahMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Dawah Groups</td>
+                    <td>
+                        <div if.bind="$this.dawahGroupMeetingProgramGeneratedData">
+                            ${dawahGroupMeetingProgramData.target} <span class="badge badge-pill badge-info">${dawahGroupMeetingProgramGeneratedData.target}</span>
+                        </div>
+                        <div if.bind="!$this.dawahGroupMeetingProgramGeneratedData">
+                            ${dawahGroupMeetingProgramData.target}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.dawahGroupMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="dawahGroupMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${dawahGroupMeetingProgramGeneratedData.actual}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.dawahGroupMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="dawahGroupMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.dawahGroupMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="dawahGroupMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${dawahGroupMeetingProgramGeneratedData.averageAttendance}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.dawahGroupMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="dawahGroupMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>NextG Meetings</td>
+                    <td>
+                        <div if.bind="$this.nextGMeetingProgramGeneratedData">
+                            ${nextGMeetingProgramData.target} <span class="badge badge-pill badge-info">${nextGMeetingProgramGeneratedData.target}</span>
+                        </div>
+                        <div if.bind="!$this.nextGMeetingProgramGeneratedData">
+                            ${nextGMeetingProgramData.target}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.nextGMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="nextGMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${nextGMeetingProgramGeneratedData.actual}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.nextGMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="nextGMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.nextGMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="nextGMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${nextGMeetingProgramGeneratedData.averageAttendance}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.nextGMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="nextGMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tafsir Meetings</td>
+                    <td>
+                        <div if.bind="$this.tafsirMeetingProgramGeneratedData">
+                            ${tafsirMeetingProgramData.target} <span class="badge badge-pill badge-info">${tafsirMeetingProgramGeneratedData.target}</span>
+                        </div>
+                        <div if.bind="!$this.tafsirMeetingProgramGeneratedData">
+                            ${tafsirMeetingProgramData.target}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.tafsirMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="tafsirMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${tafsirMeetingProgramGeneratedData.actual}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.tafsirMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="tafsirMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.tafsirMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="tafsirMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${tafsirMeetingProgramGeneratedData.averageAttendance}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.tafsirMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="tafsirMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Unit Meetings</td>
+                    <td>
+                        <div if.bind="$this.unitMeetingProgramGeneratedData">
+                            ${unitMeetingProgramData.target} <span class="badge badge-pill badge-info">${unitMeetingProgramGeneratedData.target}</span>
+                        </div>
+                        <div if.bind="!$this.unitMeetingProgramGeneratedData">
+                            ${unitMeetingProgramData.target}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.unitMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="unitMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${unitMeetingProgramGeneratedData.actual}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.unitMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="unitMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.unitMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="unitMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${unitMeetingProgramGeneratedData.averageAttendance}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.unitMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="unitMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>BBQ Meetings</td>
+                    <td>
+                        <div if.bind="$this.bbqMeetingProgramGeneratedData">
+                            ${bbqMeetingProgramData.target} <span class="badge badge-pill badge-info">${bbqMeetingProgramGeneratedData.target}</span>
+                        </div>
+                        <div if.bind="!$this.bbqMeetingProgramGeneratedData">
+                            ${bbqMeetingProgramData.target}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.bbqMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="bbqMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${bbqMeetingProgramGeneratedData.actual}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.bbqMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="bbqMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.bbqMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="bbqMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${bbqMeetingProgramGeneratedData.averageAttendance}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.bbqMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="bbqMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gathering Meetings</td>
+                    <td>
+                        <div if.bind="$this.gatheringMeetingProgramGeneratedData">
+                            ${gatheringMeetingProgramData.target} <span class="badge badge-pill badge-info">${gatheringMeetingProgramGeneratedData.target}</span>
+                        </div>
+                        <div if.bind="!$this.gatheringMeetingProgramGeneratedData">
+                            ${gatheringMeetingProgramData.target}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.gatheringMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="gatheringMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${gatheringMeetingProgramGeneratedData.actual}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.gatheringMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="gatheringMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.gatheringMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="gatheringMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${gatheringMeetingProgramGeneratedData.averageAttendance}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.gatheringMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="gatheringMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Family Visit Meetings</td>
+                    <td>
+                        <div if.bind="$this.familyVisitMeetingProgramGeneratedData">
+                            ${familyVisitMeetingProgramData.target} <span class="badge badge-pill badge-info">${familyVisitMeetingProgramGeneratedData.target}</span>
+                        </div>
+                        <div if.bind="!$this.familyVisitMeetingProgramGeneratedData">
+                            ${familyVisitMeetingProgramData.target}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.familyVisitMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="familyVisitMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${familyVisitMeetingProgramGeneratedData.actual}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.familyVisitMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="familyVisitMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.familyVisitMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="familyVisitMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${familyVisitMeetingProgramGeneratedData.averageAttendance}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.familyVisitMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="familyVisitMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Eid Re-union Meetings</td>
+                    <td>
+                        <div if.bind="$this.eidReunionMeetingProgramGeneratedData">
+                            ${eidReunionMeetingProgramData.target} <span class="badge badge-pill badge-info">${eidReunionMeetingProgramGeneratedData.target}</span>
+                        </div>
+                        <div if.bind="!$this.eidReunionMeetingProgramGeneratedData">
+                            ${eidReunionMeetingProgramData.target}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.eidReunionMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="eidReunionMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${eidReunionMeetingProgramGeneratedData.actual}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.eidReunionMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="eidReunionMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.eidReunionMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="eidReunionMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${eidReunionMeetingProgramGeneratedData.averageAttendance}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.eidReunionMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="eidReunionMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Other Meetings</td>
+                    <td>
+                        <div if.bind="$this.otherMeetingProgramGeneratedData">
+                            ${otherMeetingProgramData.target} <span class="badge badge-pill badge-info">${otherMeetingProgramGeneratedData.target}</span>
+                        </div>
+                        <div if.bind="!$this.otherMeetingProgramGeneratedData">
+                            ${otherMeetingProgramData.target}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.otherMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="otherMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${otherMeetingProgramGeneratedData.actual}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.otherMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="otherMeetingProgramData.actual | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.otherMeetingProgramGeneratedData">
+                            <div class="input-group">
+                                <input class="form-control" value.bind="otherMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                                <div class="input-group-append">
+                                    <span class="badge badge-info">${otherMeetingProgramGeneratedData.averageAttendance}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.otherMeetingProgramGeneratedData">
+                            <input class="form-control" value.bind="otherMeetingProgramData.averageAttendance | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</template>

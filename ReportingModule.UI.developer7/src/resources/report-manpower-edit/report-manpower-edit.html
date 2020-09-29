@@ -1,0 +1,169 @@
+<template>
+    <div class="table-responsive">
+        <h5 class="card-title">Manpower & Personal Contacts</h5>
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Level</th>
+                    <th>Last Period</th>
+                    <th>Upgrade Target</th>
+                    <th>Increased</th>
+                    <th>Decreased</th>
+                    <th>This Period</th>
+                    <th>Personal Contacts</th>
+                    <th>Comments</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr if.bind="$this.memberMemberData">
+                    <td>MEMBER</td>
+                    <td>
+                        <div if.bind="$this.memberMemberGeneratedData">
+                            ${memberMemberData.lastPeriod}
+                            &nbsp;<span class="badge badge-pill badge-info">${memberMemberGeneratedData.lastPeriod}</span>
+                        </div>
+                        <div if.bind="!$this.memberMemberGeneratedData">
+                            ${memberMemberData.lastPeriod}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.memberMemberGeneratedData">
+                            ${memberMemberData.upgradeTarget}
+                            &nbsp;<span class="badge badge-pill badge-info">${memberMemberGeneratedData.upgradeTarget}</span>
+                        </div>
+                        <div if.bind="!$this.memberMemberGeneratedData">
+                            ${memberMemberData.upgradeTarget}
+                        </div>
+                    </td>
+                    <td>
+                        <input-number input-number.bind="memberMemberData.increased" generated.bind="memberMemberGeneratedData.increased" />
+                    </td>
+                    <td>
+                        <input-number input-number.bind="memberMemberData.decreased" generated.bind="memberMemberGeneratedData.decreased" />
+                    </td>
+                    <td>
+                        <div if.bind="$this.memberMemberGeneratedData">
+                            <member-data-this-period member-data.bind="memberMemberData"></member-data-this-period>
+                            &nbsp;<span class="badge badge-pill badge-info">${memberMemberGeneratedData.thisPeriod}</span>
+                        </div>
+                        <div if.bind="!$this.memberMemberGeneratedData">
+                            <member-data-this-period member-data.bind="memberMemberData"></member-data-this-period>
+                        </div>
+                    </td>
+                    <td>
+                      <input-number input-number.bind="memberMemberData.personalContact" />
+                    </td>
+                    <td><input class="form-control" value.bind="memberMemberData.comment"></td>
+                </tr>                
+                <tr>
+                    <td>Associate Member</td>
+                    <td>${associateMemberData.lastPeriod}
+                        &nbsp;<span class="badge badge-pill badge-info" if.bind="$this.associateMemberGeneratedData">${associateMemberGeneratedData.lastPeriod}</span>
+                    </td>
+                    <td>${associateMemberData.upgradeTarget}
+                        &nbsp;<span class="badge badge-pill badge-info" if.bind="$this.associateMemberGeneratedData">${associateMemberGeneratedData.upgradeTarget}</span>
+                    </td>
+                    <td>
+                        <input-number input-number.bind="associateMemberData.increased" generated.bind="associateMemberGeneratedData.increased" />
+                    </td>
+                    <td>
+                        <input-number input-number.bind="associateMemberData.decreased" generated.bind="associateMemberGeneratedData.decreased" />
+                    </td>
+                    <td>
+                        <div if.bind="$this.associateMemberGeneratedData">
+                            <member-data-this-period member-data.bind="associateMemberData"></member-data-this-period>
+                            <span class="badge badge-pill badge-info">${associateMemberGeneratedData.thisPeriod}</span>
+                        </div>
+                        <div if.bind="!$this.associateMemberGeneratedData">
+                            <member-data-this-period member-data.bind="associateMemberData"></member-data-this-period>
+                        </div>
+                    </td>
+                    <td>
+                        <input-number input-number.bind="associateMemberData.personalContact" />
+                    </td>
+                    <td><input class="form-control" value.bind="associateMemberData.comment"></td>
+                </tr>
+                <tr>
+                    <td>Preliminary Member</td>
+                    <td>
+                        <div if.bind="$this.preliminaryMemberGeneratedData">
+                            ${preliminaryMemberData.lastPeriod}
+                            &nbsp;<span class="badge badge-pill badge-info">${preliminaryMemberGeneratedData.lastPeriod}</span>
+                        </div>
+                        <div if.bind="!$this.preliminaryMemberGeneratedData">
+                            ${preliminaryMemberData.lastPeriod}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.preliminaryMemberGeneratedData">
+                            ${preliminaryMemberData.upgradeTarget}
+                            &nbsp;<span class="badge badge-pill badge-info">${preliminaryMemberGeneratedData.upgradeTarget}</span>
+                        </div>
+                        <div if.bind="!$this.preliminaryMemberGeneratedData">
+                            ${preliminaryMemberData.upgradeTarget}
+                        </div>
+                    </td>
+                    <td>
+                        <input-number input-number.bind="preliminaryMemberData.increased" generated.bind="preliminaryMemberGeneratedData.increased" />
+                    </td>
+                    <td>
+                        <input-number input-number.bind="preliminaryMemberData.decreased" generated.bind="preliminaryMemberGeneratedData.decreased" />
+                    </td>
+                    <td>
+                        <div if.bind="$this.preliminaryMemberGeneratedData">
+                            <member-data-this-period member-data.bind="preliminaryMemberData"></member-data-this-period>
+                            &nbsp;<span class="badge badge-pill badge-info">${preliminaryMemberGeneratedData.thisPeriod}</span>
+                        </div>
+                        <div if.bind="!$this.preliminaryMemberGeneratedData">
+                            <member-data-this-period member-data.bind="preliminaryMemberData"></member-data-this-period>
+                        </div>
+                    </td>
+                    <td>
+                        <input-number input-number.bind="preliminaryMemberData.personalContact" />
+                    </td>
+                    <td><input class="form-control" value.bind="preliminaryMemberData.comment"></td>
+                </tr>
+                <tr if.bind="$this.supporterMemberData">
+                    <td>Supporter</td>
+                    <td>
+                        <div if.bind="$this.supporterMemberGeneratedData">
+                            ${supporterMemberData.lastPeriod}
+                            &nbsp;<span class="badge badge-pill badge-info">${supporterMemberGeneratedData.lastPeriod}</span>
+                        </div>
+                        <div if.bind="!$this.supporterMemberGeneratedData">
+                            ${supporterMemberData.lastPeriod}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.supporterMemberGeneratedData">
+                            ${supporterMemberData.upgradeTarget}
+                            &nbsp;<span class="badge badge-pill badge-info">${supporterMemberGeneratedData.upgradeTarget}</span>
+                        </div>
+                        <div if.bind="!$this.supporterMemberGeneratedData">
+                            ${supporterMemberData.upgradeTarget}
+                        </div>
+                    </td>
+                    <td>
+                        <input-number input-number.bind="supporterMemberData.increased" generated.bind="supporterMemberGeneratedData.increased" />
+                    </td>
+                    <td>
+                        <input-number input-number.bind="supporterMemberData.decreased" generated.bind="supporterMemberGeneratedData.decreased" />
+                    </td>
+                    <td>
+                        <div if.bind="$this.supporterMemberGeneratedData">
+                            <member-data-this-period member-data.bind="supporterMemberData"></member-data-this-period>
+                            &nbsp;<span class="badge badge-pill badge-info">${supporterMemberGeneratedData.thisPeriod}</span>
+                        </div>
+                        <div if.bind="!$this.supporterMemberGeneratedData">
+                            <member-data-this-period member-data.bind="supporterMemberData"></member-data-this-period>
+                        </div>
+                    </td>
+                    <td>
+                        <input-number input-number.bind="supporterMemberData.personalContact" />
+                    </td>
+                    <td><input class="form-control" value.bind="supporterMemberData.comment"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</template>

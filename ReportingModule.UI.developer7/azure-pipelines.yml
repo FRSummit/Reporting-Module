@@ -1,0 +1,51 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    customCommand: 'install aurelia-cli -g'
+
+- script: yarn install
+  displayName: 'Run yarn install'
+
+- script: au build --env prod
+  displayName: 'Run au build --env prod'
+
+- script: au test
+  displayName: 'Run Unit tests au test'
+
+# Copy files  
+- task: CopyFiles@2
+  inputs:
+    sourceFolder: '$(system.defaultworkingdirectory)'
+    # Contents: 'index.html
+    #   favicon.ico
+    #   scripts/**'
+    Contents: '**\dist\**'
+    TargetFolder: '$(build.artifactStagingDirectory)'
+
+# # Archive files -spa.zip  
+# - task: ArchiveFiles@2
+#   inputs:
+#     rootFolderOrFile: 'build'
+#     includeRootFolder: true
+#     archiveType: 'zip'
+#     archiveFile: '$(Build.ArtifactStagingDirectory)/spa.zip'
+#     replaceExistingArchive: true
+
+# Publish -spa.zip  
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'spabuild'
+    publishLocation: 'Container'

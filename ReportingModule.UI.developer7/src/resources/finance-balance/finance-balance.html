@@ -1,0 +1,11 @@
+<template>
+        <span if.bind="!isDirty">${financeData.balance | money}</span>
+        <span data-toggle="tooltip" if.bind="isDirty" ref.bind="stalePeriod">
+            <span class="badge badge-pill badge-danger">
+            <strike>${financeData.balance | money}</strike>&nbsp;
+            </span>
+            <span class="badge badge-pill badge-success">
+                ${newBalance | money}
+            </span>
+        </span>
+    </template>

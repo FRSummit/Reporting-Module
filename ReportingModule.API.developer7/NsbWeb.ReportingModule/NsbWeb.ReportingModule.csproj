@@ -1,0 +1,910 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C6FB8566-58CF-430C-ACC7-67AF1924D3C0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NsbWeb.ReportingModule</RootNamespace>
+    <AssemblyName>NsbWeb.ReportingModule</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Output\NsbWeb.ReportingModule\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'QAS|AnyCPU'">
+    <OutputPath>bin\QAS\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AzureQAS|AnyCPU'">
+    <OutputPath>bin\AzureQAS\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging|AnyCPU'">
+    <OutputPath>bin\Staging\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\ActionResults\ExcelResult.cs" />
+    <Compile Include="Common\Extensions\ExcelResultExtensions.cs" />
+    <Compile Include="Configuration\Add_OnForwardMessageHeadersFromIncomingMessageToOutgoingMessageMutator_ToNsbPipeline.cs" />
+    <Compile Include="Configuration\ConfigurationAssemblies.cs" />
+    <Compile Include="Configuration\EndpointConfig.cs" />
+    <Compile Include="Configuration\OnForwardMessageHeadersFromIncomingMessageToOutgoingMessageMutator.cs" />
+    <Compile Include="Configuration\WebSchemaConfigurationUtility.cs" />
+    <Compile Include="Controller\CentralReportController.cs" />
+    <Compile Include="Controller\OrganizationUserController.cs" />
+    <Compile Include="Controller\AllReportController.cs" />
+    <Compile Include="Controller\PingPongController.cs" />
+    <Compile Include="Controller\ReportEventLogController.cs" />
+    <Compile Include="Controller\ReportingPeriodController.cs" />
+    <Compile Include="Controller\StateReportController.cs" />
+    <Compile Include="Controller\InquiryController.cs" />
+    <Compile Include="EventHandlers\NotifyWhenCentralPlanCopied.cs" />
+    <Compile Include="EventHandlers\NotifyWhenCentralPlanCopyFailed.cs" />
+    <Compile Include="EventHandlers\NotifyWhenCentralPlanCreated.cs" />
+    <Compile Include="EventHandlers\NotifyWhenCentralPlanCreateFailed.cs" />
+    <Compile Include="EventHandlers\NotifyWhenCentralPlanPromoted.cs" />
+    <Compile Include="EventHandlers\NotifyWhenCentralPlanPromoteFailed.cs" />
+    <Compile Include="EventHandlers\NotifyWhenCentralPlanUpdated.cs" />
+    <Compile Include="EventHandlers\NotifyWhenCentralPlanUpdateFailed.cs" />
+    <Compile Include="EventHandlers\NotifyWhenCentralReportUpdated.cs" />
+    <Compile Include="EventHandlers\NotifyWhenCentralReportUpdateFailed.cs" />
+    <Compile Include="EventHandlers\NotifyWhenOrganizationCreated.cs" />
+    <Compile Include="EventHandlers\NotifyWhenOrganizationCreateFailed.cs" />
+    <Compile Include="EventHandlers\NotifyWhenOrganizationDeleted.cs" />
+    <Compile Include="EventHandlers\NotifyWhenOrganizationDeleteFailed.cs" />
+    <Compile Include="EventHandlers\NotifyWhenOrganizationUpdated.cs" />
+    <Compile Include="EventHandlers\NotifyWhenOrganizationUpdateFailed.cs" />
+    <Compile Include="EventHandlers\NotifyWhenOrganizationUserCreated.cs" />
+    <Compile Include="EventHandlers\NotifyWhenOrganizationUserCreateFailed.cs" />
+    <Compile Include="EventHandlers\NotifyWhenOrganizationUserDeleted.cs" />
+    <Compile Include="EventHandlers\NotifyWhenOrganizationUserDeleteFailed.cs" />
+    <Compile Include="EventHandlers\NotifyWhenPonged.cs" />
+    <Compile Include="EventHandlers\NotifyWhenConsolidateReportSucceeded.cs" />
+    <Compile Include="EventHandlers\NotifyWhenConsolidateReportFailed.cs" />
+    <Compile Include="EventHandlers\NotifyWhenReportDeleted.cs" />
+    <Compile Include="EventHandlers\NotifyWhenReportDeleteFailed.cs" />
+    <Compile Include="EventHandlers\NotifyWhenReportSubmitFailed.cs" />
+    <Compile Include="EventHandlers\NotifyWhenReportSubmitted.cs" />
+    <Compile Include="EventHandlers\NotifyWhenReportUnSubmitFailed.cs" />
+    <Compile Include="EventHandlers\NotifyWhenReportUnSubmitted.cs" />
+    <Compile Include="EventHandlers\NotifyWhenStatePlanCopied.cs" />
+    <Compile Include="EventHandlers\NotifyWhenStatePlanCopyFailed.cs" />
+    <Compile Include="EventHandlers\NotifyWhenStatePlanCreated.cs" />
+    <Compile Include="EventHandlers\NotifyWhenStatePlanCreateFailed.cs" />
+    <Compile Include="EventHandlers\NotifyWhenStatePlanPromoted.cs" />
+    <Compile Include="EventHandlers\NotifyWhenStatePlanPromoteFailed.cs" />
+    <Compile Include="EventHandlers\NotifyWhenStatePlanUpdated.cs" />
+    <Compile Include="EventHandlers\NotifyWhenStatePlanUpdateFailed.cs" />
+    <Compile Include="EventHandlers\NotifyWhenStateReportUpdated.cs" />
+    <Compile Include="EventHandlers\NotifyWhenStateReportUpdateFailed.cs" />
+    <Compile Include="EventHandlers\NotifyWhenUnitPlanCopied.cs" />
+    <Compile Include="EventHandlers\NotifyWhenUnitPlanCopyFailed.cs" />
+    <Compile Include="EventHandlers\NotifyWhenUnitPlanCreated.cs" />
+    <Compile Include="EventHandlers\NotifyWhenUnitPlanCreateFailed.cs" />
+    <Compile Include="EventHandlers\NotifyWhenUnitPlanPromoted.cs" />
+    <Compile Include="EventHandlers\NotifyWhenUnitPlanPromoteFailed.cs" />
+    <Compile Include="EventHandlers\NotifyWhenUnitPlanUpdated.cs" />
+    <Compile Include="EventHandlers\NotifyWhenUnitPlanUpdateFailed.cs" />
+    <Compile Include="EventHandlers\NotifyWhenUnitReportUpdated.cs" />
+    <Compile Include="EventHandlers\NotifyWhenUnitReportUpdateFailed.cs" />
+    <Compile Include="EventHandlers\NotifyWhenZonePlanCopied.cs" />
+    <Compile Include="EventHandlers\NotifyWhenZonePlanCopyFailed.cs" />
+    <Compile Include="EventHandlers\NotifyWhenZonePlanCreated.cs" />
+    <Compile Include="EventHandlers\NotifyWhenZonePlanCreateFailed.cs" />
+    <Compile Include="EventHandlers\NotifyWhenZonePlanPromoted.cs" />
+    <Compile Include="EventHandlers\NotifyWhenZonePlanPromoteFailed.cs" />
+    <Compile Include="EventHandlers\NotifyWhenZonePlanUpdated.cs" />
+    <Compile Include="EventHandlers\NotifyWhenZonePlanUpdateFailed.cs" />
+    <Compile Include="EventHandlers\NotifyWhenZoneReportUpdated.cs" />
+    <Compile Include="EventHandlers\NotifyWhenZoneReportUpdateFailed.cs" />
+    <Compile Include="QueryServices\CentralReportSearchTerms.cs" />
+    <Compile Include="QueryServices\IAllReportQueryService.cs" />
+    <Compile Include="QueryServices\ICentralReportQueryService.cs" />
+    <Compile Include="QueryServices\IInquiryQueryService.cs" />
+    <Compile Include="QueryServices\Impl\AllReportQueryService.cs" />
+    <Compile Include="QueryServices\Impl\AllReportQueryServiceExtensions.cs" />
+    <Compile Include="QueryServices\Impl\CentralReportQueryService.cs" />
+    <Compile Include="QueryServices\Impl\ExcelReportDataCalculator.cs" />
+    <Compile Include="QueryServices\Impl\ExcelReportDataTranslator.cs" />
+    <Compile Include="QueryServices\Impl\ExcelReportFactory.cs" />
+    <Compile Include="QueryServices\Impl\IExcelReportFactory.cs" />
+    <Compile Include="QueryServices\Impl\InquiryQueryService.cs" />
+    <Compile Include="QueryServices\Impl\OrganizationQueryServiceExtensions.cs" />
+    <Compile Include="QueryServices\Impl\ReportEventLogQueryService.cs" />
+    <Compile Include="QueryServices\Impl\ReportEventLogQueryServiceExtensions.cs" />
+    <Compile Include="QueryServices\Impl\ReportingPeriodQueryService.cs" />
+    <Compile Include="QueryServices\IReportingPeriodQueryService.cs" />
+    <Compile Include="ViewModels\ReportingPeriodViewModel.cs" />
+    <Compile Include="QueryServices\Impl\UnitReportQueryServiceExtensions.cs" />
+    <Compile Include="QueryServices\IReportEventLogQueryService.cs" />
+    <Compile Include="QueryServices\ReportEventLogSearchTerms.cs" />
+    <Compile Include="QueryServices\AllReportSearchTerms.cs" />
+    <Compile Include="QueryServices\ReportSearchTerms.cs" />
+    <Compile Include="QueryServices\UnitReportInquirySearchTerms.cs" />
+    <Compile Include="ViewModels\CentralPlanViewModel.cs" />
+    <Compile Include="ViewModels\Dal\CentralPlanViewModelMap.cs" />
+    <Compile Include="ViewModels\Dal\CentralPlanViewModelMap2.cs" />
+    <Compile Include="ViewModels\Dal\CentralReportViewModelMap2.cs" />
+    <Compile Include="ViewModels\Dal\FinanceDataMap.cs" />
+    <Compile Include="ViewModels\Dal\FinancePlanDataMap.cs" />
+    <Compile Include="ViewModels\Dal\LibraryStockDataMap.cs" />
+    <Compile Include="ViewModels\Dal\LibraryStockPlanDataMap.cs" />
+    <Compile Include="ViewModels\Dal\MaterialDataMap.cs" />
+    <Compile Include="ViewModels\Dal\MaterialPlanDataMap.cs" />
+    <Compile Include="ViewModels\Dal\ReportEventLogViewModelMap.cs" />
+    <Compile Include="ViewModels\Dal\ReportViewModelMap.cs" />
+    <Compile Include="ViewModels\Dal\SocialWelfareDataMap.cs" />
+    <Compile Include="ViewModels\Dal\SocialWelfarePlanDataMap.cs" />
+    <Compile Include="ViewModels\Dal\StatePlanViewModelMap.cs" />
+    <Compile Include="ViewModels\Dal\StatePlanViewModelMap2.cs" />
+    <Compile Include="ViewModels\Dal\StateReportViewModelMap2.cs" />
+    <Compile Include="ViewModels\Dal\TeachingLearningProgramDataMap.cs" />
+    <Compile Include="ViewModels\Dal\TeachingLearningProgramPlanDataMap.cs" />
+    <Compile Include="ViewModels\Dal\UnitPlanViewModelMap2.cs" />
+    <Compile Include="ViewModels\Dal\UnitReportViewModelMap2.cs" />
+    <Compile Include="ViewModels\Dal\ZonePlanViewModelMap.cs" />
+    <Compile Include="QueryServices\Impl\ExcelReportData.cs" />
+    <Compile Include="ViewModels\Dal\ZonePlanViewModelMap2.cs" />
+    <Compile Include="ViewModels\Dal\ZoneReportViewModelMap2.cs" />
+    <Compile Include="ViewModels\IOrganizationFilter.cs" />
+    <Compile Include="QueryServices\Impl\OrganizationQueryService.cs" />
+    <Compile Include="QueryServices\Impl\OrganizationUserQueryService.cs" />
+    <Compile Include="QueryServices\Impl\QueryServiceExtensions.cs" />
+    <Compile Include="QueryServices\Impl\StateReportQueryService.cs" />
+    <Compile Include="QueryServices\Impl\ZoneReportQueryService.cs" />
+    <Compile Include="QueryServices\IOrganizationQueryService.cs" />
+    <Compile Include="QueryServices\IOrganizationUserQueryService.cs" />
+    <Compile Include="QueryServices\IStateReportQueryService.cs" />
+    <Compile Include="QueryServices\IUnitReportQueryService.cs" />
+    <Compile Include="QueryServices\IZoneReportQueryService.cs" />
+    <Compile Include="QueryServices\OrganizationSearchTerms.cs" />
+    <Compile Include="QueryServices\OrganizationUserSearchTerms.cs" />
+    <Compile Include="QueryServices\UnitReportSearchTerms.cs" />
+    <Compile Include="QueryServices\ZoneReportSearchTerms.cs" />
+    <Compile Include="ViewModels\CentralReportViewModel.cs" />
+    <Compile Include="ViewModels\Dal\CentralReportViewModelMap.cs" />
+    <Compile Include="ViewModels\Dal\MeetingProgramDataMap.cs" />
+    <Compile Include="ViewModels\Dal\MeetingProgramPlanDataMap.cs" />
+    <Compile Include="ViewModels\Dal\MemberPlanDataMap.cs" />
+    <Compile Include="ViewModels\Dal\OrganizationUserViewModelMap.cs" />
+    <Compile Include="ViewModels\Dal\OrganizationViewModelMap.cs" />
+    <Compile Include="ViewModels\Dal\StateReportViewModelMap.cs" />
+    <Compile Include="ViewModels\Dal\UnitPlanViewModelMap.cs" />
+    <Compile Include="ViewModels\Dal\ZoneReportViewModelMap.cs" />
+    <Compile Include="ViewModels\IOrganizationReferenceFilter.cs" />
+    <Compile Include="ViewModels\IReportSearchTermsFilter.cs" />
+    <Compile Include="ViewModels\OrganizationUserViewModel.cs" />
+    <Compile Include="ViewModels\OrganizationViewModel.cs" />
+    <Compile Include="ViewModels\ReportEventLogViewModel.cs" />
+    <Compile Include="ViewModels\ReportQueryViewModel.cs" />
+    <Compile Include="ViewModels\ReportViewModel.cs" />
+    <Compile Include="ViewModels\StatePlanViewModel.cs" />
+    <Compile Include="ViewModels\StateReportViewModel.cs" />
+    <Compile Include="ViewModels\UnitPlanViewModel.cs" />
+    <Compile Include="ViewModels\ZonePlanViewModel.cs" />
+    <Compile Include="ViewModels\ZoneReportViewModel.cs" />
+    <Content Include="signalr.d.ts" />
+    <Compile Include="Common\ActionFilters\SignalRAttribute.cs" />
+    <Compile Include="Common\AcceptedResult.cs" />
+    <Compile Include="Common\Extensions\ApiControllerExtensions.cs" />
+    <Compile Include="Configuration\IReportingModuleSession.cs" />
+    <Compile Include="Configuration\NsbWebReportingModuleIocRegistry.cs" />
+    <Compile Include="Controller\UnitReportController.cs" />
+    <Compile Include="Controller\OrganizationController.cs" />
+    <Compile Include="Controller\ZoneReportController.cs" />
+    <Compile Include="QueryServices\Impl\ReportingQueryServiceExtensions.cs" />
+    <Compile Include="QueryServices\Impl\UnitReportQueryService.cs" />
+    <Compile Include="QueryServices\StateReportSearchTerms.cs" />
+    <Compile Include="SignalR\ReportingModuleHub.cs" />
+    <Compile Include="ViewModels\Dal\MemberDataMap.cs" />
+    <Compile Include="ViewModels\Dal\OrganizationReferenceMap.cs" />
+    <Compile Include="ViewModels\Dal\ReportingPeriodMap.cs" />
+    <Compile Include="ViewModels\Dal\UnitReportViewModelMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\UnitReportViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExternalProjects\NsbWeb.Core\NsbWeb.Core.csproj">
+      <Project>{69a27a77-b822-4efe-81b0-f38ea137258e}</Project>
+      <Name>NsbWeb.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExternalProjects\ReportingModule.Core.Nsb7\ReportingModule.Core.Nsb7.csproj">
+      <Project>{7204F917-AE89-441B-BCEB-D9241A773752}</Project>
+      <Name>ReportingModule.Core.Nsb7</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExternalProjects\ReportingModule.Core\ReportingModule.Core.csproj">
+      <Project>{482d8201-8c6b-4ad5-8430-fbf8564fde0c}</Project>
+      <Name>ReportingModule.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExternalProjects\ReportingModule.DataAccessLayer.Core\ReportingModule.DataAccessLayer.Core.csproj">
+      <Project>{e0b89c81-e094-4ef0-92ab-41cf0a489224}</Project>
+      <Name>ReportingModule.DataAccessLayer.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExternalProjects\ReportingModule.Utility\ReportingModule.Utility.csproj">
+      <Project>{B8425452-68D5-4A08-A6A8-EF5D3D1C6D14}</Project>
+      <Name>ReportingModule.Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExternalProjects\ReportingModule.ViewModels.Core\ReportingModule.ViewModels.Core.csproj">
+      <Project>{b99366a1-db03-4164-8d20-8c85ab226a5e}</Project>
+      <Name>ReportingModule.ViewModels.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NsbMessages.ReportingModule\NsbMessages.ReportingModule.csproj">
+      <Project>{45E97D01-E594-4656-BE5C-B6AD7DD56F3D}</Project>
+      <Name>NsbMessages.ReportingModule</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="paket.references" />
+    <EmbeddedResource Include="Templates\IpdcReportDetailTemplate.xlsx" />
+    <EmbeddedResource Include="Templates\IpdcReportDetailMultipleTemplate.xlsx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\.paket\paket.targets" />
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="Antlr3.Runtime">
+          <HintPath>..\packages\net472\Antlr3.Runtime\lib\net40-client\Antlr3.Runtime.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="PresentationCore">
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="System.Drawing">
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="System.Security">
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="System.configuration">
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="EPPlus">
+          <HintPath>..\packages\net472\EPPlus\lib\net40\EPPlus.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="FluentNHibernate">
+          <HintPath>..\packages\net472\FluentNHibernate\lib\net461\FluentNHibernate.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="Iesi.Collections">
+          <HintPath>..\packages\net472\Iesi.Collections\lib\net461\Iesi.Collections.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="log4net">
+          <HintPath>..\packages\net472\log4net\lib\net45-full\log4net.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Web.Cors">
+          <HintPath>..\packages\net472\Microsoft.AspNet.Cors\lib\net45\System.Web.Cors.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="Microsoft.AspNet.SignalR.Core">
+          <HintPath>..\packages\net472\Microsoft.AspNet.SignalR.Core\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Net.Http.Formatting">
+          <HintPath>..\packages\net472\Microsoft.AspNet.WebApi.Client\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Web.Http">
+          <HintPath>..\packages\net472\Microsoft.AspNet.WebApi.Core\lib\net45\System.Web.Http.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Web.Http.Cors">
+          <HintPath>..\packages\net472\Microsoft.AspNet.WebApi.Cors\lib\net45\System.Web.Http.Cors.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="mscorlib">
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Microsoft.Bcl.AsyncInterfaces">
+          <HintPath>..\packages\net472\Microsoft.Bcl.AsyncInterfaces\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="Microsoft.Extensions.Configuration">
+          <HintPath>..\packages\net472\Microsoft.Extensions.Configuration\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="Microsoft.Extensions.Configuration.Abstractions">
+          <HintPath>..\packages\net472\Microsoft.Extensions.Configuration.Abstractions\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="Microsoft.Extensions.Configuration.FileExtensions">
+          <HintPath>..\packages\net472\Microsoft.Extensions.Configuration.FileExtensions\lib\netstandard2.0\Microsoft.Extensions.Configuration.FileExtensions.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="Microsoft.Extensions.Configuration.Json">
+          <HintPath>..\packages\net472\Microsoft.Extensions.Configuration.Json\lib\netstandard2.0\Microsoft.Extensions.Configuration.Json.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="Microsoft.Extensions.FileProviders.Abstractions">
+          <HintPath>..\packages\net472\Microsoft.Extensions.FileProviders.Abstractions\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="Microsoft.Extensions.FileProviders.Physical">
+          <HintPath>..\packages\net472\Microsoft.Extensions.FileProviders.Physical\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Physical.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="Microsoft.Extensions.FileSystemGlobbing">
+          <HintPath>..\packages\net472\Microsoft.Extensions.FileSystemGlobbing\lib\netstandard2.0\Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="Microsoft.Extensions.Primitives">
+          <HintPath>..\packages\net472\Microsoft.Extensions.Primitives\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="Microsoft.Owin">
+          <HintPath>..\packages\net472\Microsoft.Owin\lib\net45\Microsoft.Owin.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="Microsoft.Owin.Security">
+          <HintPath>..\packages\net472\Microsoft.Owin.Security\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="Newtonsoft.Json">
+          <HintPath>..\packages\net472\Newtonsoft.Json\lib\net45\Newtonsoft.Json.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.ServiceModel">
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="System.Transactions">
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="NHibernate">
+          <HintPath>..\packages\net472\NHibernate\lib\net461\NHibernate.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="NServiceBus.Core">
+          <HintPath>..\packages\net472\NServiceBus\lib\net452\NServiceBus.Core.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <ItemGroup>
+    <Analyzer Include="..\packages\net472\NServiceBus\analyzers\dotnet\cs\NServiceBus.Core.Analyzer.dll">
+      <Paket>True</Paket>
+    </Analyzer>
+  </ItemGroup>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="Owin">
+          <HintPath>..\packages\net472\Owin\lib\net40\Owin.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="Remotion.Linq">
+          <HintPath>..\packages\net472\Remotion.Linq\lib\net45\Remotion.Linq.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="Remotion.Linq.EagerFetching">
+          <HintPath>..\packages\net472\Remotion.Linq.EagerFetching\lib\net45\Remotion.Linq.EagerFetching.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="StructureMap">
+          <HintPath>..\packages\net472\structuremap\lib\net45\StructureMap.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Buffers">
+          <HintPath>..\packages\net472\System.Buffers\lib\netstandard2.0\System.Buffers.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Collections.NonGeneric">
+          <HintPath>..\packages\net472\System.Collections.NonGeneric\lib\net46\System.Collections.NonGeneric.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.ComponentModel.Primitives">
+          <HintPath>..\packages\net472\System.ComponentModel.Primitives\lib\net45\System.ComponentModel.Primitives.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.ComponentModel.TypeConverter">
+          <HintPath>..\packages\net472\System.ComponentModel.TypeConverter\lib\net462\System.ComponentModel.TypeConverter.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Data.Common">
+          <HintPath>..\packages\net472\System.Data.Common\lib\net451\System.Data.Common.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Drawing.Common">
+          <HintPath>..\packages\net472\System.Drawing.Common\lib\net461\System.Drawing.Common.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.IO">
+          <HintPath>..\packages\net472\System.IO\lib\net462\System.IO.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Memory">
+          <HintPath>..\packages\net472\System.Memory\lib\netstandard2.0\System.Memory.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Numerics">
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="System.Numerics.Vectors">
+          <HintPath>..\packages\net472\System.Numerics.Vectors\lib\net46\System.Numerics.Vectors.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Reflection">
+          <HintPath>..\packages\net472\System.Reflection\lib\net462\System.Reflection.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.ComponentModel.Composition">
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="System.Runtime">
+          <HintPath>..\packages\net472\System.Runtime\lib\net462\System.Runtime.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Runtime.CompilerServices.Unsafe">
+          <HintPath>..\packages\net472\System.Runtime.CompilerServices.Unsafe\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Security.Claims">
+          <HintPath>..\packages\net472\System.Security.Claims\lib\net46\System.Security.Claims.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Security.Cryptography.Algorithms">
+          <HintPath>..\packages\net472\System.Security.Cryptography.Algorithms\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Security.Cryptography.Encoding">
+          <HintPath>..\packages\net472\System.Security.Cryptography.Encoding\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Security.Cryptography.Pkcs">
+          <HintPath>..\packages\net472\System.Security.Cryptography.Pkcs\lib\net461\System.Security.Cryptography.Pkcs.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Security.Cryptography.Primitives">
+          <HintPath>..\packages\net472\System.Security.Cryptography.Primitives\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Security.Cryptography.X509Certificates">
+          <HintPath>..\packages\net472\System.Security.Cryptography.X509Certificates\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Text.Encoding.CodePages">
+          <HintPath>..\packages\net472\System.Text.Encoding.CodePages\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Text.Encodings.Web">
+          <HintPath>..\packages\net472\System.Text.Encodings.Web\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Text.Json">
+          <HintPath>..\packages\net472\System.Text.Json\lib\net461\System.Text.Json.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Threading.Tasks.Extensions">
+          <HintPath>..\packages\net472\System.Threading.Tasks.Extensions\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.ValueTuple">
+          <HintPath>..\packages\net472\System.ValueTuple\lib\net47\System.ValueTuple.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Xml.XmlDocument">
+          <HintPath>..\packages\net472\System.Xml.XmlDocument\lib\net46\System.Xml.XmlDocument.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Xml.XPath">
+          <HintPath>..\packages\net472\System.Xml.XPath\lib\net46\System.Xml.XPath.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Xml.XPath.XmlDocument">
+          <HintPath>..\packages\net472\System.Xml.XPath.XmlDocument\lib\net46\System.Xml.XPath.XmlDocument.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+</Project>

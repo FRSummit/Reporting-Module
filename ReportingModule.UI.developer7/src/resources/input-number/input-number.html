@@ -1,0 +1,9 @@
+<template>
+    <input class="form-control" value.bind="inputNumber | number" type="number" min="0" numeric-only if.bind="!hasGenerated">
+    <div class="input-group" if.bind="hasGenerated">
+        <input class="form-control" value.bind="inputNumber | number" type="number" min="0" numeric-only>
+        <div class="input-group-append">
+            <span class="badge badge-info">${generated}</span>
+        </div>
+    </div>
+</template>

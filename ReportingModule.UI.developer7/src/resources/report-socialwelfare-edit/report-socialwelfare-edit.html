@@ -1,0 +1,88 @@
+<template>
+    <div class="table-responsive">
+        <h5 class="card-title">Social Welfare</h5>
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Type</th>
+                    <th>Target</th>
+                    <th>Actual</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Qard-e-Hasana</td>
+                    <td>
+                        ${qardeHasanaSocialWelfareData.target}
+                        <span class="badge badge-pill badge-info" if.bind="qardeHasanaSocialWelfareGeneratedData">&nbsp;${qardeHasanaSocialWelfareGeneratedData.target}</span>
+                    </td>
+                    <td><input-number input-number.bind="qardeHasanaSocialWelfareData.actual" generated.bind="qardeHasanaSocialWelfareGeneratedData.actual"></input-number></td>
+                </tr>
+                <tr>
+                    <td>Patient Visit</td>
+                    <td>
+                        ${patientVisitSocialWelfareData.target}
+                        <span class="badge badge-pill badge-info" if.bind="patientVisitSocialWelfareGeneratedData">&nbsp;${patientVisitSocialWelfareGeneratedData.target}</span>
+                    </td>
+                    <td><input-number input-number.bind="patientVisitSocialWelfareData.actual" generated.bind="patientVisitSocialWelfareGeneratedData.actual"></input-number></td>
+                </tr>
+                <tr>
+                    <td>Social Visit</td>
+                    <td>
+                        ${socialVisitSocialWelfareData.target}
+                        <span class="badge badge-pill badge-info" if.bind="socialVisitSocialWelfareGeneratedData">&nbsp;${socialVisitSocialWelfareGeneratedData.target}</span>
+                    </td>
+                    <td><input-number input-number.bind="socialVisitSocialWelfareData.actual" generated.bind="socialVisitSocialWelfareGeneratedData.actual"></input-number></td>
+                </tr>
+                <tr>
+                    <td>Transport</td>
+                    <td>
+                        ${transportSocialWelfareData.target}
+                        <span class="badge badge-pill badge-info" if.bind="transportSocialWelfareGeneratedData">&nbsp;${transportSocialWelfareGeneratedData.target}</span>
+                    </td>
+                    <td><input-number input-number.bind="transportSocialWelfareData.actual" generated.bind="transportSocialWelfareGeneratedData.actual"></input-number></td>
+                </tr>
+                <tr>
+                    <td>Shifting</td>
+                    <td>
+                        ${shiftingSocialWelfareData.target}
+                        <span class="badge badge-pill badge-info" if.bind="shiftingSocialWelfareGeneratedData">&nbsp;${shiftingSocialWelfareGeneratedData.target}</span>
+                    </td>
+                    <td><input-number input-number.bind="shiftingSocialWelfareData.actual" generated.bind="shiftingSocialWelfareGeneratedData.actual"></input-number></td>
+                </tr>
+                <tr>
+                    <td>Shopping</td>
+                    <td>
+                        ${shoppingSocialWelfareData.target}
+                        <span class="badge badge-pill badge-info" if.bind="shoppingSocialWelfareGeneratedData">&nbsp;${shoppingSocialWelfareGeneratedData.target}</span>
+                    </td>
+                    <td><input-number input-number.bind="shoppingSocialWelfareData.actual" generated.bind="shoppingSocialWelfareGeneratedData.actual"></input-number></td>
+                </tr>
+                <tr>
+                    <td>Food Distribution</td>
+                    <td>
+                        ${foodDistributionSocialWelfareData.target}
+                        <span class="badge badge-pill badge-info" if.bind="foodDistributionSocialWelfareGeneratedData">&nbsp;${foodDistributionSocialWelfareGeneratedData.target}</span>
+                    </td>
+                    <td><input-number input-number.bind="foodDistributionSocialWelfareData.actual" generated.bind="foodDistributionSocialWelfareGeneratedData.actual"></input-number></td>
+                </tr>
+                <tr>
+                    <td>Clean Up Australia</td>
+                    <td>
+                        ${cleanUpAustraliaSocialWelfareData.target}
+                        <span class="badge badge-pill badge-info" if.bind="cleanUpAustraliaSocialWelfareGeneratedData">&nbsp;${cleanUpAustraliaSocialWelfareGeneratedData.target}</span>
+                    </td>
+                    <td><input-number input-number.bind="cleanUpAustraliaSocialWelfareData.actual" generated.bind="cleanUpAustraliaSocialWelfareGeneratedData.actual"></input-number></td>
+                </tr>
+                <tr>
+                    <td>Other</td>
+                    <td>
+                        ${otherSocialWelfareData.target}
+                        <span class="badge badge-pill badge-info" if.bind="otherSocialWelfareGeneratedData">&nbsp;${otherSocialWelfareGeneratedData.target}</span>
+                    </td>
+                    <td><input-number input-number.bind="otherSocialWelfareData.actual" generated.bind="otherSocialWelfareGeneratedData.actual"></input-number></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</template>

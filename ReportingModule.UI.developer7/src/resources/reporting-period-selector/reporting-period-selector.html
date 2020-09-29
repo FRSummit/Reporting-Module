@@ -1,0 +1,7 @@
+<template>
+    <select class="form-control" value.bind="selectedReportingPeriod">
+        <option repeat.for="reportingPeriod of sortedReportingPeriods" model.bind="reportingPeriod" class.bind="reportingPeriod.isActive ? 'text-primary' : ''">
+            ${reportingPeriod.year}-${reportingPeriod.reportingFrequency | reportingFrequency} ${reportingPeriod | reportingPeriodViewModel}
+        </option>
+    </select>
+</template>

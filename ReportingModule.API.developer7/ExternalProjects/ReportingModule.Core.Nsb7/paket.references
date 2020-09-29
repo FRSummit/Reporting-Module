@@ -1,0 +1,6 @@
+group net472
+log4net
+Newtonsoft.Json
+NServiceBus
+NServiceBus.Heartbeat
+NServiceBus.Metrics.ServiceControl

@@ -1,0 +1,8 @@
+<template>
+    <select class="form-control" value.bind="selectedRoleType">
+        <option model.bind="null" if.bind="!excludeChooseOption">Choose...</option>
+        <option repeat.for="roleTypeOption of roleTypeOptions" model.bind="roleTypeOption.id">
+            ${roleTypeOption.name}
+        </option>
+    </select>
+</template>

@@ -1,0 +1,158 @@
+<template>
+    <div if.bind="statePlan">
+    <div class="row">
+        <div class="col-lg-12">
+            <plan-report-header header-data.bind="headerData"></plan-report-header>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <plan-report-shell item-id.bind="planid" report-status.bind="statePlan.reportStatus" organization-type.bind="statePlan.organization.organizationType">
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                          <div class="row">
+                              <div class="col" align="left">
+                                  ${statePlan.reportingPeriod | reportingPeriod}
+                              </div>
+                              <div class="col" align="right">
+                                ${statePlan.timestamp | convertToLocalDate}
+                              </div>
+                            </div>
+                    </div>
+                    <div class="card-body">
+                        <plan-manpower-view
+                            associate-member-plan-data.bind="statePlan.associateMemberPlanData"
+                            associate-member-plan-generated-data.bind="statePlan.associateMemberPlanGeneratedData"
+                            preliminary-member-plan-data.bind="statePlan.preliminaryMemberPlanData"
+                            preliminary-member-plan-generated-data.bind="statePlan.preliminaryMemberPlanGeneratedData"
+                            supporter-member-plan-data.bind="statePlan.supporterMemberPlanData"
+                            supporter-member-plan-generated-data.bind="statePlan.supporterMemberPlanGeneratedData"
+                            member-member-plan-data.bind="statePlan.memberMemberPlanData"
+                            member-member-plan-generated-data.bind="statePlan.memberMemberPlanGeneratedData">
+                        </plan-manpower-view>
+                        <plan-regular-meetings-view
+                            worker-meeting-program-plan-data.bind="statePlan.workerMeetingProgramPlanData"
+                            worker-meeting-program-plan-generated-data.bind="statePlan.workerMeetingProgramPlanGeneratedData"
+                            cms-meeting-program-plan-data.bind="statePlan.cmsMeetingProgramPlanData"
+                            cms-meeting-program-plan-generated-data.bind="statePlan.cmsMeetingProgramPlanGeneratedData"
+                            sm-meeting-program-plan-data.bind="statePlan.smMeetingProgramPlanData"
+                            sm-meeting-program-plan-generated-data.bind="statePlan.smMeetingProgramPlanGeneratedData"
+                            member-meeting-program-plan-data.bind="statePlan.memberMeetingProgramPlanData"
+                            member-meeting-program-plan-generated-data.bind="statePlan.memberMeetingProgramPlanGeneratedData"
+                            dawah-meeting-program-plan-data.bind="statePlan.dawahMeetingProgramPlanData"
+                            dawah-meeting-program-plan-generated-data.bind="statePlan.dawahMeetingProgramPlanGeneratedData"
+                            state-leader-meeting-program-plan-data.bind="statePlan.stateLeaderMeetingProgramPlanData"
+                            state-leader-meeting-program-plan-generated-data.bind="statePlan.stateLeaderMeetingProgramPlanGeneratedData"
+                            state-outing-meeting-program-plan-data.bind="statePlan.stateOutingMeetingProgramPlanData"
+                            state-outing-meeting-program-plan-generated-data.bind="statePlan.stateOutingMeetingProgramPlanGeneratedData"
+                            iftar-meeting-program-plan-data.bind="statePlan.iftarMeetingProgramPlanData"
+                            iftar-meeting-program-plan-generated-data.bind="statePlan.iftarMeetingProgramPlanGeneratedData"
+                            learning-meeting-program-plan-data.bind="statePlan.learningMeetingProgramPlanData"
+                            learning-meeting-program-plan-generated-data.bind="statePlan.learningMeetingProgramPlanGeneratedData"
+                            social-dawah-meeting-program-plan-data.bind="statePlan.socialDawahMeetingProgramPlanData"
+                            social-dawah-meeting-program-plan-generated-data.bind="statePlan.socialDawahMeetingProgramPlanGeneratedData"
+                            dawah-group-meeting-program-plan-data.bind="statePlan.dawahGroupMeetingProgramPlanData"
+                            dawah-group-meeting-program-plan-generated-data.bind="statePlan.dawahGroupMeetingProgramPlanGeneratedData"
+                            next-g-meeting-program-plan-data.bind="statePlan.nextGMeetingProgramPlanData"
+                            next-g-meeting-program-plan-generated-data.bind="statePlan.nextGMeetingProgramPlanGeneratedData"
+                            tafsir-meeting-program-plan-data.bind="statePlan.tafsirMeetingProgramPlanData"
+                            tafsir-meeting-program-plan-generated-data.bind="statePlan.tafsirMeetingProgramPlanGeneratedData"
+                            unit-meeting-program-plan-data.bind="statePlan.unitMeetingProgramPlanData"
+                            unit-meeting-program-plan-generated-data.bind="statePlan.unitMeetingProgramPlanGeneratedData"
+                            bbq-meeting-program-plan-data.bind="statePlan.bbqMeetingProgramPlanData"
+                            bbq-meeting-program-plan-generated-data.bind="statePlan.bbqMeetingProgramPlanGeneratedData"
+                            gathering-meeting-program-plan-data.bind="statePlan.gatheringMeetingProgramPlanData"
+                            gathering-meeting-program-plan-generated-data.bind="statePlan.gatheringMeetingProgramPlanGeneratedData"
+                            family-visit-meeting-program-plan-data.bind="statePlan.familyVisitMeetingProgramPlanData"
+                            family-visit-meeting-program-plan-generated-data.bind="statePlan.familyVisitMeetingProgramPlanGeneratedData"
+                            eid-reunion-meeting-program-plan-data.bind="statePlan.eidReunionMeetingProgramPlanData"
+                            eid-reunion-meeting-program-plan-generated-data.bind="statePlan.eidReunionMeetingProgramPlanGeneratedData"
+                            other-meeting-program-plan-data.bind="statePlan.otherMeetingProgramPlanData"
+                            other-meeting-program-plan-generated-data.bind="statePlan.otherMeetingProgramPlanGeneratedData">
+                        </plan-regular-meetings-view>
+                        <plan-teaching-view
+                        group-study-teaching-learning-program-plan-data.bind="statePlan.groupStudyTeachingLearningProgramPlanData"
+                        group-study-teaching-learning-program-plan-generated-data.bind="statePlan.groupStudyTeachingLearningProgramPlanGeneratedData"
+                        study-circle-for-associate-member-teaching-learning-program-plan-data.bind="statePlan.studyCircleForAssociateMemberTeachingLearningProgramPlanData"
+                        study-circle-for-associate-member-teaching-learning-program-plan-generated-data.bind="statePlan.studyCircleForAssociateMemberTeachingLearningProgramPlanGeneratedData"
+                        study-circle-teaching-learning-program-plan-data.bind="statePlan.studyCircleTeachingLearningProgramPlanData"
+                        study-circle-teaching-learning-program-plan-generated-data.bind="statePlan.studyCircleTeachingLearningProgramPlanGeneratedData"
+                        practice-dars-teaching-learning-program-plan-data.bind="statePlan.practiceDarsTeachingLearningProgramPlanData"
+                        practice-dars-teaching-learning-program-plan-generated-data.bind="statePlan.practiceDarsTeachingLearningProgramPlanGeneratedData"
+                        state-learning-camp-teaching-learning-program-plan-data.bind="statePlan.stateLearningCampTeachingLearningProgramPlanData"
+                        state-learning-camp-teaching-learning-program-plan-generated-data.bind="statePlan.stateLearningCampTeachingLearningProgramPlanGeneratedData"
+                        quran-study-teaching-learning-program-plan-data.bind="statePlan.quranStudyTeachingLearningProgramPlanData"
+                        quran-study-teaching-learning-program-plan-generated-data.bind="statePlan.quranStudyTeachingLearningProgramPlanGeneratedData"
+                        hadith-teaching-learning-program-plan-data.bind="statePlan.hadithTeachingLearningProgramPlanData"
+                        hadith-teaching-learning-program-plan-generated-data.bind="statePlan.hadithTeachingLearningProgramPlanGeneratedData"
+                        quran-class-teaching-learning-program-plan-data.bind="statePlan.quranClassTeachingLearningProgramPlanData"
+                        quran-class-teaching-learning-program-plan-generated-data.bind="statePlan.quranClassTeachingLearningProgramPlanGeneratedData"
+                        weekend-islamic-school-teaching-learning-program-plan-data.bind="statePlan.weekendIslamicSchoolTeachingLearningProgramPlanData"
+                        weekend-islamic-school-teaching-learning-program-plan-generated-data.bind="statePlan.weekendIslamicSchoolTeachingLearningProgramPlanGeneratedData"
+                        memorizing-ayat-teaching-learning-program-plan-data.bind="statePlan.memorizingAyatTeachingLearningProgramPlanData"
+                        memorizing-ayat-teaching-learning-program-plan-generated-data.bind="statePlan.memorizingAyatTeachingLearningProgramPlanGeneratedData"
+                        memorizing-hadith-teaching-learning-program-plan-data.bind="statePlan.memorizingHadithTeachingLearningProgramPlanData"
+                        memorizing-hadith-teaching-learning-program-plan-generated-data.bind="statePlan.memorizingHadithTeachingLearningProgramPlanGeneratedData"
+                        memorizing-doa-teaching-learning-program-plan-data.bind="statePlan.memorizingDoaTeachingLearningProgramPlanData"
+                        memorizing-doa-teaching-learning-program-plan-generated-data.bind="statePlan.memorizingDoaTeachingLearningProgramPlanGeneratedData"
+                        state-learning-session-teaching-learning-program-plan-data.bind="statePlan.stateLearningSessionTeachingLearningProgramPlanData"
+                        state-learning-session-teaching-learning-program-plan-generated-data.bind="statePlan.stateLearningSessionTeachingLearningProgramPlanGeneratedData"
+                        state-qiyamul-lail-teaching-learning-program-plan-data.bind="statePlan.stateQiyamulLailTeachingLearningProgramPlanData"
+                        state-qiyamul-lail-teaching-learning-program-plan-generated-data.bind="statePlan.stateQiyamulLailTeachingLearningProgramPlanGeneratedData"
+                        other-teaching-learning-program-plan-data.bind="statePlan.otherTeachingLearningProgramPlanData"
+                        other-teaching-learning-program-plan-generated-data.bind="statePlan.otherTeachingLearningProgramPlanGeneratedData">
+                        </plan-teaching-view>
+                        <plan-material-view
+                            book-sale-material-plan-data.bind="statePlan.bookSaleMaterialPlanData"
+                            book-sale-material-plan-generated-data.bind="statePlan.bookSaleMaterialPlanGeneratedData"
+                            book-distribution-material-plan-data.bind="statePlan.bookDistributionMaterialPlanData"
+                            book-distribution-material-plan-generated-data.bind="statePlan.bookDistributionMaterialPlanGeneratedData"
+                            vhs-sale-material-plan-data.bind="statePlan.vhsSaleMaterialPlanData"
+                            vhs-sale-material-plan-generated-data.bind="statePlan.vhsSaleMaterialPlanGeneratedData"
+                            vhs-distribution-material-plan-data.bind="statePlan.vhsDistributionMaterialPlanData"
+                            vhs-distribution-material-plan-generated-data.bind="statePlan.vhsDistributionMaterialPlanGeneratedData"
+                            email-distribution-material-plan-data.bind="statePlan.emailDistributionMaterialPlanData"
+                            email-distribution-material-plan-generated-data.bind="statePlan.emailDistributionMaterialPlanGeneratedData"
+                            ipdc-leaflet-distribution-material-plan-data.bind="statePlan.ipdcLeafletDistributionMaterialPlanData"
+                            ipdc-leaflet-distribution-material-plan-generated-data.bind="statePlan.ipdcLeafletDistributionMaterialPlanGeneratedData"
+                            other-sale-material-plan-data.bind="statePlan.otherSaleMaterialPlanData"
+                            other-sale-material-plan-generated-data.bind="statePlan.otherSaleMaterialPlanGeneratedData"
+                            other-distribution-material-plan-data.bind="statePlan.otherDistributionMaterialPlanData"
+                            other-distribution-material-plan-generated-data.bind="statePlan.otherDistributionMaterialPlanGeneratedData"
+>
+                        </plan-material-view>
+                        <plan-finance-view
+                            baitul-mal-finance-plan-data.bind="statePlan.baitulMalFinancePlanData"
+                            baitul-mal-finance-plan-generated-data.bind="statePlan.baitulMalFinancePlanGeneratedData"
+                            a-day-masjid-project-finance-plan-data.bind="statePlan.aDayMasjidProjectFinancePlanData"
+                            a-day-masjid-project-finance-plan-generated-data.bind="statePlan.aDayMasjidProjectFinancePlanGeneratedData"
+                            masjid-table-bank-finance-plan-data.bind="statePlan.masjidTableBankFinancePlanData"
+                            masjid-table-bank-finance-plan-generated-data.bind="statePlan.masjidTableBankFinancePlanGeneratedData">
+                        </plan-finance-view>
+                        <plan-socialwelfare-view
+                            qarde-hasana-social-welfare-plan-data.bind="statePlan.qardeHasanaSocialWelfarePlanData"
+                            qarde-hasana-social-welfare-plan-generated-data.bind="statePlan.qardeHasanaSocialWelfarePlanGeneratedData"
+                            patient-visit-social-welfare-plan-data.bind="statePlan.patientVisitSocialWelfarePlanData"
+                            patient-visit-social-welfare-plan-generated-data.bind="statePlan.patientVisitSocialWelfarePlanGeneratedData"
+                            social-visit-social-welfare-plan-data.bind="statePlan.socialVisitSocialWelfarePlanData"
+                            social-visit-social-welfare-plan-generated-data.bind="statePlan.socialVisitSocialWelfarePlanGeneratedData"
+                            transport-social-welfare-plan-data.bind="statePlan.transportSocialWelfarePlanData"
+                            transport-social-welfare-plan-generated-data.bind="statePlan.transportSocialWelfarePlanGeneratedData"
+                            shifting-social-welfare-plan-data.bind="statePlan.shiftingSocialWelfarePlanData"
+                            shifting-social-welfare-plan-generated-data.bind="statePlan.shiftingSocialWelfarePlanGeneratedData"
+                            shopping-social-welfare-plan-data.bind="statePlan.shoppingSocialWelfarePlanData"
+                            shopping-social-welfare-plan-generated-data.bind="statePlan.shoppingSocialWelfarePlanGeneratedData"
+                            food-distribution-social-welfare-plan-data.bind="statePlan.foodDistributionSocialWelfarePlanData"
+                            food-distribution-social-welfare-plan-generated-data.bind="statePlan.foodDistributionSocialWelfarePlanGeneratedData"
+                            clean-up-australia-social-welfare-plan-data.bind="statePlan.cleanUpAustraliaSocialWelfarePlanData"
+                            clean-up-australia-social-welfare-plan-generated-data.bind="statePlan.cleanUpAustraliaSocialWelfarePlanGeneratedData"
+                            other-social-welfare-plan-data.bind="statePlan.otherSocialWelfarePlanData"
+                            other-social-welfare-plan-generated-data.bind="statePlan.otherSocialWelfarePlanGeneratedData">
+                        </plan-socialwelfare-view>
+                    </div>
+                </div>
+            </plan-report-shell>
+        </div>
+    </div>
+</div>
+</template>

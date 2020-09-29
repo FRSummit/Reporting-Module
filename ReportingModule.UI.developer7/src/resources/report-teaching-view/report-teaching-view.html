@@ -1,0 +1,333 @@
+<template>
+    <div class="table-responsive">
+        <h5 class="card-title">Teaching & Learning Program</h5>
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Program</th>
+                    <th>Target</th>
+                    <th>Actual</th>
+                    <th>Average Attended</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Group Study/Discussion</td>
+                    <td>
+                        ${groupStudyTeachingLearningProgramData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.groupStudyTeachingLearningProgramGeneratedData">
+                            &nbsp;${groupStudyTeachingLearningProgramGeneratedData.target}
+                        </span>
+                    </td>
+                    <td>
+                        ${groupStudyTeachingLearningProgramData.actual}
+                        <span class="badge badge-pill badge-info" if.bind="$this.groupStudyTeachingLearningProgramGeneratedData">
+                            &nbsp;${groupStudyTeachingLearningProgramGeneratedData.actual}
+                        </span>
+                    </td>
+                    <td>
+                        ${groupStudyTeachingLearningProgramData.averageAttendance}
+                        <span class="badge badge-pill badge-info" if.bind="$this.groupStudyTeachingLearningProgramGeneratedData">
+                            &nbsp;${groupStudyTeachingLearningProgramGeneratedData.averageAttendance}
+                        </span>                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>Study Circle(AM)</td>
+                    <td>
+                        ${studyCircleForAssociateMemberTeachingLearningProgramData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.studyCircleForAssociateMemberTeachingLearningProgramGeneratedData">
+                            &nbsp;${studyCircleForAssociateMemberTeachingLearningProgramGeneratedData.target}
+                        </span>
+                    </td>
+                    <td>
+                        ${studyCircleForAssociateMemberTeachingLearningProgramData.actual}
+                        <span class="badge badge-pill badge-info" if.bind="$this.studyCircleForAssociateMemberTeachingLearningProgramGeneratedData">
+                            &nbsp;${studyCircleForAssociateMemberTeachingLearningProgramGeneratedData.actual}
+                        </span>
+                    </td>
+                    <td>
+                        ${studyCircleForAssociateMemberTeachingLearningProgramData.averageAttendance}
+                        <span class="badge badge-pill badge-info" if.bind="$this.studyCircleForAssociateMemberTeachingLearningProgramGeneratedData">
+                            &nbsp;${studyCircleForAssociateMemberTeachingLearningProgramGeneratedData.averageAttendance}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Study Circle</td>
+                    <td>
+                        ${studyCircleTeachingLearningProgramData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.studyCircleTeachingLearningProgramGeneratedData">
+                            &nbsp;${studyCircleTeachingLearningProgramGeneratedData.target}
+                        </span>
+                    </td>
+                    <td>
+                        ${studyCircleTeachingLearningProgramData.actual}
+                        <span class="badge badge-pill badge-info" if.bind="$this.studyCircleTeachingLearningProgramGeneratedData">
+                            &nbsp;${studyCircleTeachingLearningProgramGeneratedData.actual}
+                        </span>
+                    </td>
+                    <td>
+                        ${studyCircleTeachingLearningProgramData.averageAttendance}
+                        <span class="badge badge-pill badge-info" if.bind="$this.studyCircleTeachingLearningProgramGeneratedData">
+                            &nbsp;${studyCircleTeachingLearningProgramGeneratedData.averageAttendance}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Practice Dars/ Speech</td>
+                    <td>
+                        ${practiceDarsTeachingLearningProgramData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.practiceDarsTeachingLearningProgramGeneratedData">
+                            &nbsp;${practiceDarsTeachingLearningProgramGeneratedData.target}
+                        </span>
+                    </td>
+                    <td>
+                        ${practiceDarsTeachingLearningProgramData.actual}
+                        <span class="badge badge-pill badge-info" if.bind="$this.practiceDarsTeachingLearningProgramGeneratedData">
+                            &nbsp;${practiceDarsTeachingLearningProgramGeneratedData.actual}
+                        </span>
+                    </td>
+                    <td>
+                        ${practiceDarsTeachingLearningProgramData.averageAttendance}
+                        <span class="badge badge-pill badge-info" if.bind="$this.practiceDarsTeachingLearningProgramGeneratedData">
+                            &nbsp;${practiceDarsTeachingLearningProgramGeneratedData.averageAttendance}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>State - Learning Camp (LC)</td>
+                    <td>
+                        ${stateLearningCampTeachingLearningProgramData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.stateLearningCampTeachingLearningProgramGeneratedData">
+                            &nbsp;${stateLearningCampTeachingLearningProgramGeneratedData.target}
+                        </span>
+                    </td>
+                    <td>
+                        ${stateLearningCampTeachingLearningProgramData.actual}
+                        <span class="badge badge-pill badge-info" if.bind="$this.stateLearningCampTeachingLearningProgramGeneratedData">
+                            &nbsp;${stateLearningCampTeachingLearningProgramGeneratedData.actual}
+                        </span>
+                    </td>
+                    <td>
+                        ${stateLearningCampTeachingLearningProgramData.averageAttendance}
+                        <span class="badge badge-pill badge-info" if.bind="$this.stateLearningCampTeachingLearningProgramGeneratedData">
+                            &nbsp;${stateLearningCampTeachingLearningProgramGeneratedData.averageAttendance}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Quran Study</td>
+                    <td>
+                        ${quranStudyTeachingLearningProgramData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.quranStudyTeachingLearningProgramGeneratedData">
+                            &nbsp;${quranStudyTeachingLearningProgramGeneratedData.target}
+                        </span>
+                    </td>
+                    <td>
+                        ${quranStudyTeachingLearningProgramData.actual}
+                        <span class="badge badge-pill badge-info" if.bind="$this.quranStudyTeachingLearningProgramGeneratedData">
+                            &nbsp;${quranStudyTeachingLearningProgramGeneratedData.actual}
+                        </span>
+                    </td>
+                    <td>
+                        ${quranStudyTeachingLearningProgramData.averageAttendance}
+                        <span class="badge badge-pill badge-info" if.bind="$this.quranStudyTeachingLearningProgramGeneratedData">
+                            &nbsp;${quranStudyTeachingLearningProgramGeneratedData.averageAttendance}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Hadith Study</td>
+                    <td>
+                        ${hadithTeachingLearningProgramData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.hadithTeachingLearningProgramGeneratedData">
+                            &nbsp;${hadithTeachingLearningProgramGeneratedData.target}
+                        </span>
+                    </td>
+                    <td>
+                        ${hadithTeachingLearningProgramData.actual}
+                        <span class="badge badge-pill badge-info" if.bind="$this.hadithTeachingLearningProgramGeneratedData">
+                            &nbsp;${hadithTeachingLearningProgramGeneratedData.actual}
+                        </span>
+                    </td>
+                    <td>
+                        ${hadithTeachingLearningProgramData.averageAttendance}
+                        <span class="badge badge-pill badge-info" if.bind="$this.hadithTeachingLearningProgramGeneratedData">
+                            &nbsp;${hadithTeachingLearningProgramGeneratedData.averageAttendance}
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Quran Class</td>
+                    <td>
+                        ${quranClassTeachingLearningProgramData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.quranClassTeachingLearningProgramGeneratedData">
+                            &nbsp;${quranClassTeachingLearningProgramGeneratedData.target}
+                        </span>
+                    </td>
+                    <td>
+                        ${quranClassTeachingLearningProgramData.actual}
+                        <span class="badge badge-pill badge-info" if.bind="$this.quranClassTeachingLearningProgramGeneratedData">
+                            &nbsp;${quranClassTeachingLearningProgramGeneratedData.actual}
+                        </span>
+                    </td>
+                    <td>
+                        ${quranClassTeachingLearningProgramData.averageAttendance}
+                        <span class="badge badge-pill badge-info" if.bind="$this.quranClassTeachingLearningProgramGeneratedData">
+                            &nbsp;${quranClassTeachingLearningProgramGeneratedData.averageAttendance}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Weekend Islamic School</td>
+                    <td>
+                        ${weekendIslamicSchoolTeachingLearningProgramData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.weekendIslamicSchoolTeachingLearningProgramGeneratedData">
+                            &nbsp;${weekendIslamicSchoolTeachingLearningProgramGeneratedData.target}
+                        </span>
+                    </td>
+                    <td>
+                        ${weekendIslamicSchoolTeachingLearningProgramData.actual}
+                        <span class="badge badge-pill badge-info" if.bind="$this.weekendIslamicSchoolTeachingLearningProgramGeneratedData">
+                            &nbsp;${weekendIslamicSchoolTeachingLearningProgramGeneratedData.actual}
+                        </span>
+                    </td>
+                    <td>
+                        ${weekendIslamicSchoolTeachingLearningProgramData.averageAttendance}
+                        <span class="badge badge-pill badge-info" if.bind="$this.weekendIslamicSchoolTeachingLearningProgramGeneratedData">
+                            &nbsp;${weekendIslamicSchoolTeachingLearningProgramGeneratedData.averageAttendance}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Memorizing Ayat</td>
+                    <td>
+                        ${memorizingAyatTeachingLearningProgramData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.memorizingAyatTeachingLearningProgramGeneratedData">
+                            &nbsp;${memorizingAyatTeachingLearningProgramGeneratedData.target}
+                        </span>
+                    </td>
+                    <td>
+                        ${memorizingAyatTeachingLearningProgramData.actual}
+                        <span class="badge badge-pill badge-info" if.bind="$this.memorizingAyatTeachingLearningProgramGeneratedData">
+                            &nbsp;${memorizingAyatTeachingLearningProgramGeneratedData.actual}
+                        </span>
+                    </td>
+                    <td>
+                        ${memorizingAyatTeachingLearningProgramData.averageAttendance}
+                        <span class="badge badge-pill badge-info" if.bind="$this.memorizingAyatTeachingLearningProgramGeneratedData">
+                            &nbsp;${memorizingAyatTeachingLearningProgramGeneratedData.averageAttendance}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Memorizing Hadith</td>
+                    <td>
+                        ${memorizingHadithTeachingLearningProgramData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.memorizingHadithTeachingLearningProgramGeneratedData">
+                            &nbsp;${memorizingHadithTeachingLearningProgramGeneratedData.target}
+                        </span>
+                    </td>
+                    <td>
+                        ${memorizingHadithTeachingLearningProgramData.actual}
+                        <span class="badge badge-pill badge-info" if.bind="$this.memorizingHadithTeachingLearningProgramGeneratedData">
+                            &nbsp;${memorizingHadithTeachingLearningProgramGeneratedData.actual}
+                        </span>
+                    </td>
+                    <td>
+                        ${memorizingHadithTeachingLearningProgramData.averageAttendance}
+                        <span class="badge badge-pill badge-info" if.bind="$this.memorizingHadithTeachingLearningProgramGeneratedData">
+                            &nbsp;${memorizingHadithTeachingLearningProgramGeneratedData.averageAttendance}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Memorizing Doa</td>
+                    <td>
+                        ${memorizingDoaTeachingLearningProgramData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.memorizingDoaTeachingLearningProgramGeneratedData">
+                            &nbsp;${memorizingDoaTeachingLearningProgramGeneratedData.target}
+                        </span>
+                    </td>
+                    <td>
+                        ${memorizingDoaTeachingLearningProgramData.actual}
+                        <span class="badge badge-pill badge-info" if.bind="$this.memorizingDoaTeachingLearningProgramGeneratedData">
+                            &nbsp;${memorizingDoaTeachingLearningProgramGeneratedData.actual}
+                        </span>
+                    </td>
+                    <td>
+                        ${memorizingDoaTeachingLearningProgramData.averageAttendance}
+                        <span class="badge badge-pill badge-info" if.bind="$this.memorizingDoaTeachingLearningProgramGeneratedData">
+                            &nbsp;${memorizingDoaTeachingLearningProgramGeneratedData.averageAttendance}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>State - Learning Session</td>
+                    <td>
+                        ${stateLearningSessionTeachingLearningProgramData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.stateLearningSessionTeachingLearningProgramGeneratedData">
+                            &nbsp;${stateLearningSessionTeachingLearningProgramGeneratedData.target}
+                        </span>
+                    </td>
+                    <td>
+                        ${stateLearningSessionTeachingLearningProgramData.actual}
+                        <span class="badge badge-pill badge-info" if.bind="$this.stateLearningSessionTeachingLearningProgramGeneratedData">
+                            &nbsp;${stateLearningSessionTeachingLearningProgramGeneratedData.actual}
+                        </span>
+                    </td>
+                    <td>
+                        ${stateLearningSessionTeachingLearningProgramData.averageAttendance}
+                        <span class="badge badge-pill badge-info" if.bind="$this.stateLearningSessionTeachingLearningProgramGeneratedData">
+                            &nbsp;${stateLearningSessionTeachingLearningProgramGeneratedData.averageAttendance}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>State - Qiyamul Lail</td>
+                    <td>
+                        ${stateQiyamulLailTeachingLearningProgramData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.stateQiyamulLailTeachingLearningProgramGeneratedData">
+                            &nbsp;${stateQiyamulLailTeachingLearningProgramGeneratedData.target}
+                        </span>
+                    </td>
+                    <td>
+                        ${stateQiyamulLailTeachingLearningProgramData.actual}
+                        <span class="badge badge-pill badge-info" if.bind="$this.stateQiyamulLailTeachingLearningProgramGeneratedData">
+                            &nbsp;${stateQiyamulLailTeachingLearningProgramGeneratedData.actual}
+                        </span>
+                    </td>
+                    <td>
+                        ${stateQiyamulLailTeachingLearningProgramData.averageAttendance}
+                        <span class="badge badge-pill badge-info" if.bind="$this.stateQiyamulLailTeachingLearningProgramGeneratedData">
+                            &nbsp;${stateQiyamulLailTeachingLearningProgramGeneratedData.averageAttendance}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Other</td>
+                    <td>
+                        ${otherTeachingLearningProgramData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.otherTeachingLearningProgramGeneratedData">
+                            &nbsp;${otherTeachingLearningProgramGeneratedData.target}
+                        </span>
+                    </td>
+                    <td>
+                        ${otherTeachingLearningProgramData.actual}
+                        <span class="badge badge-pill badge-info" if.bind="$this.otherTeachingLearningProgramGeneratedData">
+                            &nbsp;${otherTeachingLearningProgramGeneratedData.actual}
+                        </span>
+                    </td>
+                    <td>
+                        ${otherTeachingLearningProgramData.averageAttendance}
+                        <span class="badge badge-pill badge-info" if.bind="$this.otherTeachingLearningProgramGeneratedData">
+                            &nbsp;${otherTeachingLearningProgramGeneratedData.averageAttendance}
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</template>

@@ -1,0 +1,19 @@
+<template>
+    <ux-dialog style="width: 400px">
+        <ux-dialog-title>
+            <div class="bg-primary" style="height: 40px">
+                &nbsp;
+                <a class="btn btn-lg float-right" click.trigger="controller.cancel()">
+                    <i class="fas fa-window-close" style="color: white"></i>
+                </a>
+            </div>
+        </ux-dialog-title>
+        <ux-dialog-body class="text-center">
+            <h4><i class="fas fa-exclamation-triangle fa-2x" style="color: red"></i> ${vm.message}</h4>
+        </ux-dialog-body>
+        <ux-dialog-footer>
+            <button click.trigger="controller.cancel()" class="btn btn-primary float-left">No</button>
+            <button click.trigger="controller.ok()" class="btn btn-warning">Yes</button>
+        </ux-dialog-footer>
+    </ux-dialog>
+</template>

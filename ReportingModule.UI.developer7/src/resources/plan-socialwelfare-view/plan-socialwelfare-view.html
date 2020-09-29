@@ -1,0 +1,79 @@
+<template>
+    <div class="table-responsive">
+        <h5 class="card-title">Social Welfare</h5>
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Type</th>
+                    <th>Target No.</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Qard-e-Hasana</td>
+                    <td>
+                        ${qardeHasanaSocialWelfarePlanData.target}
+                        <span class="badge badge-pill badge-info" if.bind="qardeHasanaSocialWelfarePlanGeneratedData">&nbsp;${qardeHasanaSocialWelfarePlanGeneratedData.target}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Patient Visit</td>
+                    <td>
+                        ${patientVisitSocialWelfarePlanData.target}
+                        <span class="badge badge-pill badge-info" if.bind="patientVisitSocialWelfarePlanGeneratedData">&nbsp;${patientVisitSocialWelfarePlanGeneratedData.target}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Social Visit</td>
+                    <td>
+                        ${socialVisitSocialWelfarePlanData.target}
+                        <span class="badge badge-pill badge-info" if.bind="socialVisitSocialWelfarePlanGeneratedData">&nbsp;${socialVisitSocialWelfarePlanGeneratedData.target}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Transport</td>
+                    <td>
+                        ${transportSocialWelfarePlanData.target}
+                        <span class="badge badge-pill badge-info" if.bind="transportSocialWelfarePlanGeneratedData">&nbsp;${transportSocialWelfarePlanGeneratedData.target}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Shifting</td>
+                    <td>
+                        ${shiftingSocialWelfarePlanData.target}
+                        <span class="badge badge-pill badge-info" if.bind="shiftingSocialWelfarePlanGeneratedData">&nbsp;${shiftingSocialWelfarePlanGeneratedData.target}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Shopping</td>
+                    <td>
+                        ${shoppingSocialWelfarePlanData.target}
+                        <span class="badge badge-pill badge-info" if.bind="shoppingSocialWelfarePlanGeneratedData">&nbsp;${shoppingSocialWelfarePlanGeneratedData.target}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Food Distribution</td>
+                    <td>
+                        ${foodDistributionSocialWelfarePlanData.target}
+                        <span class="badge badge-pill badge-info" if.bind="foodDistributionSocialWelfarePlanGeneratedData">&nbsp;${foodDistributionSocialWelfarePlanGeneratedData.target}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Clean Up Australia</td>
+                    <td>
+                        ${cleanUpAustraliaSocialWelfarePlanData.target}
+                        <span class="badge badge-pill badge-info" if.bind="cleanUpAustraliaSocialWelfarePlanGeneratedData">&nbsp;${cleanUpAustraliaSocialWelfarePlanGeneratedData.target}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Other</td>
+                    <td>
+                        ${otherSocialWelfarePlanData.target}
+                        <span class="badge badge-pill badge-info" if.bind="otherSocialWelfarePlanGeneratedData">&nbsp;${otherSocialWelfarePlanGeneratedData.target}</span>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</template>

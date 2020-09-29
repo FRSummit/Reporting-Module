@@ -1,0 +1,76 @@
+<template>
+    <div if.bind="zoneReport">
+        <div class="row">
+            <div class="col-lg-12">
+                <plan-report-header header-data.bind="headerData"></plan-report-header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <plan-report-shell item-id.bind="reportid" report-status.bind="zoneReport.reportStatus" organization-type.bind="zoneReport.organization.organizationType">
+                    <div class="card">
+                        <div class="card-header bg-info text-white" if.bind="!isDirty">
+                           <div class="row">
+                              <div class="col" align="left">
+                                  ${zoneReport.reportingPeriod | reportingPeriod}
+                              </div>
+                              <div class="col" align="right">
+                                ${zoneReport.timestamp | convertToLocalDate}
+                              </div>
+                            </div>
+
+                        </div>
+
+                        <div class="card-header bg-warning text-white" if.bind="isDirty">
+                           <div class="row">
+                              <div class="col" align="left">
+                                  ${zoneReport.reportingPeriod | reportingPeriod} - Unsaved Changes
+                              </div>
+                              <div class="col" align="right">
+                                ${zoneReport.timestamp | convertToLocalDate}
+                              </div>
+                            </div>
+                        
+                        </div>
+                        <div class="card-body">
+                            <report-manpower-lastperiod-edit
+                                associate-member-data.bind="zoneReport.associateMemberData"
+                                associate-member-generated-data.bind="zoneReport.associateMemberGeneratedData"
+                                preliminary-member-data.bind="zoneReport.preliminaryMemberData"
+                                preliminary-member-generated-data.bind="zoneReport.preliminaryMemberGeneratedData"
+                                supporter-member-data.bind="zoneReport.supporterMemberData"
+                                supporter-member-generated-data.bind="zoneReport.supporterMemberGeneratedData"
+                                member-member-data.bind="zoneReport.memberMemberData"
+                                member-member-generated-data.bind="zoneReport.memberMemberGeneratedData">
+                            </report-manpower-lastperiod-edit>
+                            <report-library-lastperiod-edit
+                                book-library-stock-data.bind="zoneReport.bookLibraryStockData"
+                                book-library-stock-generated-data.bind="zoneReport.bookLibraryStockGeneratedData"
+                                vhs-library-stock-data.bind="zoneReport.vhsLibraryStockData"
+                                vhs-library-stock-generated-data.bind="zoneReport.vhsLibraryStockGeneratedData"
+                                other-library-stock-data.bind="zoneReport.otherLibraryStockData"
+                                other-library-stock-generated-data.bind="zoneReport.otherLibraryStockGeneratedData">
+                            </report-library-lastperiod-edit>
+                            <report-finance-lastperiod-edit
+                                baitul-mal-finance-data.bind="zoneReport.baitulMalFinanceData"
+                                baitul-mal-finance-generated-data.bind="zoneReport.baitulMalFinanceGeneratedData"
+                                a-day-masjid-project-finance-data.bind="zoneReport.aDayMasjidProjectFinanceData"
+                                a-day-masjid-project-finance-generated-data.bind="zoneReport.aDayMasjidProjectFinanceGeneratedData"
+                                masjid-table-bank-finance-data.bind="zoneReport.masjidTableBankFinanceData"
+                                masjid-table-bank-finance-generated-data.bind="zoneReport.masjidTableBankFinanceGeneratedData">
+                            </report-finance-lastperiod-edit>
+                            <button type="button" class="btn btn-primary" click.delegate="save()" disabled.bind="!canSave">
+                                <i class="fas fa-cloud-upload-alt" if.bind="!isSaving"></i>
+                                <i class="fas fa-spinner fa-spin" if.bind="isSaving"></i> Save
+                            </button>&nbsp;
+                            <button type="button" class="btn btn-warning" click.delegate="cancelChanges()" disabled.bind="!canCancel">
+                                <i class="fas fa-eraser" if.bind="!isCancelling"></i>
+                                <i class="fas fa-spinner fa-spin" if.bind="isCancelling"></i> Cancel Changes
+                            </button>
+                        </div>
+                    </div>
+                </plan-report-shell>
+            </div>
+        </div>
+    </div>
+</template>

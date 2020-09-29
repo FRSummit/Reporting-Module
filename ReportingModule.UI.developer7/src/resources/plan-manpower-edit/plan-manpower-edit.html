@@ -1,0 +1,81 @@
+<template>
+    <div class="table-responsive">
+        <h5 class="card-title">Manpower & Personal Contacts</h5>
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Level</th>
+                    <th>Upgrade Target</th>
+                    <th>Name & Contact Number</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>MEMBER</td>
+                    <td>
+                        <div class="input-group" if.bind="$this.memberMemberPlanGeneratedData">
+                            <input class="form-control" value.bind="memberMemberPlanData.upgradeTarget | number" type="number" min="0" numeric-only>
+                            <div class="input-group-append">
+                                <span class="badge badge-info">${memberMemberPlanGeneratedData.upgradeTarget}</span>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.memberMemberPlanGeneratedData">
+                            <input class="form-control" value.bind="memberMemberPlanData.upgradeTarget | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>									
+                    <td><input class="form-control" value.bind="memberMemberPlanData.nameAndContactNumber"></td>
+                    <td><input class="form-control" value.bind="memberMemberPlanData.action"></td>
+                </tr>                
+                <tr>
+                    <td>Associate Member</td>
+                    <td>
+                        <div class="input-group" if.bind="$this.associateMemberPlanGeneratedData">
+                            <input class="form-control" value.bind="associateMemberPlanData.upgradeTarget | number" type="number" min="0" numeric-only>
+                            <div class="input-group-append align-middle">
+                                <span class="badge badge-info">${associateMemberPlanGeneratedData.upgradeTarget}</span>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.associateMemberPlanGeneratedData">
+                            <input class="form-control" value.bind="associateMemberPlanData.upgradeTarget | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>
+                    <td><input class="form-control" value.bind="associateMemberPlanData.nameAndContactNumber"></td>
+                    <td><input class="form-control"  value.bind="associateMemberPlanData.action"></td>
+                </tr>
+                <tr>
+                    <td>Preliminary Member</td>
+                    <td>
+                        <div class="input-group" if.bind="$this.preliminaryMemberPlanGeneratedData">
+                            <input class="form-control" value.bind="preliminaryMemberPlanData.upgradeTarget | number" type="number" min="0" numeric-only>
+                            <div class="input-group-append">
+                                <span class="badge badge-info">${preliminaryMemberPlanGeneratedData.upgradeTarget}</span>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.preliminaryMemberPlanGeneratedData">
+                            <input class="form-control" value.bind="preliminaryMemberPlanData.upgradeTarget | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>									
+                    <td><input class="form-control" value.bind="preliminaryMemberPlanData.nameAndContactNumber"></td>
+                    <td><input class="form-control" value.bind="preliminaryMemberPlanData.action"></td>
+                </tr>
+                <tr>
+                    <td>Supporter</td>
+                    <td>
+                        <div class="input-group" if.bind="$this.supporterMemberPlanGeneratedData">
+                            <input class="form-control" value.bind="supporterMemberPlanData.upgradeTarget | number" type="number" min="0" numeric-only>
+                            <div class="input-group-append">
+                                <span class="badge badge-info">${supporterMemberPlanGeneratedData.upgradeTarget}</span>
+                            </div>
+                        </div>
+                        <div if.bind="!$this.supporterMemberPlanGeneratedData">
+                            <input class="form-control" value.bind="supporterMemberPlanData.upgradeTarget | number" type="number" min="0" numeric-only>
+                        </div>
+                    </td>									
+                    <td><input class="form-control" value.bind="supporterMemberPlanData.nameAndContactNumber"></td>
+                    <td><input class="form-control" value.bind="supporterMemberPlanData.action"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</template>

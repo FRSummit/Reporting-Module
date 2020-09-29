@@ -1,0 +1,121 @@
+<template>
+    <div class="table-responsive">
+        <h5 class="card-title">Teaching & Learning Program</h5>
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Program</th>
+                    <th>Target No.</th>
+                    <th>Date & Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Group Study/Discussion</td>
+                    <td>
+                        <input-number input-number.bind="groupStudyTeachingLearningProgramPlanData.target" generated.bind="groupStudyTeachingLearningProgramPlanGeneratedData.target"></input-number>
+                    </td>
+                    <td><input class="form-control" value.bind="groupStudyTeachingLearningProgramPlanData.dateAndAction"></td>
+                </tr>
+                <tr>
+                    <td>Study Circle(AM)</td>
+                    <td>
+                        <input-number input-number.bind="studyCircleForAssociateMemberTeachingLearningProgramPlanData.target" generated.bind="studyCircleForAssociateMemberTeachingLearningProgramPlanGeneratedData.target"></input-number>
+                    </td>
+                    <td><input class="form-control" value.bind="studyCircleForAssociateMemberTeachingLearningProgramPlanData.dateAndAction"></td>
+                </tr>
+                <tr>
+                    <td>Study Circle</td>
+                    <td>
+                        <input-number input-number.bind="studyCircleTeachingLearningProgramPlanData.target" generated.bind="studyCircleTeachingLearningProgramPlanGeneratedData.target"></input-number>
+                    </td>
+                    <td><input class="form-control" value.bind="studyCircleTeachingLearningProgramPlanData.dateAndAction"></td>
+                </tr>
+                <tr>
+                    <td>Practice Dars/ Speech</td>
+                    <td>
+                        <input-number input-number.bind="practiceDarsTeachingLearningProgramPlanData.target" generated.bind="practiceDarsTeachingLearningProgramPlanGeneratedData.target"></input-number>
+                    </td>
+                    <td><input class="form-control" value.bind="practiceDarsTeachingLearningProgramPlanData.dateAndAction"></td>
+                </tr>
+                <tr>
+                    <td>State - Learning Camp (LC)</td>
+                    <td>
+                        <input-number input-number.bind="stateLearningCampTeachingLearningProgramPlanData.target" generated.bind="stateLearningCampTeachingLearningProgramPlanGeneratedData.target"></input-number>
+                    </td>
+                    <td><input class="form-control" value.bind="stateLearningCampTeachingLearningProgramPlanData.dateAndAction"></td>
+                </tr>
+                <tr>
+                    <td>Quran Study</td>
+                    <td>
+                        <input-number input-number.bind="quranStudyTeachingLearningProgramPlanData.target" generated.bind="quranStudyTeachingLearningProgramPlanGeneratedData.target"></input-number>
+                    </td>
+                    <td><input class="form-control" value.bind="quranStudyTeachingLearningProgramPlanData.dateAndAction"></td>
+                </tr>
+                <tr>
+                    <td>Hadith Study</td>
+                    <td>
+                        <input-number input-number.bind="hadithTeachingLearningProgramPlanData.target" generated.bind="hadithTeachingLearningProgramPlanGeneratedData.target"></input-number>
+                    </td>
+                    <td><input class="form-control" value.bind="hadithTeachingLearningProgramPlanData.dateAndAction"></td>
+                </tr>
+                <tr>
+                    <td>Quran Class</td>
+                    <td>
+                        <input-number input-number.bind="quranClassTeachingLearningProgramPlanData.target" generated.bind="quranClassTeachingLearningProgramPlanGeneratedData.target"></input-number>
+                    </td>
+                    <td><input class="form-control" value.bind="quranClassTeachingLearningProgramPlanData.dateAndAction"></td>
+                </tr>
+                <tr>
+                    <td>Weekend Islamic School</td>
+                    <td>
+                        <input-number input-number.bind="weekendIslamicSchoolTeachingLearningProgramPlanData.target" generated.bind="weekendIslamicSchoolTeachingLearningProgramPlanGeneratedData.target"></input-number>
+                    </td>
+                    <td><input class="form-control" value.bind="weekendIslamicSchoolTeachingLearningProgramPlanData.dateAndAction"></td>
+                </tr>
+                <tr>
+                    <td>Memorizing Ayat</td>
+                    <td>
+                        <input-number input-number.bind="memorizingAyatTeachingLearningProgramPlanData.target" generated.bind="memorizingAyatTeachingLearningProgramPlanGeneratedData.target"></input-number>
+                    </td>
+                    <td><input class="form-control" value.bind="memorizingAyatTeachingLearningProgramPlanData.dateAndAction"></td>
+                </tr>
+                <tr>
+                    <td>Memorizing Hadith</td>
+                    <td>
+                        <input-number input-number.bind="memorizingHadithTeachingLearningProgramPlanData.target" generated.bind="memorizingHadithTeachingLearningProgramPlanGeneratedData.target"></input-number>
+                    </td>
+                    <td><input class="form-control" value.bind="memorizingHadithTeachingLearningProgramPlanData.dateAndAction"></td>
+                </tr>
+                <tr>
+                    <td>Memorizing Doa</td>
+                    <td>
+                        <input-number input-number.bind="memorizingDoaTeachingLearningProgramPlanData.target" generated.bind="memorizingDoaTeachingLearningProgramPlanGeneratedData.target"></input-number>
+                    </td>
+                    <td><input class="form-control" value.bind="memorizingDoaTeachingLearningProgramPlanData.dateAndAction"></td>
+                </tr>
+                <tr>
+                    <td>State - Learning Session</td>
+                    <td>
+                        <input-number input-number.bind="stateLearningSessionTeachingLearningProgramPlanData.target" generated.bind="stateLearningSessionTeachingLearningProgramPlanGeneratedData.target"></input-number>
+                    </td>
+                    <td><input class="form-control" value.bind="stateLearningSessionTeachingLearningProgramPlanData.dateAndAction"></td>
+                </tr>
+                <tr>
+                    <td>State - Qiyamul Lail</td>
+                    <td>
+                        <input-number input-number.bind="stateQiyamulLailTeachingLearningProgramPlanData.target" generated.bind="stateQiyamulLailTeachingLearningProgramPlanGeneratedData.target"></input-number>                        
+                    </td>
+                    <td><input class="form-control" value.bind="stateQiyamulLailTeachingLearningProgramPlanData.dateAndAction"></td>
+                </tr>
+                <tr>
+                    <td>Other</td>
+                    <td>
+                        <input-number input-number.bind="otherTeachingLearningProgramPlanData.target" generated.bind="otherTeachingLearningProgramPlanGeneratedData.target"></input-number>                        
+                    </td>
+                    <td><input class="form-control" value.bind="otherTeachingLearningProgramPlanData.dateAndAction"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</template>

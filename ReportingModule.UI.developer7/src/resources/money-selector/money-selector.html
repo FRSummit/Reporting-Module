@@ -1,0 +1,19 @@
+<template>
+    <div>
+        <div class="input-group" if.bind="!generated">
+            <span class="input-group-prepend">
+                <span class="input-group-text">$</span>
+            </span>
+            <input class="form-control" value.bind="money.amount | number" min="0" decimal-only>
+        </div>
+        <div class="input-group" if.bind="generated">
+            <span class="input-group-prepend">
+                <span class="input-group-text">$</span>
+            </span>
+            <input class="form-control" value.bind="money.amount | number" min="0" decimal-only>
+            <div class="input-group-append">
+                <span class="badge badge-info">${generated.amount}</span>
+            </div>
+        </div>
+    </div>
+</template>

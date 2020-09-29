@@ -1,0 +1,66 @@
+<template>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header bg-primary">
+                    <h5 class="card-title text-white">Admin Tools</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover table-bordered">
+                            <thead class="thead-light">
+                                <th>Command</th>
+                                <th>Action</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="media">
+                                            Ping:&nbsp;<input class="form-control" value.bind="pingmessage" />
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-success media" disabled.bind="ispinging" click.delegate="ping()">
+                                            <i class="fas fa-table-tennis" if.bind="!ispinging"></i>
+                                            <i class="fas fa-spinner fa-spin" if.bind="ispinging"></i>&nbsp;Send
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Create Plan
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-success" route-href="route: plan-create">
+                                            <i class="fas fa-plus"></i><span class="text-white"> Create Plan</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Create Organization
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-success" route-href="route: organization-create">
+                                            <i class="fas fa-plus"></i><span class="text-white"> Create Organization</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Create Organization User
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-success" route-href="route: organization-user-create">
+                                            <i class="fas fa-plus"></i><span class="text-white"> Create Organization User</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,8 @@
+<template>
+    <select class="form-control" value.bind="selectedStatus">
+        <option model.bind="null">Choose...</option>
+        <option repeat.for="statusOption of statusOptions" model.bind="statusOption.id">
+            ${statusOption.name}
+        </option>
+    </select>
+</template>

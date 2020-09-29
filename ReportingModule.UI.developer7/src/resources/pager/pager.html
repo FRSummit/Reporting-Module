@@ -1,0 +1,31 @@
+<template>
+    <nav class="navbar justify-content-end">
+        <ul class="pagination">
+            <li class="page-item ${pagingdata.page === 1 ? 'disabled': undefined}">
+                <a class="page-link" aria-label="First" click.delegate="load(1)">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item ${pagingdata.page === 1 ? 'disabled': undefined}">
+                <a class="page-link" aria-label="Previous" click.delegate="load(pagingdata.page-1)">
+                    <span aria-hidden="true">&lsaquo;</span>
+                </a>
+            </li>
+            <li class="page-item ${p === pagingdata.page ? 'active' : undefined}" repeat.for="p of displaypages">
+                <a class="page-link" if.bind="p === pagingdata.page" tabindex="-1">${p} <span class="sr-only">(current)</span></a>
+                <a class="page-link" click.delegate="load(p)" if.bind="p !== pagingdata.page">${p}</a>
+            </li>
+            <li class="page-item ${pagingdata.page === pages ? 'disabled': undefined}">
+                <a class="page-link" aria-label="Next" click.delegate="load(pagingdata.page+1)">
+                    <span aria-hidden="true">&rsaquo;</span>
+                </a>
+            </li>
+            <li class="page-item ${pagingdata.page === pages ? 'disabled': undefined}">
+                <a class="page-link" aria-label="Last" click.delegate="load(pages)">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+        <div class="mb-3 text-primary ml-2">Total: ${pagingdata.totalRecords}</div>
+    </nav>
+</template>

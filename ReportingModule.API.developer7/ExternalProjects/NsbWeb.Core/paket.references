@@ -1,0 +1,13 @@
+group net472
+log4net
+Microsoft.AspNet.SignalR.Core
+Microsoft.AspNet.WebApi.Client
+Microsoft.AspNet.WebApi.Core
+Microsoft.AspNet.WebApi.Cors
+Microsoft.Owin
+Microsoft.Owin.Cors
+Microsoft.Owin.Security
+Newtonsoft.Json
+NServiceBus
+Owin
+structuremap

@@ -1,0 +1,22 @@
+<template>
+    <nav class="sidebar">
+        <div class="sidebar-content">
+            <a class="sidebar-brand" href="/">
+                <img src="/s5_logo.png" style="width: 100%">
+                <div class="align-middle">IPDC Reporting System</div>
+            </a>
+            <ul class="sidebar-nav">
+                <li repeat.for="navmodel of router.navigation" class="${navmodel.isActive ? 'sidebar-item active' : 'sidebar-item'}" if.bind="!authservice.isAuthenticated">
+                    <a class="sidebar-link" href.bind="navmodel.href" if.bind="!navmodel.config.auth">
+                        <span>${navmodel.title}</span>
+                    </a>
+                </li>
+                <li repeat.for="navmodel of router.navigation" class="${navmodel.isActive ? 'sidebar-item active' : 'sidebar-item'}" if.bind="authservice.isAuthenticated">
+                    <a class="sidebar-link" href.bind="navmodel.href" if.bind="navmodel.config.auth && isUserVisible(navmodel.config.roles)">
+                        <span>${navmodel.title}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</template>

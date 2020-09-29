@@ -1,0 +1,113 @@
+<template>
+    <div class="table-responsive">
+        <h5 class="card-title">Dawah Material Distribution</h5>
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Material</th>
+                    <th>Distribution Target</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr>
+                    <td>Book Sale</td>
+                    <td>
+                        <div if.bind="$this.bookSaleMaterialPlanGeneratedData">
+                            ${bookSaleMaterialPlanData.target} <span class="badge badge-pill badge-info">${bookSaleMaterialPlanGeneratedData.target}</span>
+                        </div>
+                        <div if.bind="!$this.bookSaleMaterialPlanGeneratedData">
+                            ${bookSaleMaterialPlanData.target}
+                        </div>
+                    </td>
+                    <td>${bookSaleMaterialPlanData.dateAndAction}</td>
+                </tr>
+                <tr>
+                    <td>Book Distribution</td>
+                    <td>
+                        <div if.bind="$this.bookDistributionMaterialPlanGeneratedData">
+                            ${bookDistributionMaterialPlanData.target} <span class="badge badge-pill badge-info">${bookDistributionMaterialPlanGeneratedData.target}</span>
+                        </div>
+                        <div if.bind="!$this.bookDistributionMaterialPlanGeneratedData">
+                            ${bookDistributionMaterialPlanData.target}
+                        </div>
+                    </td>
+                    <td>${bookDistributionMaterialPlanData.dateAndAction}</td>
+                </tr>
+                <tr>
+                    <td>VHS/DVD/VCD/CD/Audio Sale</td>
+                    <td>
+                        <div if.bind="$this.vhsSaleMaterialPlanGeneratedData">
+                            ${vhsSaleMaterialPlanData.target} <span class="badge badge-pill badge-info">${vhsSaleMaterialPlanGeneratedData.target}</span>
+                        </div>
+                        <div if.bind="!$this.vhsSaleMaterialPlanGeneratedData">
+                            ${vhsSaleMaterialPlanData.target}
+                        </div>
+                    </td>                    
+                    <td>${vhsSaleMaterialPlanData.dateAndAction}</td>
+                </tr>
+                <tr>
+                    <td>VHS/DVD/VCD/CD/Audio Distribution</td>
+                    <td>
+                        <div if.bind="$this.vhsDistributionMaterialPlanGeneratedData">
+                            ${vhsDistributionMaterialPlanData.target} <span class="badge badge-pill badge-info">${vhsDistributionMaterialPlanGeneratedData.target}</span>
+                        </div>
+                        <div if.bind="!$this.vhsDistributionMaterialPlanGeneratedData">
+                            ${vhsDistributionMaterialPlanData.target}
+                        </div>
+                    </td>
+                    <td>${vhsDistributionMaterialPlanData.dateAndAction}</td>
+                </tr>
+                <tr>
+                    <td>Email Distribution</td>
+                    <td>
+                        <div if.bind="$this.emailDistributionMaterialPlanGeneratedData">
+                            ${emailDistributionMaterialPlanData.target} <span class="badge badge-pill badge-info">${emailDistributionMaterialPlanGeneratedData.target}</span>
+                        </div>
+                        <div if.bind="!$this.emailDistributionMaterialPlanGeneratedData">
+                            ${emailDistributionMaterialPlanData.target}
+                        </div>
+                    </td>                    
+                    <td>${emailDistributionMaterialPlanData.dateAndAction}</td>
+                </tr>
+                <tr>
+                    <td>IPDC Leaflet Distribution</td>
+                    <td>
+                        <div if.bind="$this.ipdcLeafletDistributionMaterialPlanGeneratedData">
+                            ${ipdcLeafletDistributionMaterialPlanData.target} <span class="badge badge-pill badge-info">${ipdcLeafletDistributionMaterialPlanGeneratedData.target}</span>
+                        </div>
+                        <div if.bind="!$this.ipdcLeafletDistributionMaterialPlanGeneratedData">
+                            ${ipdcLeafletDistributionMaterialPlanData.target}
+                        </div>
+                    </td>
+                    <td>${ipdcLeafletDistributionMaterialPlanData.dateAndAction}</td>
+                </tr>
+                <tr>
+                    <td>Other Sale</td>
+                    <td>
+                        <div if.bind="$this.otherSaleMaterialPlanGeneratedData">
+                            ${otherSaleMaterialPlanData.target} <span class="badge badge-pill badge-info">${otherSaleMaterialPlanGeneratedData.target}</span>
+                        </div>
+                        <div if.bind="!$this.otherSaleMaterialPlanGeneratedData">
+                            ${otherSaleMaterialPlanData.target}
+                        </div>
+                    </td>                    
+                    <td>${otherSaleMaterialPlanData.dateAndAction}</td>
+                </tr>
+                <tr>
+                    <td>Other Distribution</td>
+                    <td>
+                        <div if.bind="$this.otherDistributionMaterialPlanGeneratedData">
+                            ${otherDistributionMaterialPlanData.target} <span class="badge badge-pill badge-info">${otherDistributionMaterialPlanGeneratedData.target}</span>
+                        </div>
+                        <div if.bind="!$this.otherDistributionMaterialPlanGeneratedData">
+                            ${otherDistributionMaterialPlanData.target}
+                        </div>
+                    </td>
+                    <td>${otherDistributionMaterialPlanData.dateAndAction}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</template>

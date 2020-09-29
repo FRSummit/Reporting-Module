@@ -1,0 +1,12 @@
+group net472
+FluentAssertions
+Newtonsoft.Json
+NHibernate
+NServiceBus
+NServiceBus.Testing
+NSubstitute
+nunit
+NUnit.Engine
+NUnit.Engine.Api
+Nunit3TestAdapter
+structuremap

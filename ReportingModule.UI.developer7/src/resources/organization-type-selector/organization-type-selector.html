@@ -1,0 +1,8 @@
+<template>
+    <select class="form-control" value.bind="selectedType">
+        <option model.bind="null" if.bind="!excludeChooseOption">Choose...</option>
+        <option repeat.for="typeOption of typeOptions" model.bind="typeOption.id">
+            ${typeOption.name}
+        </option>
+    </select>
+</template>

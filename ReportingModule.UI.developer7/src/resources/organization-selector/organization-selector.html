@@ -1,0 +1,8 @@
+<template>
+    <select class="form-control" value.bind="selectedOrganization">
+            <option model.bind="null" if.bind="!excludeChooseOption">Choose...</option>
+            <option repeat.for="organization of organizations" model.bind="organization.id">
+                ${organization.parentDescription} - ${organization.description}
+            </option>
+        </select>
+</template>

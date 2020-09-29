@@ -1,0 +1,11 @@
+group net472
+FluentAssertions
+log4net
+Microsoft.Data.Edm
+Microsoft.Data.OData
+Microsoft.Data.Services.Client
+Newtonsoft.Json
+NHibernate
+nunit
+structuremap
+System.Spatial

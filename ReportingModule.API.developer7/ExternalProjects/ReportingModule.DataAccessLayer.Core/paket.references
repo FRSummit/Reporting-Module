@@ -1,0 +1,15 @@
+group net472
+Common.Logging
+FluentNHibernate
+log4net
+Microsoft.Data.Edm
+Microsoft.Data.OData
+Microsoft.Data.Services.Client
+Newtonsoft.Json
+NHibernate
+NHibernate.Caches.SysCache2
+NServiceBus
+NServiceBus.Log4Net
+NServiceBus.StructureMap
+structuremap
+System.Spatial

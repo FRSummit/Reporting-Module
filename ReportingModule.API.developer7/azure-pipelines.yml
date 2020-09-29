@@ -1,0 +1,71 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'VS2017-Win2016'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Staging'
+
+steps:
+- task: CmdLine@2  
+  inputs:
+    script: |
+      ECHO OFF
+            
+            ECHO Migrating REPORTING_QAS_TEST database
+            ECHO.
+            ECHO.
+            
+            pushd
+            
+            call flyway\flyway.rm.inst\flyway -configFiles=flyway/flyway.rm.inst/conf/flyway_qas_test.conf migrate
+    failOnStderr: true
+
+- task: NuGetToolInstaller@0
+  inputs:
+    versionSpec: '4.3.0' 
+    checkLatest: false # Optional
+
+- task: PaketRestore@0
+  inputs:
+    PaketPath: '.paket'
+
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: VSTest@2
+  inputs:
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+# Copy files Database 
+- task: CopyFiles@2
+  inputs:
+    sourceFolder: '$(system.defaultworkingdirectory)'
+    contents:  |
+      **\flyway\flyway.rm.inst\sql\**
+    targetFolder: '$(build.artifactStagingDirectory)'
+  condition: succeededOrFailed()
+
+# Copy files NServicebus Host 
+- task: CopyFiles@2
+  inputs:
+    sourceFolder: '$(system.defaultworkingdirectory)'
+    contents:  |
+      **\bin\$(BuildConfiguration)\**
+    targetFolder: '$(build.artifactStagingDirectory)'
+  condition: succeededOrFailed()
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(build.artifactStagingDirectory)'
+  condition: succeededOrFailed()
+
+

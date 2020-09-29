@@ -1,0 +1,16 @@
+group net472
+EPPlus
+FluentNHibernate
+log4net
+Microsoft.AspNet.Cors
+Microsoft.AspNet.SignalR.Core
+Microsoft.AspNet.WebApi.Client
+Microsoft.AspNet.WebApi.Core
+Microsoft.AspNet.WebApi.Cors
+Microsoft.Aspnet.WebApi.Cors
+Microsoft.Owin
+Microsoft.Owin.Security
+Newtonsoft.Json
+NServiceBus
+Owin
+structuremap

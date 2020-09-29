@@ -1,0 +1,8 @@
+<template>
+    <select class="form-control" value.bind="selectedFrequency">
+        <option model.bind="null" if.bind="!excludeChooseOption">Choose...</option>
+        <option repeat.for="reportingFrequencyOption of reportingFrequencyOptions" model.bind="reportingFrequencyOption.id">
+            ${reportingFrequencyOption.description}
+        </option>
+    </select>
+</template>

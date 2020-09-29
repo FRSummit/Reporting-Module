@@ -1,0 +1,27 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'VS2017-Win2016'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Staging'
+
+steps:
+# Copy files NServicebus Host 
+- task: CopyFiles@2
+  inputs:
+    sourceFolder: '$(system.defaultworkingdirectory)'
+    contents:  |
+      **\flyway\flyway.rm.inst\sql\**
+    targetFolder: '$(build.artifactStagingDirectory)'
+  condition: succeededOrFailed()
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(build.artifactStagingDirectory)'
+  condition: succeededOrFailed()
+
+

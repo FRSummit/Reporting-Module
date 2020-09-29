@@ -1,0 +1,66 @@
+<template>
+    <div if.bind="unitReport">
+        <div class="row">
+            <div class="col-lg-12">
+                <plan-report-header header-data.bind="headerData"></plan-report-header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <plan-report-shell item-id.bind="reportid" report-status.bind="unitReport.reportStatus" organization-type.bind="unitReport.organization.organizationType">
+                    <div class="card">
+                        <div class="card-header bg-info text-white" if.bind="!isDirty">
+                           <div class="row">
+                              <div class="col" align="left">
+                                  ${unitReport.reportingPeriod | reportingPeriod}
+                              </div>
+                              <div class="col" align="right">
+                                ${unitReport.timestamp | convertToLocalDate}
+                              </div>
+                            </div>
+
+                        </div>
+
+                        <div class="card-header bg-warning text-white" if.bind="isDirty">
+                           <div class="row">
+                              <div class="col" align="left">
+                                  ${unitReport.reportingPeriod | reportingPeriod} - Unsaved Changes
+                              </div>
+                              <div class="col" align="right">
+                                ${unitReport.timestamp | convertToLocalDate}
+                              </div>
+                            </div>
+                        
+                        </div>
+                        <div class="card-body">
+                            <report-manpower-lastperiod-edit
+                                associate-member-data.bind="unitReport.associateMemberData"
+                                preliminary-member-data.bind="unitReport.preliminaryMemberData"
+                                supporter-member-data.bind="unitReport.supporterMemberData"
+                                member-member-data.bind="unitReport.memberMemberData">
+                            </report-manpower-lastperiod-edit>
+                            <report-library-lastperiod-edit
+                                book-library-stock-data.bind="unitReport.bookLibraryStockData"
+                                vhs-library-stock-data.bind="unitReport.vhsLibraryStockData"
+                                other-library-stock-data.bind="unitReport.otherLibraryStockData">
+                            </report-library-lastperiod-edit>
+                            <report-finance-lastperiod-edit
+                                baitul-mal-finance-data.bind="unitReport.baitulMalFinanceData"
+                                a-day-masjid-project-finance-data.bind="unitReport.aDayMasjidProjectFinanceData"
+                                masjid-table-bank-finance-data.bind="unitReport.masjidTableBankFinanceData">
+                            </report-finance-lastperiod-edit>
+                            <button type="button" class="btn btn-primary" click.delegate="save()" disabled.bind="!canSave">
+                                <i class="fas fa-cloud-upload-alt" if.bind="!isSaving"></i>
+                                <i class="fas fa-spinner fa-spin" if.bind="isSaving"></i> Save
+                            </button>&nbsp;
+                            <button type="button" class="btn btn-warning" click.delegate="cancelChanges()" disabled.bind="!canCancel">
+                                <i class="fas fa-eraser" if.bind="!isCancelling"></i>
+                                <i class="fas fa-spinner fa-spin" if.bind="isCancelling"></i> Cancel Changes
+                            </button>
+                        </div>
+                    </div>
+                </plan-report-shell>
+            </div>
+        </div>
+    </div>
+</template>

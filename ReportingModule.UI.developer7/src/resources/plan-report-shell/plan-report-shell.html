@@ -1,0 +1,148 @@
+<template>
+    <div class="tab">
+        <ul class="nav nav-tabs" role="tablist" if.bind="$this.organizationType === 1">
+            <li class="nav-item">
+                <a class="${isActive('unit-plan-view') ? 'nav-link active' : 'nav-link'}"
+                    route-href="route: unit-plan-view; params.bind: {planid: $this.itemId}" role="tab">View Plan</a>
+            </li>
+            <li class="nav-item">
+                <a class="${isActive('unit-plan-edit') ? 'nav-link active' : 'nav-link'}"
+                    route-href="route: unit-plan-edit; params.bind: {planid: $this.itemId}"
+                    if.bind="$this.reportStatus | canEditPlan" role="tab">Edit Plan</a>
+            </li>
+            <li class="nav-item">
+                <a class="${isActive('unit-report-view') ? 'nav-link active' : 'nav-link'}"
+                    route-href="route: unit-report-view; params.bind: {reportid: $this.itemId}"
+                    if.bind="$this.reportStatus | canViewReport" role="tab">View Report</a>
+            </li>
+            <li class="nav-item">
+                <a class="${isActive('unit-report-edit') ? 'nav-link active' : 'nav-link'}"
+                    route-href="route: unit-report-edit; params.bind: {reportid: $this.itemId}"
+                    if.bind="$this.reportStatus | canEditReport" role="tab">Edit Report</a>
+            </li>
+            <li class="nav-item" if.bind="canCopy">
+                <a class="${isActive('unit-plan-copy') ? 'nav-link active' : 'nav-link'}"
+                    route-href="route: unit-plan-copy; params.bind: {planid: $this.itemId}" role="tab">Copy Plan and
+                    Report to the next period</a>
+            </li>
+            <li class="nav-item">
+                <a class="${isActive('unit-report-lastperiod-edit') ? 'nav-link active' : 'nav-link'}"
+                    route-href="route: unit-report-lastperiod-edit; params.bind: {reportid: $this.itemId}"
+                    if.bind="canEditLastPeriod" role="tab">Edit Last Period</a>
+            </li>
+        </ul>
+        <ul class="nav nav-tabs" role="tablist" if.bind="$this.organizationType === 3">
+            <li class="nav-item">
+                <a class="${isActive('state-plan-view') ? 'nav-link active' : 'nav-link'}"
+                    route-href="route: state-plan-view; params.bind: {planid: $this.itemId}" role="tab">View Plan</a>
+            </li>
+            <li class="nav-item">
+                <a class="${isActive('state-plan-edit') ? 'nav-link active' : 'nav-link'}"
+                    route-href="route: state-plan-edit; params.bind: {planid: $this.itemId}"
+                    if.bind="$this.reportStatus | canEditPlan" role="tab">Edit Plan</a>
+            </li>
+            <li class="nav-item">
+                <a class="${isActive('state-report-view') ? 'nav-link active' : 'nav-link'}"
+                    route-href="route: state-report-view; params.bind: {reportid: $this.itemId}"
+                    if.bind="$this.reportStatus | canViewReport" role="tab">View Report</a>
+            </li>
+            <li class="nav-item">
+                <a class="${isActive('state-report-edit') ? 'nav-link active' : 'nav-link'}"
+                    route-href="route: state-report-edit; params.bind: {reportid: $this.itemId}"
+                    if.bind="$this.reportStatus | canEditReport" role="tab">Edit Report</a>
+            </li>
+            <li class="nav-item" if.bind="canCopy">
+                <a class="${isActive('state-plan-copy') ? 'nav-link active' : 'nav-link'}"
+                    route-href="route: state-plan-copy; params.bind: {planid: $this.itemId}" role="tab">Copy Plan and
+                    Report to the next period</a>
+            </li>
+            <li class="nav-item">
+                <a class="${isActive('state-report-lastperiod-edit') ? 'nav-link active' : 'nav-link'}"
+                    route-href="route: state-report-lastperiod-edit; params.bind: {reportid: $this.itemId}"
+                    if.bind="canEditLastPeriod" role="tab">Edit Last Period</a>
+            </li>
+        </ul>
+        <ul class="nav nav-tabs" role="tablist" if.bind="$this.organizationType === 2">
+            <li class="nav-item">
+                <a class="${isActive('zone-plan-view') ? 'nav-link active' : 'nav-link'}"
+                    route-href="route: zone-plan-view; params.bind: {planid: $this.itemId}" role="tab">View Plan</a>
+            </li>
+            <li class="nav-item">
+                <a class="${isActive('zone-plan-edit') ? 'nav-link active' : 'nav-link'}"
+                    route-href="route: zone-plan-edit; params.bind: {planid: $this.itemId}"
+                    if.bind="$this.reportStatus | canEditPlan" role="tab">Edit Plan</a>
+            </li>
+            <li class="nav-item">
+                <a class="${isActive('zone-report-view') ? 'nav-link active' : 'nav-link'}"
+                    route-href="route: zone-report-view; params.bind: {reportid: $this.itemId}"
+                    if.bind="$this.reportStatus | canViewReport" role="tab">View Report</a>
+            </li>
+            <li class="nav-item">
+                <a class="${isActive('zone-report-edit') ? 'nav-link active' : 'nav-link'}"
+                    route-href="route: zone-report-edit; params.bind: {reportid: $this.itemId}"
+                    if.bind="$this.reportStatus | canEditReport" role="tab">Edit Report</a>
+            </li>
+            <li class="nav-item" if.bind="canCopy">
+                <a class="${isActive('zone-plan-copy') ? 'nav-link active' : 'nav-link'}"
+                    route-href="route: zone-plan-copy; params.bind: {planid: $this.itemId}" role="tab">Copy Plan and
+                    Report to the next period</a>
+            </li>
+            <li class="nav-item">
+                <a class="${isActive('zone-report-lastperiod-edit') ? 'nav-link active' : 'nav-link'}"
+                    route-href="route: zone-report-lastperiod-edit; params.bind: {reportid: $this.itemId}"
+                    if.bind="canEditLastPeriod" role="tab">Edit Last Period</a>
+            </li>
+        </ul>
+        <ul class="nav nav-tabs" role="tablist" if.bind="$this.organizationType === 5">
+            <li class="nav-item">
+                <a class="${isActive('central-plan-view') ? 'nav-link active' : 'nav-link'}"
+                    route-href="route: central-plan-view; params.bind: {planid: $this.itemId}" role="tab">View Plan</a>
+            </li>
+            <li class="nav-item">
+                <a class="${isActive('central-plan-edit') ? 'nav-link active' : 'nav-link'}"
+                    route-href="route: central-plan-edit; params.bind: {planid: $this.itemId}"
+                    if.bind="$this.reportStatus | canEditPlan" role="tab">Edit Plan</a>
+            </li>
+            <li class="nav-item">
+                <a class="${isActive('central-report-view') ? 'nav-link active' : 'nav-link'}"
+                    route-href="route: central-report-view; params.bind: {reportid: $this.itemId}"
+                    if.bind="$this.reportStatus | canViewReport" role="tab">View Report</a>
+            </li>
+            <li class="nav-item">
+                <a class="${isActive('central-report-edit') ? 'nav-link active' : 'nav-link'}"
+                    route-href="route: central-report-edit; params.bind: {reportid: $this.itemId}"
+                    if.bind="$this.reportStatus | canEditReport" role="tab">Edit Report</a>
+            </li>
+            <li class="nav-item" if.bind="canCopy">
+                <a class="${isActive('central-plan-copy') ? 'nav-link active' : 'nav-link'}"
+                    route-href="route: central-plan-copy; params.bind: {planid: $this.itemId}" role="tab">Copy Plan and
+                    Report to the next period</a>
+            </li>
+            <li class="nav-item">
+                <a class="${isActive('central-report-lastperiod-edit') ? 'nav-link active' : 'nav-link'}"
+                    route-href="route: central-report-lastperiod-edit; params.bind: {reportid: $this.itemId}"
+                    if.bind="canEditLastPeriod" role="tab">Edit Last Period</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="row">
+                <ul if.bind="isActive('unit-report-edit') || isActive('zone-report-edit') || isActive('state-report-edit') || isActive('central-report-edit')"
+                    class="col-3 list-group">
+                    <li class="list-group-item">
+                        <splan class="badge badge-danger badge-pill"><strike>1</strike></splan> Previous Calculated
+                        Value
+                    </li>
+                    <li class="list-group-item">
+                        <splan class="badge badge-success badge-pill">1</splan> New Calculated Value
+                    </li>
+                    <li if.bind="isActive('zone-report-edit') || isActive('state-report-edit') || isActive('central-report-edit')"
+                        class="list-group-item">
+                        <splan class="badge badge-info badge-pill">1</splan> Generated Data
+                    </li>
+                </ul>
+            </div>
+            &nbsp;
+            <slot></slot>
+        </div>
+    </div>
+</template>

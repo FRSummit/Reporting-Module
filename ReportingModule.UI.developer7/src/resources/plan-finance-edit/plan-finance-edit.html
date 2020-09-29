@@ -1,0 +1,31 @@
+<template>
+    <div class="table-responsive">
+        <h5 class="card-title">Finance</h5>
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Type of collection</th>
+                    <th>Increase target from manpower</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>                
+            <tbody>
+                <tr>
+                    <td>Baitul-Mal</td>
+                    <td><money-selector money.bind="baitulMalFinancePlanData.workerPromiseIncreaseTarget" generated.bind="baitulMalFinancePlanGeneratedData.workerPromiseIncreaseTarget"></money-selector></td>
+                    <td><input class="form-control" value.bind="baitulMalFinancePlanData.action"></td>
+                </tr>
+                <tr>
+                    <td>Masjid Project</td>
+                    <td><money-selector money.bind="aDayMasjidProjectFinancePlanData.workerPromiseIncreaseTarget" generated.bind="aDayMasjidProjectFinancePlanGeneratedData.workerPromiseIncreaseTarget"></money-selector></td>
+                    <td><input class="form-control" value.bind="aDayMasjidProjectFinancePlanData.action"></td>
+                </tr>
+                <tr>
+                    <td>Masjid Table Bank</td>
+                    <td><money-selector money.bind="masjidTableBankFinancePlanData.workerPromiseIncreaseTarget" generated.bind="masjidTableBankFinancePlanGeneratedData.workerPromiseIncreaseTarget"></money-selector></td>
+                    <td><input class="form-control" value.bind="masjidTableBankFinancePlanData.action"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</template>

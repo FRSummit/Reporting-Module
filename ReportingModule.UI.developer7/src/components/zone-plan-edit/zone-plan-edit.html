@@ -1,0 +1,171 @@
+<template>
+    <div if.bind="zonePlan">
+        <div class="row">
+            <div class="col-lg-12">
+                <plan-report-header header-data.bind="headerData"></plan-report-header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <plan-report-shell item-id.bind="planid" report-status.bind="zonePlan.reportStatus" organization-type.bind="zonePlan.organization.organizationType">
+                    <div class="card">
+                        <div class="card-header bg-info text-white" if.bind="!isDirty">
+                          <div class="row">
+                              <div class="col" align="left">
+                                  ${zonePlan.reportingPeriod | reportingPeriod}
+                              </div>
+                              <div class="col" align="right">
+                                ${zonePlan.timestamp | convertToLocalDate}
+                              </div>
+                            </div>
+
+                        </div>
+                        <div class="card-header bg-warning text-white" if.bind="isDirty">${zonePlan.reportingPeriod | reportingPeriod} - Unsaved Changes</div>
+                        <div class="card-body">
+                            <plan-manpower-edit
+                                associate-member-plan-data.bind="zonePlan.associateMemberPlanData"
+                                associate-member-plan-generated-data.bind="zonePlan.associateMemberPlanGeneratedData"
+                                preliminary-member-plan-data.bind="zonePlan.preliminaryMemberPlanData"
+                                preliminary-member-plan-generated-data.bind="zonePlan.preliminaryMemberPlanGeneratedData"
+                                supporter-member-plan-data.bind="zonePlan.supporterMemberPlanData"
+                                supporter-member-plan-generated-data.bind="zonePlan.supporterMemberPlanGeneratedData"
+                                member-member-plan-data.bind="zonePlan.memberMemberPlanData"
+                                member-member-plan-generated-data.bind="zonePlan.memberMemberPlanGeneratedData">
+                            </plan-manpower-edit>
+                            <plan-regular-meetings-edit
+                                worker-meeting-program-plan-data.bind="zonePlan.workerMeetingProgramPlanData"
+                                worker-meeting-program-plan-generated-data.bind="zonePlan.workerMeetingProgramPlanGeneratedData"
+                                cms-meeting-program-plan-data.bind="zonePlan.cmsMeetingProgramPlanData"
+                                cms-meeting-program-plan-generated-data.bind="zonePlan.cmsMeetingProgramPlanGeneratedData"
+                                sm-meeting-program-plan-data.bind="zonePlan.smMeetingProgramPlanData"
+                                sm-meeting-program-plan-generated-data.bind="zonePlan.smMeetingProgramPlanGeneratedData"
+                                member-meeting-program-plan-data.bind="zonePlan.memberMeetingProgramPlanData"
+                                member-meeting-program-plan-generated-data.bind="zonePlan.memberMeetingProgramPlanGeneratedData"
+                                dawah-meeting-program-plan-data.bind="zonePlan.dawahMeetingProgramPlanData"
+                                dawah-meeting-program-plan-generated-data.bind="zonePlan.dawahMeetingProgramPlanGeneratedData"
+                                state-leader-meeting-program-plan-data.bind="zonePlan.stateLeaderMeetingProgramPlanData"
+                                state-leader-meeting-program-plan-generated-data.bind="zonePlan.stateLeaderMeetingProgramPlanGeneratedData"
+                                state-outing-meeting-program-plan-data.bind="zonePlan.stateOutingMeetingProgramPlanData"
+                                state-outing-meeting-program-plan-generated-data.bind="zonePlan.stateOutingMeetingProgramPlanGeneratedData"
+                                iftar-meeting-program-plan-data.bind="zonePlan.iftarMeetingProgramPlanData"
+                                iftar-meeting-program-plan-generated-data.bind="zonePlan.iftarMeetingProgramPlanGeneratedData"
+                                learning-meeting-program-plan-data.bind="zonePlan.learningMeetingProgramPlanData"
+                                learning-meeting-program-plan-generated-data.bind="zonePlan.learningMeetingProgramPlanGeneratedData"
+                                social-dawah-meeting-program-plan-data.bind="zonePlan.socialDawahMeetingProgramPlanData"
+                                social-dawah-meeting-program-plan-generated-data.bind="zonePlan.socialDawahMeetingProgramPlanGeneratedData"
+                                dawah-group-meeting-program-plan-data.bind="zonePlan.dawahGroupMeetingProgramPlanData"
+                                dawah-group-meeting-program-plan-generated-data.bind="zonePlan.dawahGroupMeetingProgramPlanGeneratedData"
+                                next-g-meeting-program-plan-data.bind="zonePlan.nextGMeetingProgramPlanData"
+                                next-g-meeting-program-plan-generated-data.bind="zonePlan.nextGMeetingProgramPlanGeneratedData"
+                                tafsir-meeting-program-plan-data.bind="zonePlan.tafsirMeetingProgramPlanData"
+                                tafsir-meeting-program-plan-generated-data.bind="zonePlan.tafsirMeetingProgramPlanGeneratedData"
+                                unit-meeting-program-plan-data.bind="zonePlan.unitMeetingProgramPlanData"
+                                unit-meeting-program-plan-generated-data.bind="zonePlan.unitMeetingProgramPlanGeneratedData"
+                                bbq-meeting-program-plan-data.bind="zonePlan.bbqMeetingProgramPlanData"
+                                bbq-meeting-program-plan-generated-data.bind="zonePlan.bbqMeetingProgramPlanGeneratedData"
+                                gathering-meeting-program-plan-data.bind="zonePlan.gatheringMeetingProgramPlanData"
+                                gathering-meeting-program-plan-generated-data.bind="zonePlan.gatheringMeetingProgramPlanGeneratedData"
+                                family-visit-meeting-program-plan-data.bind="zonePlan.familyVisitMeetingProgramPlanData"
+                                family-visit-meeting-program-plan-generated-data.bind="zonePlan.familyVisitMeetingProgramPlanGeneratedData"
+                                eid-reunion-meeting-program-plan-data.bind="zonePlan.eidReunionMeetingProgramPlanData"
+                                eid-reunion-meeting-program-plan-generated-data.bind="zonePlan.eidReunionMeetingProgramPlanGeneratedData"
+                                other-meeting-program-plan-data.bind="zonePlan.otherMeetingProgramPlanData"
+                                other-meeting-program-plan-generated-data.bind="zonePlan.otherMeetingProgramPlanGeneratedData">
+                            </plan-regular-meetings-edit>
+                            <plan-teaching-edit
+                                group-study-teaching-learning-program-plan-data.bind="zonePlan.groupStudyTeachingLearningProgramPlanData"
+                                group-study-teaching-learning-program-plan-generated-data.bind="zonePlan.groupStudyTeachingLearningProgramPlanGeneratedData"
+                                study-circle-for-associate-member-teaching-learning-program-plan-data.bind="zonePlan.studyCircleForAssociateMemberTeachingLearningProgramPlanData"
+                                study-circle-for-associate-member-teaching-learning-program-plan-generated-data.bind="zonePlan.studyCircleForAssociateMemberTeachingLearningProgramPlanGeneratedData"
+                                study-circle-teaching-learning-program-plan-data.bind="zonePlan.studyCircleTeachingLearningProgramPlanData"
+                                study-circle-teaching-learning-program-plan-generated-data.bind="zonePlan.studyCircleTeachingLearningProgramPlanGeneratedData"
+                                practice-dars-teaching-learning-program-plan-data.bind="zonePlan.practiceDarsTeachingLearningProgramPlanData"
+                                practice-dars-teaching-learning-program-plan-generated-data.bind="zonePlan.practiceDarsTeachingLearningProgramPlanGeneratedData"
+                                state-learning-camp-teaching-learning-program-plan-data.bind="zonePlan.stateLearningCampTeachingLearningProgramPlanData"
+                                state-learning-camp-teaching-learning-program-plan-generated-data.bind="zonePlan.stateLearningCampTeachingLearningProgramPlanGeneratedData"
+                                quran-study-teaching-learning-program-plan-data.bind="zonePlan.quranStudyTeachingLearningProgramPlanData"
+                                quran-study-teaching-learning-program-plan-generated-data.bind="zonePlan.quranStudyTeachingLearningProgramPlanGeneratedData"
+                                hadith-teaching-learning-program-plan-data.bind="zonePlan.hadithTeachingLearningProgramPlanData"
+                                hadith-teaching-learning-program-plan-generated-data.bind="zonePlan.hadithTeachingLearningProgramPlanGeneratedData"
+                                quran-class-teaching-learning-program-plan-data.bind="zonePlan.quranClassTeachingLearningProgramPlanData"
+                                quran-class-teaching-learning-program-plan-generated-data.bind="zonePlan.quranClassTeachingLearningProgramPlanGeneratedData"
+                                weekend-islamic-school-teaching-learning-program-plan-data.bind="zonePlan.weekendIslamicSchoolTeachingLearningProgramPlanData"
+                                weekend-islamic-school-teaching-learning-program-plan-generated-data.bind="zonePlan.weekendIslamicSchoolTeachingLearningProgramPlanGeneratedData"
+                                memorizing-ayat-teaching-learning-program-plan-data.bind="zonePlan.memorizingAyatTeachingLearningProgramPlanData"
+                                memorizing-ayat-teaching-learning-program-plan-generated-data.bind="zonePlan.memorizingAyatTeachingLearningProgramPlanGeneratedData"
+                                memorizing-hadith-teaching-learning-program-plan-data.bind="zonePlan.memorizingHadithTeachingLearningProgramPlanData"
+                                memorizing-hadith-teaching-learning-program-plan-generated-data.bind="zonePlan.memorizingHadithTeachingLearningProgramPlanGeneratedData"
+                                memorizing-doa-teaching-learning-program-plan-data.bind="zonePlan.memorizingDoaTeachingLearningProgramPlanData"
+                                memorizing-doa-teaching-learning-program-plan-generated-data.bind="zonePlan.memorizingDoaTeachingLearningProgramPlanGeneratedData"
+                                state-learning-session-teaching-learning-program-plan-data.bind="zonePlan.stateLearningSessionTeachingLearningProgramPlanData"
+                                state-learning-session-teaching-learning-program-plan-generated-data.bind="zonePlan.stateLearningSessionTeachingLearningProgramPlanGeneratedData"
+                                state-qiyamul-lail-teaching-learning-program-plan-data.bind="zonePlan.stateQiyamulLailTeachingLearningProgramPlanData"
+                                state-qiyamul-lail-teaching-learning-program-plan-generated-data.bind="zonePlan.stateQiyamulLailTeachingLearningProgramPlanGeneratedData"
+                                other-teaching-learning-program-plan-data.bind="zonePlan.otherTeachingLearningProgramPlanData"
+                                other-teaching-learning-program-plan-generated-data.bind="zonePlan.otherTeachingLearningProgramPlanGeneratedData">
+                            </plan-teaching-edit>
+                            <plan-material-edit
+                                book-sale-material-plan-data.bind="zonePlan.bookSaleMaterialPlanData"
+                                book-sale-material-plan-generated-data.bind="zonePlan.bookSaleMaterialPlanGeneratedData"
+                                book-distribution-material-plan-data.bind="zonePlan.bookDistributionMaterialPlanData"
+                                book-distribution-material-plan-generated-data.bind="zonePlan.bookDistributionMaterialPlanGeneratedData"
+                                vhs-sale-material-plan-data.bind="zonePlan.vhsSaleMaterialPlanData"
+                                vhs-sale-material-plan-generated-data.bind="zonePlan.vhsSaleMaterialPlanGeneratedData"
+                                vhs-distribution-material-plan-data.bind="zonePlan.vhsDistributionMaterialPlanData"
+                                vhs-distribution-material-plan-generated-data.bind="zonePlan.vhsDistributionMaterialPlanGeneratedData"
+                                email-distribution-material-plan-data.bind="zonePlan.emailDistributionMaterialPlanData"
+                                email-distribution-material-plan-generated-data.bind="zonePlan.emailDistributionMaterialPlanGeneratedData"
+                                ipdc-leaflet-distribution-material-plan-data.bind="zonePlan.ipdcLeafletDistributionMaterialPlanData"
+                                ipdc-leaflet-distribution-material-plan-generated-data.bind="zonePlan.ipdcLeafletDistributionMaterialPlanGeneratedData"
+                                other-sale-material-plan-data.bind="zonePlan.otherSaleMaterialPlanData"
+                                other-sale-material-plan-generated-data.bind="zonePlan.otherSaleMaterialPlanGeneratedData"
+                                other-distribution-material-plan-data.bind="zonePlan.otherDistributionMaterialPlanData"
+                                other-distribution-material-plan-generated-data.bind="zonePlan.otherDistributionMaterialPlanGeneratedData">
+                            </plan-material-edit>
+                            <plan-finance-edit
+                                baitul-mal-finance-plan-data.bind="zonePlan.baitulMalFinancePlanData"
+                                baitul-mal-finance-plan-generated-data.bind="zonePlan.baitulMalFinancePlanGeneratedData"
+                                a-day-masjid-project-finance-plan-data.bind="zonePlan.aDayMasjidProjectFinancePlanData"
+                                a-day-masjid-project-finance-plan-generated-data.bind="zonePlan.aDayMasjidProjectFinancePlanGeneratedData"
+                                masjid-table-bank-finance-plan-data.bind="zonePlan.masjidTableBankFinancePlanData"
+                                masjid-table-bank-finance-plan-generated-data.bind="zonePlan.masjidTableBankFinancePlanGeneratedData">
+                            </plan-finance-edit>
+                            <plan-socialwelfare-edit
+                                qarde-hasana-social-welfare-plan-data.bind="zonePlan.qardeHasanaSocialWelfarePlanData"
+                                qarde-hasana-social-welfare-plan-generated-data.bind="zonePlan.qardeHasanaSocialWelfarePlanGeneratedData"
+                                patient-visit-social-welfare-plan-data.bind="zonePlan.patientVisitSocialWelfarePlanData"
+                                patient-visit-social-welfare-plan-generated-data.bind="zonePlan.patientVisitSocialWelfarePlanGeneratedData"
+                                social-visit-social-welfare-plan-data.bind="zonePlan.socialVisitSocialWelfarePlanData"
+                                social-visit-social-welfare-plan-generated-data.bind="zonePlan.socialVisitSocialWelfarePlanGeneratedData"
+                                transport-social-welfare-plan-data.bind="zonePlan.transportSocialWelfarePlanData"
+                                transport-social-welfare-plan-generated-data.bind="zonePlan.transportSocialWelfarePlanGeneratedData"
+                                shifting-social-welfare-plan-data.bind="zonePlan.shiftingSocialWelfarePlanData"
+                                shifting-social-welfare-plan-generated-data.bind="zonePlan.shiftingSocialWelfarePlanGeneratedData"
+                                shopping-social-welfare-plan-data.bind="zonePlan.shoppingSocialWelfarePlanData"
+                                shopping-social-welfare-plan-generated-data.bind="zonePlan.shoppingSocialWelfarePlanGeneratedData"
+                                food-distribution-social-welfare-plan-data.bind="zonePlan.foodDistributionSocialWelfarePlanData"
+                                food-distribution-social-welfare-plan-generated-data.bind="zonePlan.foodDistributionSocialWelfarePlanGeneratedData"
+                                clean-up-australia-social-welfare-plan-data.bind="zonePlan.cleanUpAustraliaSocialWelfarePlanData"
+                                clean-up-australia-social-welfare-plan-generated-data.bind="zonePlan.cleanUpAustraliaSocialWelfarePlanGeneratedData"
+                                other-social-welfare-plan-data.bind="zonePlan.otherSocialWelfarePlanData"
+                                other-social-welfare-plan-generated-data.bind="zonePlan.otherSocialWelfarePlanGeneratedData">
+                            </plan-socialwelfare-edit>
+                            <button type="button" class="btn btn-primary" click.delegate="save()" disabled.bind="!canSave">
+                                <i class="fas fa-cloud-upload-alt" if.bind="!isSaving"></i>
+                                <i class="fas fa-spinner fa-spin" if.bind="isSaving"></i> Save
+                            </button>&nbsp;
+                            <button type="button" class="btn btn-warning" click.delegate="cancelChanges()" disabled.bind="!canCancel">
+                                <i class="fas fa-eraser" if.bind="!isCancelling"></i>
+                                <i class="fas fa-spinner fa-spin" if.bind="isCancelling"></i> Cancel Changes
+                            </button>
+                            <button type="button" class="btn btn-success" click.delegate="saveAndSubmitPlan()" disabled.bind="!canSubmit">
+                                <i class="fas fa-chart-line" if.bind="!isSubmitting"></i>
+                                <i class="fas fa-spinner fa-spin" if.bind="isSubmitting"></i> Submit Plan
+                            </button>
+                        </div>
+                    </div>
+                </plan-report-shell>
+            </div>
+        </div>
+    </div>
+</template>

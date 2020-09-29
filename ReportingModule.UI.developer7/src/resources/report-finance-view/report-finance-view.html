@@ -1,0 +1,160 @@
+<template>
+    <div class="table-responsive">
+        <h5 class="card-title">Finance</h5>
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th rowspan="2" class="align-middle">Type of collection</th>
+                    <th rowspan="2" class="align-middle">Worker Promise Last Period</th>
+                    <th rowspan="2" class="align-middle">Last Period Balance</th>
+                    <th rowspan="2" class="align-middle">Collected</th>
+                    <th rowspan="2" class="align-middle">Expense</th>
+                    <th rowspan="2" class="align-middle">Nisab</th>
+                    <th rowspan="2" class="align-middle">Balance</th>
+                    <th colspan="4" class="text-center">Worker Promise</th>
+                    <th rowspan="2" class="align-middle">Comment</th>
+                </tr>
+                <tr>
+                    <th>Target</th>
+                    <th>Increased</th>
+                    <th>Decreased</th>
+                    <th>This Period</th>
+                </tr>
+            </thead>                
+            <tbody>
+                <tr>
+                    <td>Baitul-Mal</td>
+                    <td>
+                        ${baitulMalFinanceData.workerPromiseLastPeriod | money}
+                        <span class="badge badge-pill badge-info" if.bind="baitulMalFinanceGeneratedData">&nbsp;${baitulMalFinanceGeneratedData.workerPromiseLastPeriod | money}</span>
+                    </td>
+                    <td>
+                        ${baitulMalFinanceData.lastPeriod | money}
+                        <span class="badge badge-pill badge-info" if.bind="baitulMalFinanceGeneratedData">&nbsp;${baitulMalFinanceGeneratedData.lastPeriod | money}</span>
+                    </td>
+                    <td>
+                        ${baitulMalFinanceData.collection | money}
+                        <span class="badge badge-pill badge-info" if.bind="baitulMalFinanceGeneratedData">&nbsp;${baitulMalFinanceGeneratedData.collection | money}</span>
+                    </td>
+                    <td>
+                        ${baitulMalFinanceData.expense | money}
+                        <span class="badge badge-pill badge-info" if.bind="baitulMalFinanceGeneratedData">&nbsp;${baitulMalFinanceGeneratedData.expense | money}</span>
+                    </td>
+                    <td>
+                        ${baitulMalFinanceData.nisabPaidToCentral | money}
+                        <span class="badge badge-pill badge-info" if.bind="baitulMalFinanceGeneratedData">&nbsp;${baitulMalFinanceGeneratedData.nisabPaidToCentral | money}</span>
+                    </td>
+                    <td>
+                        ${baitulMalFinanceData.balance | money}
+                        <span class="badge badge-pill badge-info" if.bind="baitulMalFinanceGeneratedData">&nbsp;${baitulMalFinanceGeneratedData.balance | money}</span>
+                    </td>
+                    <td>
+                        ${baitulMalFinanceData.workerPromiseIncreaseTarget | money}
+                        <span class="badge badge-pill badge-info" if.bind="baitulMalFinanceGeneratedData">&nbsp;${baitulMalFinanceGeneratedData.workerPromiseIncreaseTarget | money}</span>
+                    </td>
+                    <td>
+                        ${baitulMalFinanceData.workerPromiseIncreased | money}
+                        <span class="badge badge-pill badge-info" if.bind="baitulMalFinanceGeneratedData">&nbsp;${baitulMalFinanceGeneratedData.workerPromiseIncreased | money}</span>
+                    </td>
+                    <td>
+                        ${baitulMalFinanceData.workerPromiseDecreased | money}
+                        <span class="badge badge-pill badge-info" if.bind="baitulMalFinanceGeneratedData">&nbsp;${baitulMalFinanceGeneratedData.workerPromiseDecreased | money}</span>
+                    </td>
+                    <td>
+                        ${baitulMalFinanceData.workerPromiseThisPeriod | money}
+                        <span class="badge badge-pill badge-info" if.bind="baitulMalFinanceGeneratedData">&nbsp;${baitulMalFinanceGeneratedData.workerPromiseThisPeriod | money}</span>
+                    </td>
+                    <td>${baitulMalFinanceData.comment}</td>
+                </tr>
+                <tr>
+                    <td>Masjid Project</td>
+                    <td>
+                        ${aDayMasjidProjectFinanceData.workerPromiseLastPeriod | money}
+                        <span class="badge badge-pill badge-info" if.bind="aDayMasjidProjectFinanceGeneratedData">&nbsp;${aDayMasjidProjectFinanceGeneratedData.workerPromiseLastPeriod | money}</span>
+                    </td>
+                    <td>
+                        ${aDayMasjidProjectFinanceData.lastPeriod | money}
+                        <span class="badge badge-pill badge-info" if.bind="aDayMasjidProjectFinanceGeneratedData">&nbsp;${aDayMasjidProjectFinanceGeneratedData.lastPeriod | money}</span>
+                    </td>
+                    <td>
+                        ${aDayMasjidProjectFinanceData.collection | money}
+                        <span class="badge badge-pill badge-info" if.bind="aDayMasjidProjectFinanceGeneratedData">&nbsp;${aDayMasjidProjectFinanceGeneratedData.collection | money}</span>
+                    </td>
+                    <td>
+                        ${aDayMasjidProjectFinanceData.expense | money}
+                        <span class="badge badge-pill badge-info" if.bind="aDayMasjidProjectFinanceGeneratedData">&nbsp;${aDayMasjidProjectFinanceGeneratedData.expense | money}</span>
+                    </td>
+                    <td>
+                        ${aDayMasjidProjectFinanceData.nisabPaidToCentral | money}
+                        <span class="badge badge-pill badge-info" if.bind="aDayMasjidProjectFinanceGeneratedData">&nbsp;${aDayMasjidProjectFinanceGeneratedData.nisabPaidToCentral | money}</span>
+                    </td>
+                    <td>
+                        ${aDayMasjidProjectFinanceData.balance | money}
+                        <span class="badge badge-pill badge-info" if.bind="aDayMasjidProjectFinanceGeneratedData">&nbsp;${aDayMasjidProjectFinanceGeneratedData.balance | money}</span>
+                    </td>
+                    <td>
+                        ${aDayMasjidProjectFinanceData.workerPromiseIncreaseTarget | money}
+                        <span class="badge badge-pill badge-info" if.bind="aDayMasjidProjectFinanceGeneratedData">&nbsp;${aDayMasjidProjectFinanceGeneratedData.workerPromiseIncreaseTarget | money}</span>
+                    </td>
+                    <td>
+                        ${aDayMasjidProjectFinanceData.workerPromiseIncreased | money}
+                        <span class="badge badge-pill badge-info" if.bind="aDayMasjidProjectFinanceGeneratedData">&nbsp;${aDayMasjidProjectFinanceGeneratedData.workerPromiseIncreased | money}</span>
+                    </td>
+                    <td>
+                        ${aDayMasjidProjectFinanceData.workerPromiseDecreased | money}
+                        <span class="badge badge-pill badge-info" if.bind="aDayMasjidProjectFinanceGeneratedData">&nbsp;${aDayMasjidProjectFinanceGeneratedData.workerPromiseDecreased | money}</span>
+                    </td>
+                    <td>
+                        ${aDayMasjidProjectFinanceData.workerPromiseThisPeriod | money}
+                        <span class="badge badge-pill badge-info" if.bind="aDayMasjidProjectFinanceGeneratedData">&nbsp;${aDayMasjidProjectFinanceGeneratedData.workerPromiseThisPeriod | money}</span>
+                    </td>
+                    <td>${aDayMasjidProjectFinanceData.comment}</td>
+                </tr>
+                <tr>
+                    <td>Masjid Table Bank</td>
+                    <td>
+                        ${masjidTableBankFinanceData.workerPromiseLastPeriod | money}
+                        <span class="badge badge-pill badge-info" if.bind="masjidTableBankFinanceGeneratedData">&nbsp;${masjidTableBankFinanceGeneratedData.workerPromiseLastPeriod | money}</span>
+                    </td>
+                    <td>
+                        ${masjidTableBankFinanceData.lastPeriod | money}
+                        <span class="badge badge-pill badge-info" if.bind="masjidTableBankFinanceGeneratedData">&nbsp;${masjidTableBankFinanceGeneratedData.lastPeriod | money}</span>
+                    </td>
+                    <td>
+                        ${masjidTableBankFinanceData.collection | money}
+                        <span class="badge badge-pill badge-info" if.bind="masjidTableBankFinanceGeneratedData">&nbsp;${masjidTableBankFinanceGeneratedData.collection | money}</span>
+                    </td>
+                    <td>
+                        ${masjidTableBankFinanceData.expense | money}
+                        <span class="badge badge-pill badge-info" if.bind="masjidTableBankFinanceGeneratedData">&nbsp;${masjidTableBankFinanceGeneratedData.expense | money}</span>
+                    </td>
+                    <td>
+                        ${masjidTableBankFinanceData.nisabPaidToCentral | money}
+                        <span class="badge badge-pill badge-info" if.bind="masjidTableBankFinanceGeneratedData">&nbsp;${masjidTableBankFinanceGeneratedData.nisabPaidToCentral | money}</span>
+                    </td>
+                    <td>
+                        ${masjidTableBankFinanceData.balance | money}
+                        <span class="badge badge-pill badge-info" if.bind="masjidTableBankFinanceGeneratedData">&nbsp;${masjidTableBankFinanceGeneratedData.balance | money}</span>
+                    </td>
+                    <td>
+                        ${masjidTableBankFinanceData.workerPromiseIncreaseTarget | money}
+                        <span class="badge badge-pill badge-info" if.bind="masjidTableBankFinanceGeneratedData">&nbsp;${masjidTableBankFinanceGeneratedData.workerPromiseIncreaseTarget | money}</span>
+                    </td>
+                    <td>
+                        ${masjidTableBankFinanceData.workerPromiseIncreased | money}
+                        <span class="badge badge-pill badge-info" if.bind="masjidTableBankFinanceGeneratedData">&nbsp;${masjidTableBankFinanceGeneratedData.workerPromiseIncreased | money}</span>
+                    </td>
+                    <td>
+                        ${masjidTableBankFinanceData.workerPromiseDecreased | money}
+                        <span class="badge badge-pill badge-info" if.bind="masjidTableBankFinanceGeneratedData">&nbsp;${masjidTableBankFinanceGeneratedData.workerPromiseDecreased | money}</span>
+                    </td>
+                    <td>
+                        ${masjidTableBankFinanceData.workerPromiseThisPeriod | money}
+                        <span class="badge badge-pill badge-info" if.bind="masjidTableBankFinanceGeneratedData">&nbsp;${masjidTableBankFinanceGeneratedData.workerPromiseThisPeriod | money}</span>
+                    </td>
+                    <td>${masjidTableBankFinanceData.comment}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</template>

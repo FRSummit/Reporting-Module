@@ -1,0 +1,584 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\net472\NUnit\build\NUnit.props" Condition="Exists('..\packages\net472\NUnit\build\NUnit.props')" Label="Paket" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E0D094B3-461C-4DFD-813D-080C7132DA51}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ReportingModule.Tests</RootNamespace>
+    <AssemblyName>ReportingModule.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Output\ReportingModule.Tests\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'QAS|AnyCPU'">
+    <OutputPath>bin\QAS\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AzureQAS|AnyCPU'">
+    <OutputPath>bin\AzureQAS\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging|AnyCPU'">
+    <OutputPath>bin\Staging\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NUnit3.TestAdapter">
+      <HintPath>..\..\..\Users\User\Desktop\NUnitDll\net35\NUnit3.TestAdapter.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblySetupFixture.cs" />
+    <Compile Include="Builders\CentralReportBuilder.cs" />
+    <Compile Include="Builders\ExcelReportDataBuilder.cs" />
+    <Compile Include="Builders\OrganizationBuilder.cs" />
+    <Compile Include="Builders\PlanDataBuilder.cs" />
+    <Compile Include="Builders\FinanceDataBuilder.cs" />
+    <Compile Include="Builders\ReportLastPeriodUpdateDataBuilder.cs" />
+    <Compile Include="Builders\StateReportBuilder.cs" />
+    <Compile Include="Builders\UnitReportBuilder.cs" />
+    <Compile Include="Builders\ReportBuilder.cs" />
+    <Compile Include="Builders\ReportDataBuilder.cs" />
+    <Compile Include="Builders\ZoneReportBuilder.cs" />
+    <Compile Include="Dal\IdentifierDalTests.cs" />
+    <Compile Include="Dal\OrganizationUserDalTests.cs" />
+    <Compile Include="Dal\ReportEventLogDalTest.cs" />
+    <Compile Include="DomainDatabase.cs" />
+    <Compile Include="Dal\OrganizationDalTests.cs" />
+    <Compile Include="Integration\CommandHandlers\ConsolidateReportCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\CopyCentralPlanCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\CopyStatePlanCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\CopyUnitPlanCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\CopyZonePlanCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\CreateCentralPlanCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\CreateOrganizationUserCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\CreateUnitPlanCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\CreateZonePlanCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\DeleteReportCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\PromotePlanToCentralReportCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\PromotePlanToStateReportCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\PromotePlanToUnitReportCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\PromotePlanToZoneReportCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\TestHelper.cs" />
+    <Compile Include="Integration\CommandHandlers\UnSubmitReportCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\UpdateCentralPlanCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\UpdateCentralReportCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\UpdateCentralReportGeneratedDataCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\UpdateCentralReportLastPeriodDataCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\UpdateOrganizationUserCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\UpdateStatePlanCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\UpdateStateReportLastPeriodDataCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\UpdateUnitPlanCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\UpdateUnitReportLastPeriodDataCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\UpdateZonePlanCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\UpdateZoneReportCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\UpdateZoneReportGeneratedDataCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\UpdateZoneReportLastPeriodDataCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\EventHandlers\LogWhenReportEventReceivedIntegrationTests.cs" />
+    <Compile Include="Integration\Helpers\IntegrationTestStateReportHelper.cs" />
+    <Compile Include="Integration\Helpers\IntegrationTestZoneReportHelper.cs" />
+    <Compile Include="Integration\Services\ConsolidatedReportServiceIntegrationTests.cs" />
+    <Compile Include="Integration\Services\CreatePlanFixtureData.cs" />
+    <Compile Include="Integration\Services\StateReportFactoryCreateNewPlanSavesFinanceDataIntegrationTests.cs" />
+    <Compile Include="Integration\Services\StateReportFactoryCreateNewPlanSavesLibraryStockDataIntegrationTests.cs" />
+    <Compile Include="Integration\Services\StateReportFactoryCreateNewPlanSavesMemberDataIntegrationTests.cs" />
+    <Compile Include="Integration\Services\StateReportFactoryCreatePlanSavesMeetingProgramDataIntegrationTests.cs" />
+    <Compile Include="Integration\Services\StateReportFactoryCreatePlanSavesMaterialDataIntegrationTests.cs" />
+    <Compile Include="Integration\Services\StateReportFactoryCreatePlanSavesSocialWelfareDataIntegrationTests.cs" />
+    <Compile Include="Integration\Services\UserContextTests.cs" />
+    <Compile Include="Integration\WebApi\AllReportQueryServiceIntegrationTests.cs" />
+    <Compile Include="Integration\WebApi\CentralReportQueryServiceIntegrationTests.cs" />
+    <Compile Include="Integration\WebApi\OrganizationQueryServiceIntegrationTests.cs" />
+    <Compile Include="Integration\WebApi\OrganizationUserQueryServiceIntegrationTests.cs" />
+    <Compile Include="Integration\WebApi\ReportEventLogQueryServiceIntegrationTests.cs" />
+    <Compile Include="Integration\WebApi\StateReportQueryServiceIntegrationTests.cs" />
+    <Compile Include="Integration\WebApi\UnitReportQueryServiceIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\CreateOrganizationCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\CreateStatePlanCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\DeleteOrganizationCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\DeleteOrganizationUserCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\SubmitReportCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\UpdateStateReportCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\UpdateStateReportGeneratedDataCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\CommandHandlers\UpdateUnitReportCommandHandlerIntegrationTests.cs" />
+    <Compile Include="Integration\Services\OrganizationServiceIntegrationTests.cs" />
+    <Compile Include="Integration\Helpers\IntegrationTestOrganizationHelper.cs" />
+    <Compile Include="Integration\Services\StateReportFactoryIntegrationTests.cs" />
+    <Compile Include="Integration\Services\UnitReportFactoryIntegrationTests.cs" />
+    <Compile Include="Integration\Services\UnitReportServiceIntegrationTests.cs" />
+    <Compile Include="Integration\WebApi\ZoneReportQueryServiceIntegrationTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Unit\CalculatorTests.cs" />
+    <Compile Include="Unit\ExcelReportTest.cs" />
+    <Compile Include="Unit\FinanceDataTests.cs" />
+    <Compile Include="Unit\LibraryStockDataTests.cs" />
+    <Compile Include="Unit\MemberDataTests.cs" />
+    <Compile Include="Unit\ReportingIdentifierProviderTests.cs" />
+    <Compile Include="Unit\ReportingPeriodTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="app.Debug.config">
+      <DependentUpon>app.config</DependentUpon>
+    </None>
+    <None Include="app.QAS.config">
+      <DependentUpon>app.config</DependentUpon>
+    </None>
+    <None Include="app.Release.config">
+      <DependentUpon>app.config</DependentUpon>
+    </None>
+    <None Include="app.Staging.config">
+      <DependentUpon>app.config</DependentUpon>
+    </None>
+    <None Include="paket.references" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExternalProjects\NsbWeb.Core\NsbWeb.Core.csproj">
+      <Project>{69a27a77-b822-4efe-81b0-f38ea137258e}</Project>
+      <Name>NsbWeb.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExternalProjects\ReportingModule.Core\ReportingModule.Core.csproj">
+      <Project>{482d8201-8c6b-4ad5-8430-fbf8564fde0c}</Project>
+      <Name>ReportingModule.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExternalProjects\ReportingModule.SystemTests.Common\ReportingModule.SystemTests.Common.csproj">
+      <Project>{a8cbaf17-2290-4f1e-aa1f-2a99551977f3}</Project>
+      <Name>ReportingModule.SystemTests.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExternalProjects\ReportingModule.SystemTests.Nsb7\ReportingModule.SystemTests.Nsb7.csproj">
+      <Project>{0d4f4cd5-33d4-44fa-a940-2e406d59a698}</Project>
+      <Name>ReportingModule.SystemTests.Nsb7</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExternalProjects\ReportingModule.Utility\ReportingModule.Utility.csproj">
+      <Project>{B8425452-68D5-4A08-A6A8-EF5D3D1C6D14}</Project>
+      <Name>ReportingModule.Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExternalProjects\ReportingModule.ViewModels.Core\ReportingModule.ViewModels.Core.csproj">
+      <Project>{b99366a1-db03-4164-8d20-8c85ab226a5e}</Project>
+      <Name>ReportingModule.ViewModels.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NsbMessages.ReportingModule\NsbMessages.ReportingModule.csproj">
+      <Project>{45e97d01-e594-4656-be5c-b6ad7dd56f3d}</Project>
+      <Name>NsbMessages.ReportingModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NsbServer.ReportingModule\NsbServer.ReportingModule.csproj">
+      <Project>{1e5d632f-32a2-4074-b469-10c10f4a4dfa}</Project>
+      <Name>NsbServer.ReportingModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NsbWeb.ReportingModule\NsbWeb.ReportingModule.csproj">
+      <Project>{C6FB8566-58CF-430C-ACC7-67AF1924D3C0}</Project>
+      <Name>NsbWeb.ReportingModule</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <PropertyGroup>
+        <__paket__NUnit3TestAdapter_props>net35\NUnit3TestAdapter</__paket__NUnit3TestAdapter_props>
+      </PropertyGroup>
+    </When>
+  </Choose>
+  <Import Project="..\packages\net472\NUnit3TestAdapter\build\$(__paket__NUnit3TestAdapter_props).props" Condition="Exists('..\packages\net472\NUnit3TestAdapter\build\$(__paket__NUnit3TestAdapter_props).props')" Label="Paket" />
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <PropertyGroup>
+        <__paket__NETStandard_Library_targets>netstandard2.0\NETStandard.Library</__paket__NETStandard_Library_targets>
+      </PropertyGroup>
+    </When>
+  </Choose>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Import Project="..\.paket\paket.targets" />
+  <UsingTask TaskName="TransformXml" AssemblyFile="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Web\Microsoft.Web.Publishing.Tasks.dll" />
+  <Target Name="app_config_AfterCompile" AfterTargets="AfterCompile" Condition="Exists('app.$(Configuration).config')">
+    <!--Generate transformed app config in the intermediate directory-->
+    <TransformXml Source="app.config" Destination="$(IntermediateOutputPath)$(TargetFileName).config" Transform="app.$(Configuration).config" />
+    <!--Force build process to use the transformed configuration file from now on.-->
+    <ItemGroup>
+      <AppConfigWithTargetPath Remove="App.config" />
+      <AppConfigWithTargetPath Include="$(IntermediateOutputPath)$(TargetFileName).config">
+        <TargetPath>$(TargetFileName).config</TargetPath>
+      </AppConfigWithTargetPath>
+    </ItemGroup>
+  </Target>
+  <!--Override After Publish to support ClickOnce AfterPublish. Target replaces the untransformed config file copied to the deployment directory with the transformed one.-->
+  <Target Name="app_config_AfterPublish" AfterTargets="AfterPublish" Condition="Exists('app.$(Configuration).config')">
+    <PropertyGroup>
+      <DeployedConfig>$(_DeploymentApplicationDir)$(TargetName)$(TargetExt).config$(_DeploymentFileMappingExtension)</DeployedConfig>
+    </PropertyGroup>
+    <!--Publish copies the untransformed App.config to deployment directory so overwrite it-->
+    <Copy Condition="Exists('$(DeployedConfig)')" SourceFiles="$(IntermediateOutputPath)$(TargetFileName).config" DestinationFiles="$(DeployedConfig)" />
+  </Target>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="Antlr3.Runtime">
+          <HintPath>..\packages\net472\Antlr3.Runtime\lib\net40-client\Antlr3.Runtime.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Configuration">
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Castle.Core">
+          <HintPath>..\packages\net472\Castle.Core\lib\net45\Castle.Core.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="FluentAssertions">
+          <HintPath>..\packages\net472\FluentAssertions\lib\net47\FluentAssertions.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="Iesi.Collections">
+          <HintPath>..\packages\net472\Iesi.Collections\lib\net461\Iesi.Collections.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="Microsoft.DotNet.InternalAbstractions">
+          <HintPath>..\packages\net472\Microsoft.DotNet.InternalAbstractions\lib\net451\Microsoft.DotNet.InternalAbstractions.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="Newtonsoft.Json">
+          <HintPath>..\packages\net472\Newtonsoft.Json\lib\net45\Newtonsoft.Json.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.ServiceModel">
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="System.Transactions">
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="NHibernate">
+          <HintPath>..\packages\net472\NHibernate\lib\net461\NHibernate.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Security">
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="NServiceBus.Core">
+          <HintPath>..\packages\net472\NServiceBus\lib\net452\NServiceBus.Core.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="..\packages\net472\NETStandard.Library\build\$(__paket__NETStandard_Library_targets).targets" Condition="Exists('..\packages\net472\NETStandard.Library\build\$(__paket__NETStandard_Library_targets).targets')" Label="Paket" />
+  <ItemGroup>
+    <Analyzer Include="..\packages\net472\NServiceBus\analyzers\dotnet\cs\NServiceBus.Core.Analyzer.dll">
+      <Paket>True</Paket>
+    </Analyzer>
+  </ItemGroup>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="NServiceBus.Testing">
+          <HintPath>..\packages\net472\NServiceBus.Testing\lib\net452\NServiceBus.Testing.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="NSubstitute">
+          <HintPath>..\packages\net472\NSubstitute\lib\net46\NSubstitute.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="nunit.framework">
+          <HintPath>..\packages\net472\NUnit\lib\net45\nunit.framework.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="Mono.Cecil">
+          <HintPath>..\packages\net472\NUnit.Engine\lib\net20\Mono.Cecil.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="nunit-agent">
+          <HintPath>..\packages\net472\NUnit.Engine\lib\net20\nunit-agent.exe</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="nunit-agent-x86">
+          <HintPath>..\packages\net472\NUnit.Engine\lib\net20\nunit-agent-x86.exe</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="nunit.engine">
+          <HintPath>..\packages\net472\NUnit.Engine\lib\net20\nunit.engine.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="nunit.engine.api">
+          <HintPath>..\packages\net472\NUnit.Engine\lib\net20\nunit.engine.api.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="nunit.engine.api">
+          <HintPath>..\packages\net472\NUnit.Engine.Api\lib\net20\nunit.engine.api.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="Remotion.Linq">
+          <HintPath>..\packages\net472\Remotion.Linq\lib\net45\Remotion.Linq.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="Remotion.Linq.EagerFetching">
+          <HintPath>..\packages\net472\Remotion.Linq.EagerFetching\lib\net45\Remotion.Linq.EagerFetching.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="StructureMap">
+          <HintPath>..\packages\net472\structuremap\lib\net45\StructureMap.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="mscorlib">
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="System.Collections.NonGeneric">
+          <HintPath>..\packages\net472\System.Collections.NonGeneric\lib\net46\System.Collections.NonGeneric.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.ComponentModel.Primitives">
+          <HintPath>..\packages\net472\System.ComponentModel.Primitives\lib\net45\System.ComponentModel.Primitives.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.ComponentModel.TypeConverter">
+          <HintPath>..\packages\net472\System.ComponentModel.TypeConverter\lib\net462\System.ComponentModel.TypeConverter.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Diagnostics.Process">
+          <HintPath>..\packages\net472\System.Diagnostics.Process\lib\net461\System.Diagnostics.Process.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Reflection">
+          <HintPath>..\packages\net472\System.Reflection\lib\net462\System.Reflection.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Runtime.CompilerServices.Unsafe">
+          <HintPath>..\packages\net472\System.Runtime.CompilerServices.Unsafe\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Threading.Tasks.Extensions">
+          <HintPath>..\packages\net472\System.Threading.Tasks.Extensions\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Xml">
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="System.Xml.XmlDocument">
+          <HintPath>..\packages\net472\System.Xml.XmlDocument\lib\net46\System.Xml.XmlDocument.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Xml.XPath">
+          <HintPath>..\packages\net472\System.Xml.XPath\lib\net46\System.Xml.XPath.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Xml.XPath.XmlDocument">
+          <HintPath>..\packages\net472\System.Xml.XPath.XmlDocument\lib\net46\System.Xml.XPath.XmlDocument.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+</Project>

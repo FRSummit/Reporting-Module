@@ -1,0 +1,18 @@
+group net472
+FluentNHibernate
+JsonDiffPatch.Net
+log4net
+Newtonsoft.Json
+NServiceBus
+NserviceBus.CustomChecks
+NServiceBus.Heartbeat
+NServiceBus.Log4Net
+NServiceBus.Metrics.ServiceControl
+NServiceBus.Persistence.Sql
+NServiceBus.SqlServer
+NServiceBus.StructureMap
+OctoPack
+structuremap
+System.ValueTuple
+Topshelf
+Topshelf.log4net

@@ -1,0 +1,11 @@
+<template>
+    <span if.bind="!isDirty">${libraryStockData.thisPeriod}</span>
+    <span data-toggle="tooltip" if.bind="isDirty" ref.bind="stalePeriod">
+        <span class="badge badge-pill badge-danger">
+        <strike>${libraryStockData.thisPeriod}</strike>&nbsp;
+        </span>
+        <span class="badge badge-pill badge-success">
+            ${newThisPeriod}
+        </span>
+    </span>
+</template>

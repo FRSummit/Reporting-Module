@@ -1,0 +1,115 @@
+<template>
+    <div class="table-responsive">
+        <h5 class="card-title">Finance</h5>
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th rowspan="2" class="align-middle">Type of collection</th>
+                    <th rowspan="2" class="align-middle">Worker Promise Last Period</th>
+                    <th rowspan="2" class="align-middle">Last Period Balance</th>
+                    <th rowspan="2" class="align-middle">Collected</th>
+                    <th rowspan="2" class="align-middle">Expense</th>
+                    <th rowspan="2" class="align-middle">Nisab</th>
+                    <th rowspan="2" class="align-middle">Balance</th>
+                    <th colspan="4" class="text-center">Worker Promise</th>
+                    <th rowspan="2" class="align-middle">Comment</th>
+                </tr>
+                <tr>
+                    <th>Target</th>
+                    <th>Increased</th>
+                    <th>Decreased</th>
+                    <th>This Period</th>
+                </tr>
+            </thead>                
+            <tbody>
+                <tr>
+                    <td>Baitul-Mal</td>
+                    <td>
+                        ${baitulMalFinanceData.workerPromiseLastPeriod | money}
+                        <span class="badge badge-pill badge-info" if.bind="baitulMalFinanceGeneratedData">&nbsp;${baitulMalFinanceGeneratedData.workerPromiseLastPeriod | money}</span>
+                    </td>
+                    <td>
+                        ${baitulMalFinanceData.lastPeriod | money}
+                        <span class="badge badge-pill badge-info" if.bind="baitulMalFinanceGeneratedData">&nbsp;${baitulMalFinanceGeneratedData.lastPeriod | money}</span>
+                    </td>
+                    <td><money-selector money.bind="baitulMalFinanceData.collection" generated.bind="baitulMalFinanceGeneratedData.collection"></money-selector></td>
+                    <td><money-selector money.bind="baitulMalFinanceData.expense" generated.bind="baitulMalFinanceGeneratedData.expense"></money-selector></td>
+                    <td><money-selector money.bind="baitulMalFinanceData.nisabPaidToCentral" generated.bind="baitulMalFinanceGeneratedData.nisabPaidToCentral"></money-selector></td>
+                    <td>
+                        <finance-balance finance-data.bind="baitulMalFinanceData"></finance-balance>
+                        <span class="badge badge-pill badge-info" if.bind="baitulMalFinanceGeneratedData">&nbsp;${baitulMalFinanceGeneratedData.balance | money}</span>
+                    </td>
+                    <td>
+                        ${baitulMalFinanceData.workerPromiseIncreaseTarget | money}
+                        <span class="badge badge-pill badge-info" if.bind="baitulMalFinanceGeneratedData">&nbsp;${baitulMalFinanceGeneratedData.workerPromiseIncreaseTarget | money}</span>
+                    </td>
+                    <td><money-selector money.bind="baitulMalFinanceData.workerPromiseIncreased" generated.bind="baitulMalFinanceGeneratedData.workerPromiseIncreased"></money-selector></td>
+                    <td><money-selector money.bind="baitulMalFinanceData.workerPromiseDecreased" generated.bind="baitulMalFinanceGeneratedData.workerPromiseDecreased"></money-selector></td>
+                    <td>
+                        <finance-worker-promise-this-period finance-data.bind="baitulMalFinanceData"></finance-worker-promise-this-period>
+                        <span class="badge badge-pill badge-info" if.bind="baitulMalFinanceGeneratedData">&nbsp;${baitulMalFinanceGeneratedData.workerPromiseThisPeriod | money}</span>
+                    </td>
+                    <td><input class="form-control" value.bind="baitulMalFinanceData.comment"></td>
+                </tr>
+                <tr>
+                    <td>Masjid Project</td>
+                    <td>
+                        ${aDayMasjidProjectFinanceData.workerPromiseLastPeriod | money}
+                        <span class="badge badge-pill badge-info" if.bind="aDayMasjidProjectFinanceGeneratedData">&nbsp;${aDayMasjidProjectFinanceGeneratedData.workerPromiseLastPeriod | money}</span>
+                    </td>
+                    <td>
+                        ${aDayMasjidProjectFinanceData.lastPeriod | money}
+                        <span class="badge badge-pill badge-info" if.bind="aDayMasjidProjectFinanceGeneratedData">&nbsp;${aDayMasjidProjectFinanceData.lastPeriod | money}</span>
+                    </td>
+                    <td><money-selector money.bind="aDayMasjidProjectFinanceData.collection" generated.bind="aDayMasjidProjectFinanceGeneratedData.collection"></money-selector></td>
+                    <td><money-selector money.bind="aDayMasjidProjectFinanceData.expense" generated.bind="aDayMasjidProjectFinanceGeneratedData.expense"></money-selector></td>
+                    <td><money-selector money.bind="aDayMasjidProjectFinanceData.nisabPaidToCentral" generated.bind="aDayMasjidProjectFinanceGeneratedData.nisabPaidToCentral"></money-selector></td>
+                    <td>
+                        <finance-balance finance-data.bind="aDayMasjidProjectFinanceData"></finance-balance>
+                        <span class="badge badge-pill badge-info" if.bind="aDayMasjidProjectFinanceGeneratedData">&nbsp;${aDayMasjidProjectFinanceGeneratedData.balance | money}</span>
+                    </td>
+                    <td>
+                        ${aDayMasjidProjectFinanceData.workerPromiseIncreaseTarget | money}
+                        <span class="badge badge-pill badge-info" if.bind="aDayMasjidProjectFinanceGeneratedData">&nbsp;${aDayMasjidProjectFinanceGeneratedData.workerPromiseIncreaseTarget | money}</span>
+                    </td>
+                    <td><money-selector money.bind="aDayMasjidProjectFinanceData.workerPromiseIncreased" generated.bind="aDayMasjidProjectFinanceGeneratedData.workerPromiseIncreased"></money-selector></td>
+                    <td><money-selector money.bind="aDayMasjidProjectFinanceData.workerPromiseDecreased" generated.bind="aDayMasjidProjectFinanceGeneratedData.workerPromiseDecreased"></money-selector></td>
+                    <td>
+                        <finance-worker-promise-this-period finance-data.bind="aDayMasjidProjectFinanceData"></finance-worker-promise-this-period>
+                        <span class="badge badge-pill badge-info" if.bind="aDayMasjidProjectFinanceGeneratedData">&nbsp;${aDayMasjidProjectFinanceGeneratedData.workerPromiseThisPeriod | money}</span>
+                    </td>
+                    <td><input class="form-control" value.bind="aDayMasjidProjectFinanceData.comment"></td>
+                </tr>
+                <tr>
+                    <td>Masjid Table Bank</td>
+                    <td>
+                        ${masjidTableBankFinanceData.workerPromiseLastPeriod | money}
+                        <span class="badge badge-pill badge-info" if.bind="masjidTableBankFinanceGeneratedData">&nbsp;${masjidTableBankFinanceGeneratedData.workerPromiseLastPeriod | money}</span>
+                    </td>
+                    <td>
+                        ${masjidTableBankFinanceData.lastPeriod | money}
+                        <span class="badge badge-pill badge-info" if.bind="masjidTableBankFinanceDataFinanceGeneratedData">&nbsp;${masjidTableBankFinanceData.lastPeriod | money}</span>
+                    </td>
+                    <td><money-selector money.bind="masjidTableBankFinanceData.collection" generated.bind="masjidTableBankFinanceGeneratedData.collection"></money-selector></td>
+                    <td><money-selector money.bind="masjidTableBankFinanceData.expense" generated.bind="masjidTableBankFinanceGeneratedData.expense"></money-selector></td>
+                    <td><money-selector money.bind="masjidTableBankFinanceData.nisabPaidToCentral" generated.bind="masjidTableBankFinanceGeneratedData.nisabPaidToCentral"></money-selector></td>
+                    <td>
+                        <finance-balance finance-data.bind="masjidTableBankFinanceData"></finance-balance>
+                        <span class="badge badge-pill badge-info" if.bind="aDayMasjidProjectFinanceGeneratedData">&nbsp;${masjidTableBankFinanceGeneratedData.balance | money}</span>
+                    </td>
+                    <td>
+                        ${masjidTableBankFinanceData.workerPromiseIncreaseTarget | money}
+                        <span class="badge badge-pill badge-info" if.bind="masjidTableBankFinanceGeneratedData">&nbsp;${masjidTableBankFinanceGeneratedData.workerPromiseIncreaseTarget | money}</span>
+                    </td>
+                    <td><money-selector money.bind="masjidTableBankFinanceData.workerPromiseIncreased" generated.bind="masjidTableBankFinanceGeneratedData.workerPromiseIncreased"></money-selector></td>
+                    <td><money-selector money.bind="masjidTableBankFinanceData.workerPromiseDecreased" generated.bind="masjidTableBankFinanceGeneratedData.workerPromiseDecreased"></money-selector></td>
+                    <td>
+                        <finance-worker-promise-this-period finance-data.bind="masjidTableBankFinanceData"></finance-worker-promise-this-period>
+                        <span class="badge badge-pill badge-info" if.bind="masjidTableBankFinanceGeneratedData">&nbsp;${masjidTableBankFinanceGeneratedData.workerPromiseThisPeriod | money}</span>
+                    </td>
+                    <td><input class="form-control" value.bind="masjidTableBankFinanceData.comment"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</template>

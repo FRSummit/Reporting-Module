@@ -1,0 +1,81 @@
+<template>
+        <div class="table-responsive">
+            <h5 class="card-title">Manpower & Personal Contacts</h5>
+            <table class="table table-striped table-hover table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Level</th>
+                        <th>Upgrade Target</th>
+                        <th>Name & Contact Number</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>                
+                <tbody>
+                    <tr>
+                        <td>MEMBER</td>
+                        <td>
+                            <div if.bind="$this.memberMemberPlanGeneratedData">
+                                ${memberMemberPlanData.upgradeTarget}
+                                <span class="badge badge-pill badge-info">
+                                    ${memberMemberPlanGeneratedData.upgradeTarget}
+                                </span>                                    
+                            </div>
+                            <div if.bind="!$this.memberMemberPlanGeneratedData">
+                                ${memberMemberPlanData.upgradeTarget}
+                            </div>
+                        </td>
+                        <td>${memberMemberPlanData.nameAndContactNumber}</td>
+                        <td>${memberMemberPlanData.action}</td>
+                    </tr>                    
+                    <tr>
+                        <td>Associate Member</td>
+                        <td>
+                            <div if.bind="$this.associateMemberPlanGeneratedData">
+                                ${associateMemberPlanData.upgradeTarget}
+                                <span class="badge badge-pill badge-info">
+                                    ${associateMemberPlanGeneratedData.upgradeTarget}
+                                </span>
+                            </div>
+                            <div if.bind="!$this.associateMemberPlanGeneratedData">
+                                ${associateMemberPlanData.upgradeTarget}
+                            </div>
+                        </td>
+                        <td>${associateMemberPlanData.nameAndContactNumber}</td>
+                        <td>${associateMemberPlanData.action}</td>
+                    </tr>
+                    <tr>
+                        <td>Preliminary Member</td>
+                        <td>
+                            <div if.bind="$this.preliminaryMemberPlanGeneratedData">
+                                ${preliminaryMemberPlanData.upgradeTarget}
+                                <span class="badge badge-pill badge-info">
+                                    ${preliminaryMemberPlanGeneratedData.upgradeTarget}
+                                </span>                                    
+                            </div>
+                            <div if.bind="!$this.preliminaryMemberPlanGeneratedData">
+                                ${preliminaryMemberPlanData.upgradeTarget}
+                            </div>
+                        </td>
+                        <td>${preliminaryMemberPlanData.nameAndContactNumber}</td>
+                        <td>${preliminaryMemberPlanData.action}</td>
+                    </tr>
+                    <tr>
+                        <td>Supporter</td>
+                        <td>
+                            <div if.bind="$this.supporterMemberPlanGeneratedData">
+                                ${supporterMemberPlanData.upgradeTarget}
+                                <span class="badge badge-pill badge-info">
+                                    ${supporterMemberPlanGeneratedData.upgradeTarget}
+                                </span>                                    
+                            </div>
+                            <div if.bind="!$this.supporterMemberPlanGeneratedData">
+                                ${supporterMemberPlanData.upgradeTarget}
+                            </div>
+                        </td>
+                        <td>${supporterMemberPlanData.nameAndContactNumber}</td>
+                        <td>${supporterMemberPlanData.action}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+</template>

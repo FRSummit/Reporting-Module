@@ -1,0 +1,69 @@
+group net472
+redirects: on
+source https://api.nuget.org/v3/index.json
+framework: net472
+nuget Auth0.OpenIdConnectSigningKeyResolver
+nuget bootstrap
+nuget Common.Logging
+nuget DocumentFormat.OpenXml
+nuget epplus
+nuget FluentAssertions
+nuget FluentNHibernate
+nuget FluentValidations
+nuget FontAwesome
+nuget JetBrains.DotMemoryUnit
+nuget jsondiffpatch.net
+nuget LINQtoCSV
+nuget Microsoft.AspNet.Identity.EntityFramework
+nuget Microsoft.AspNet.Identity.Owin
+nuget Microsoft.AspNet.SignalR
+nuget Microsoft.AspNet.Web.Optimization
+nuget Microsoft.AspNet.WebApi
+nuget Microsoft.AspNet.WebApi.Cors
+nuget Microsoft.AspNet.WebApi.HelpPage
+nuget Microsoft.AspNet.WebApi.Owin
+nuget Microsoft.CodeDom.Providers.DotNetCompilerPlatform
+nuget Microsoft.Data.Edm
+nuget Microsoft.Data.OData
+nuget Microsoft.Data.Services.Client
+nuget Microsoft.jQuery.Unobtrusive.Validation
+nuget Microsoft.NET.Test.Sdk
+nuget Microsoft.Owin 4.0.1
+nuget Microsoft.Owin.Cors 4.0.1
+nuget Microsoft.Owin.Host.HttpListener 4.0.1
+nuget Microsoft.Owin.Security.Facebook 4.0.1
+nuget Microsoft.Owin.Security.Google 4.0.1
+nuget Microsoft.Owin.Security.Jwt 4.0.1
+nuget Microsoft.Owin.Security.MicrosoftAccount 4.0.1
+nuget Microsoft.Owin.Security.Twitter 4.0.1
+nuget Microsoft.Owin.StaticFiles 4.0.1
+nuget Microsoft.Owin.Testing 4.0.1
+nuget Microsoft.Web.Xdt
+nuget Modernizr
+nuget Nancy.Owin
+nuget NHibernate
+nuget NHibernate.Caches.SysCache2
+nuget NServiceBus
+nuget NserviceBus.CustomChecks
+nuget NServiceBus.Heartbeat
+nuget NServiceBus.Log4Net
+nuget NServiceBus.Metrics.ServiceControl
+nuget NServiceBus.Newtonsoft.Json
+nuget NServiceBus.Persistence.Sql
+nuget NServiceBus.SqlServer
+nuget NServiceBus.StructureMap
+nuget NServiceBus.Testing
+nuget NSubstitute
+nuget NUnit
+nuget NUnit.Engine
+nuget NUnit.Engine.Api
+nuget NUnit3TestAdapter
+nuget OctoPack
+nuget Respond
+nuget StructureMap
+nuget SwashBuckle 5.6
+nuget System.Reflection.Emit.Lightweight 4.3.0
+nuget TeamCity.VSTest.TestAdapter
+nuget Topshelf
+nuget Topshelf.log4net
+nuget WebApiThrottle

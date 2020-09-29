@@ -1,0 +1,242 @@
+<template>
+    <div class="table-responsive">
+        <h5 class="card-title">Teaching & Learning Program</h5>
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Program</th>
+                    <th>Target</th>
+                    <th>Actual</th>
+                    <th>Average Attended</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Group Study/Discussion</td>
+                    <td>
+                        ${groupStudyTeachingLearningProgramData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.groupStudyTeachingLearningProgramGeneratedData">
+                            &nbsp;${groupStudyTeachingLearningProgramGeneratedData.target}
+                        </span>
+                    </td>
+                    <td>
+                        <input-number input-number.bind="groupStudyTeachingLearningProgramData.actual" generated.bind="groupStudyTeachingLearningProgramGeneratedData.actual"></input-number>
+                    </td>
+                    <td>
+                        <input-number input-number.bind="groupStudyTeachingLearningProgramData.averageAttendance" generated.bind="groupStudyTeachingLearningProgramGeneratedData.averageAttendance"></input-number>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Study Circle(AM)</td>
+                    <td>
+                        ${studyCircleForAssociateMemberTeachingLearningProgramData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.studyCircleForAssociateMemberTeachingLearningProgramGeneratedData">
+                            &nbsp;${studyCircleForAssociateMemberTeachingLearningProgramGeneratedData.target}
+                        </span>
+                    </td>
+                    <td>
+                        <input-number input-number.bind="studyCircleForAssociateMemberTeachingLearningProgramData.actual" generated.bind="studyCircleForAssociateMemberTeachingLearningProgramGeneratedData.actual"></input-number>
+                    </td>
+                    <td>
+                        <input-number input-number.bind="studyCircleForAssociateMemberTeachingLearningProgramData.averageAttendance" generated.bind="studyCircleForAssociateMemberTeachingLearningProgramGeneratedData.averageAttendance"></input-number>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Study Circle</td>
+                    <td>
+                        ${studyCircleTeachingLearningProgramData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.studyCircleTeachingLearningProgramGeneratedData">
+                            &nbsp;${studyCircleTeachingLearningProgramGeneratedData.target}
+                        </span>
+                    </td>
+                    <td>
+                        <input-number input-number.bind="studyCircleTeachingLearningProgramData.actual" generated.bind="studyCircleTeachingLearningProgramGeneratedData.actual"></input-number>
+                    </td>
+                    <td>
+                        <input-number input-number.bind="studyCircleTeachingLearningProgramData.averageAttendance" generated.bind="studyCircleTeachingLearningProgramGeneratedData.averageAttendance"></input-number>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Practice Dars/ Speech</td>
+                    <td>
+                        ${practiceDarsTeachingLearningProgramData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.practiceDarsTeachingLearningProgramGeneratedData">
+                            &nbsp;${practiceDarsTeachingLearningProgramGeneratedData.target}
+                        </span>
+                    </td>
+                    <td>
+                        <input-number input-number.bind="practiceDarsTeachingLearningProgramData.actual" generated.bind="practiceDarsTeachingLearningProgramGeneratedData.actual"></input-number>
+                    </td>
+                    <td>
+                        <input-number input-number.bind="practiceDarsTeachingLearningProgramData.averageAttendance" generated.bind="practiceDarsTeachingLearningProgramGeneratedData.averageAttendance"></input-number>
+                    </td>
+                </tr>
+                <tr>
+                    <td>State - Learning Camp (LC)</td>
+                    <td>
+                        ${stateLearningCampTeachingLearningProgramData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.stateLearningCampTeachingLearningProgramGeneratedData">
+                            &nbsp;${stateLearningCampTeachingLearningProgramGeneratedData.target}
+                        </span>
+                    </td>
+                    <td>
+                        <input-number input-number.bind="stateLearningCampTeachingLearningProgramData.actual" generated.bind="stateLearningCampTeachingLearningProgramGeneratedData.actual"></input-number>
+                    </td>
+                    <td>
+                        <input-number input-number.bind="stateLearningCampTeachingLearningProgramData.averageAttendance" generated.bind="stateLearningCampTeachingLearningProgramGeneratedData.averageAttendance"></input-number>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Quran Study</td>
+                    <td>
+                        ${quranStudyTeachingLearningProgramData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.quranStudyTeachingLearningProgramGeneratedData">
+                            &nbsp;${quranStudyTeachingLearningProgramGeneratedData.target}
+                        </span>
+                    </td>    
+                    <td>
+                        <input-number input-number.bind="quranStudyTeachingLearningProgramData.actual" generated.bind="quranStudyTeachingLearningProgramGeneratedData.actual"></input-number>
+                    </td>
+                    <td>
+                        <input-number input-number.bind="quranStudyTeachingLearningProgramData.averageAttendance" generated.bind="quranStudyTeachingLearningProgramGeneratedData.averageAttendance"></input-number>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Hadith Study</td>
+                    <td>
+                        ${hadithTeachingLearningProgramData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.hadithTeachingLearningProgramGeneratedData">
+                            &nbsp;${hadithTeachingLearningProgramGeneratedData.target}
+                        </span>
+                    </td>    
+                    <td>
+                        <input-number input-number.bind="hadithTeachingLearningProgramData.actual" generated.bind="hadithTeachingLearningProgramGeneratedData.actual"></input-number>
+                    </td>
+                    <td>
+                        <input-number input-number.bind="hadithTeachingLearningProgramData.averageAttendance" generated.bind="hadithTeachingLearningProgramGeneratedData.averageAttendance"></input-number>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Quran Class</td>
+                    <td>
+                        ${quranClassTeachingLearningProgramData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.quranClassTeachingLearningProgramGeneratedData">
+                            &nbsp;${quranClassTeachingLearningProgramGeneratedData.target}
+                        </span>
+                    </td>    
+                    <td>
+                        <input-number input-number.bind="quranClassTeachingLearningProgramData.actual" generated.bind="quranClassTeachingLearningProgramGeneratedData.actual"></input-number>
+                    </td>
+                    <td>
+                        <input-number input-number.bind="quranClassTeachingLearningProgramData.averageAttendance" generated.bind="quranClassTeachingLearningProgramGeneratedData.averageAttendance"></input-number>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Weekend Islamic School</td>
+                    <td>
+                        ${weekendIslamicSchoolTeachingLearningProgramData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.weekendIslamicSchoolTeachingLearningProgramGeneratedData">
+                            &nbsp;${weekendIslamicSchoolTeachingLearningProgramGeneratedData.target}
+                        </span>
+                    </td>    
+                    <td>
+                        <input-number input-number.bind="weekendIslamicSchoolTeachingLearningProgramData.actual" generated.bind="weekendIslamicSchoolTeachingLearningProgramGeneratedData.actual"></input-number>
+                    </td>
+                    <td>
+                        <input-number input-number.bind="weekendIslamicSchoolTeachingLearningProgramData.averageAttendance" generated.bind="weekendIslamicSchoolTeachingLearningProgramGeneratedData.averageAttendance"></input-number>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Memorizing Ayat</td>
+                    <td>
+                        ${memorizingAyatTeachingLearningProgramData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.memorizingAyatTeachingLearningProgramGeneratedData">
+                            &nbsp;${memorizingAyatTeachingLearningProgramGeneratedData.target}
+                        </span>
+                    </td>    
+                    <td>
+                        <input-number input-number.bind="memorizingAyatTeachingLearningProgramData.actual" generated.bind="memorizingAyatTeachingLearningProgramGeneratedData.actual"></input-number>
+                    </td>
+                    <td>
+                        <input-number input-number.bind="memorizingAyatTeachingLearningProgramData.averageAttendance" generated.bind="memorizingAyatTeachingLearningProgramGeneratedData.averageAttendance"></input-number>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Memorizing Hadith</td>
+                    <td>
+                        ${memorizingHadithTeachingLearningProgramData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.memorizingHadithTeachingLearningProgramGeneratedData">
+                            &nbsp;${memorizingHadithTeachingLearningProgramGeneratedData.target}
+                        </span>
+                    </td>    
+                    <td>
+                        <input-number input-number.bind="memorizingHadithTeachingLearningProgramData.actual" generated.bind="memorizingHadithTeachingLearningProgramGeneratedData.actual"></input-number>
+                    </td>
+                    <td>
+                        <input-number input-number.bind="memorizingHadithTeachingLearningProgramData.averageAttendance" generated.bind="memorizingHadithTeachingLearningProgramGeneratedData.averageAttendance"></input-number>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Memorizing Doa</td>
+                    <td>
+                        ${memorizingDoaTeachingLearningProgramData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.memorizingDoaTeachingLearningProgramGeneratedData">
+                            &nbsp;${memorizingDoaTeachingLearningProgramGeneratedData.target}
+                        </span>
+                    </td>    
+                    <td>
+                        <input-number input-number.bind="memorizingDoaTeachingLearningProgramData.actual" generated.bind="memorizingDoaTeachingLearningProgramGeneratedData.actual"></input-number>
+                    </td>
+                    <td>
+                        <input-number input-number.bind="memorizingDoaTeachingLearningProgramData.averageAttendance" generated.bind="memorizingDoaTeachingLearningProgramGeneratedData.averageAttendance"></input-number>
+                    </td>
+                </tr>
+                <tr>
+                    <td>State - Learning Session</td>
+                    <td>
+                        ${stateLearningSessionTeachingLearningProgramData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.stateLearningSessionTeachingLearningProgramGeneratedData">
+                            &nbsp;${stateLearningSessionTeachingLearningProgramGeneratedData.target}
+                        </span>
+                    </td>
+                    <td>
+                        <input-number input-number.bind="stateLearningSessionTeachingLearningProgramData.actual" generated.bind="stateLearningSessionTeachingLearningProgramGeneratedData.actual"></input-number>
+                    </td>
+                    <td>
+                        <input-number input-number.bind="stateLearningSessionTeachingLearningProgramData.averageAttendance" generated.bind="stateLearningSessionTeachingLearningProgramGeneratedData.averageAttendance"></input-number>
+                    </td>
+                </tr>
+                <tr>
+                    <td>State - Qiyamul Lail</td>
+                    <td>
+                        ${stateQiyamulLailTeachingLearningProgramData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.stateQiyamulLailTeachingLearningProgramGeneratedData">
+                            &nbsp;${stateQiyamulLailTeachingLearningProgramGeneratedData.target}
+                        </span>
+                    </td>
+                    <td>
+                        <input-number input-number.bind="stateQiyamulLailTeachingLearningProgramData.actual" generated.bind="stateQiyamulLailTeachingLearningProgramGeneratedData.actual"></input-number>
+                    </td>
+                    <td>
+                        <input-number input-number.bind="stateQiyamulLailTeachingLearningProgramData.averageAttendance" generated.bind="stateQiyamulLailTeachingLearningProgramGeneratedData.averageAttendance"></input-number>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Other</td>
+                    <td>
+                        ${otherTeachingLearningProgramData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.otherTeachingLearningProgramGeneratedData">
+                            &nbsp;${otherTeachingLearningProgramGeneratedData.target}
+                        </span>
+                    </td>
+                    <td>
+                        <input-number input-number.bind="otherTeachingLearningProgramData.actual" generated.bind="otherTeachingLearningProgramGeneratedData.actual"></input-number>
+                    </td>
+                    <td>
+                        <input-number input-number.bind="otherTeachingLearningProgramData.averageAttendance" generated.bind="otherTeachingLearningProgramGeneratedData.averageAttendance"></input-number>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</template>

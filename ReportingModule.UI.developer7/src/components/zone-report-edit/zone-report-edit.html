@@ -1,0 +1,195 @@
+<template>
+    <div if.bind="zoneReport">
+        <div class="row">
+            <div class="col-lg-12">
+                <plan-report-header header-data.bind="headerData"></plan-report-header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <plan-report-shell item-id.bind="reportid" report-status.bind="zoneReport.reportStatus" organization-type.bind="zoneReport.organization.organizationType">
+                    <div class="card">
+                        <div class="card-header bg-info text-white" if.bind="!isDirty">
+                          <div class="row">
+                              <div class="col" align="left">
+                                  ${zoneReport.reportingPeriod | reportingPeriod}
+                              </div>
+                              <div class="col" align="right">
+                                ${zoneReport.timestamp | convertToLocalDate}
+                              </div>
+                            </div>
+                        </div>
+                        <div class="card-header bg-warning text-white" if.bind="isDirty">
+                          <div class="row">
+                              <div class="col" align="left">
+                                  ${zoneReport.reportingPeriod | reportingPeriod} - Unsaved Changes
+                              </div>
+                              <div class="col" align="right">
+                                ${zoneReport.timestamp | convertToLocalDate}
+                              </div>
+                            </div>
+
+                        </div>
+                        <div class="card-body">
+                            <report-manpower-edit
+                                associate-member-data.bind="zoneReport.associateMemberData"
+                                associate-member-generated-data.bind="zoneReport.associateMemberGeneratedData"
+                                preliminary-member-data.bind="zoneReport.preliminaryMemberData"
+                                preliminary-member-generated-data.bind="zoneReport.preliminaryMemberGeneratedData"
+                                supporter-member-data.bind="zoneReport.supporterMemberData"
+                                supporter-member-generated-data.bind="zoneReport.supporterMemberGeneratedData"
+                                member-member-data.bind="zoneReport.memberMemberData"
+                                member-member-generated-data.bind="zoneReport.memberMemberGeneratedData">
+                            </report-manpower-edit>
+                            <report-regular-meetings-edit
+                                worker-meeting-program-data.bind="zoneReport.workerMeetingProgramData"
+                                worker-meeting-program-generated-data.bind="zoneReport.workerMeetingProgramGeneratedData"
+                                cms-meeting-program-data.bind="zoneReport.cmsMeetingProgramData"
+                                cms-meeting-program-generated-data.bind="zoneReport.cmsMeetingProgramGeneratedData"
+                                sm-meeting-program-data.bind="zoneReport.smMeetingProgramData"
+                                sm-meeting-program-generated-data.bind="zoneReport.smMeetingProgramGeneratedData"
+                                member-meeting-program-data.bind="zoneReport.memberMeetingProgramData"
+                                member-meeting-program-generated-data.bind="zoneReport.memberMeetingProgramGeneratedData"
+                                dawah-meeting-program-data.bind="zoneReport.dawahMeetingProgramData"
+                                dawah-meeting-program-generated-data.bind="zoneReport.dawahMeetingProgramGeneratedData"
+                                state-leader-meeting-program-data.bind="zoneReport.stateLeaderMeetingProgramData"
+                                state-leader-meeting-program-generated-data.bind="zoneReport.stateLeaderMeetingProgramGeneratedData"
+                                state-outing-meeting-program-data.bind="zoneReport.stateOutingMeetingProgramData"
+                                state-outing-meeting-program-generated-data.bind="zoneReport.stateOutingMeetingProgramGeneratedData"
+                                iftar-meeting-program-data.bind="zoneReport.iftarMeetingProgramData"
+                                iftar-meeting-program-generated-data.bind="zoneReport.iftarMeetingProgramGeneratedData"
+                                learning-meeting-program-data.bind="zoneReport.learningMeetingProgramData"
+                                learning-meeting-program-generated-data.bind="zoneReport.learningMeetingProgramGeneratedData"
+                                social-dawah-meeting-program-data.bind="zoneReport.socialDawahMeetingProgramData"
+                                social-dawah-meeting-program-generated-data.bind="zoneReport.socialDawahMeetingProgramGeneratedData"
+                                dawah-group-meeting-program-data.bind="zoneReport.dawahGroupMeetingProgramData"
+                                dawah-group-meeting-program-generated-data.bind="zoneReport.dawahGroupMeetingProgramGeneratedData"
+                                next-g-meeting-program-data.bind="zoneReport.nextGMeetingProgramData"
+                                next-g-meeting-program-generated-data.bind="zoneReport.nextGMeetingProgramGeneratedData"
+                                tafsir-meeting-program-data.bind="zoneReport.tafsirMeetingProgramData"
+                                tafsir-meeting-program-generated-data.bind="zoneReport.tafsirMeetingProgramGeneratedData"
+                                unit-meeting-program-data.bind="zoneReport.unitMeetingProgramData"
+                                unit-meeting-program-generated-data.bind="zoneReport.unitMeetingProgramGeneratedData"
+                                bbq-meeting-program-data.bind="zoneReport.bbqMeetingProgramData"
+                                bbq-meeting-program-generated-data.bind="zoneReport.bbqMeetingProgramGeneratedData"
+                                gathering-meeting-program-data.bind="zoneReport.gatheringMeetingProgramData"
+                                gathering-meeting-program-generated-data.bind="zoneReport.gatheringMeetingProgramGeneratedData"
+                                family-visit-meeting-program-data.bind="zoneReport.familyVisitMeetingProgramData"
+                                family-visit-meeting-program-generated-data.bind="zoneReport.familyVisitMeetingProgramGeneratedData"
+                                eid-reunion-meeting-program-data.bind="zoneReport.eidReunionMeetingProgramData"
+                                eid-reunion-meeting-program-generated-data.bind="zoneReport.eidReunionMeetingProgramGeneratedData"
+                                other-meeting-program-data.bind="zoneReport.otherMeetingProgramData"
+                                other-meeting-program-generated-data.bind="zoneReport.otherMeetingProgramGeneratedData">
+                            </report-regular-meetings-edit>
+                            <report-teaching-edit
+                                group-study-teaching-learning-program-data.bind="zoneReport.groupStudyTeachingLearningProgramData"
+                                group-study-teaching-learning-program-generated-data.bind="zoneReport.groupStudyTeachingLearningProgramGeneratedData"
+                                study-circle-for-associate-member-teaching-learning-program-data.bind="zoneReport.studyCircleForAssociateMemberTeachingLearningProgramData"
+                                study-circle-for-associate-member-teaching-learning-program-generated-data.bind="zoneReport.studyCircleForAssociateMemberTeachingLearningProgramGeneratedData"
+                                study-circle-teaching-learning-program-data.bind="zoneReport.studyCircleTeachingLearningProgramData"
+                                study-circle-teaching-learning-program-generated-data.bind="zoneReport.studyCircleTeachingLearningProgramGeneratedData"
+                                practice-dars-teaching-learning-program-data.bind="zoneReport.practiceDarsTeachingLearningProgramData"
+                                practice-dars-teaching-learning-program-generated-data.bind="zoneReport.practiceDarsTeachingLearningProgramGeneratedData"
+                                state-learning-camp-teaching-learning-program-data.bind="zoneReport.stateLearningCampTeachingLearningProgramData"
+                                state-learning-camp-teaching-learning-program-generated-data.bind="zoneReport.stateLearningCampTeachingLearningProgramGeneratedData"
+                                quran-study-teaching-learning-program-data.bind="zoneReport.quranStudyTeachingLearningProgramData"
+                                quran-study-teaching-learning-program-generated-data.bind="zoneReport.quranStudyTeachingLearningProgramGeneratedData"
+                                hadith-teaching-learning-program-data.bind="zoneReport.hadithTeachingLearningProgramData"
+                                hadith-teaching-learning-program-generated-data.bind="zoneReport.hadithTeachingLearningProgramGeneratedData"
+                                quran-class-teaching-learning-program-data.bind="zoneReport.quranClassTeachingLearningProgramData"
+                                quran-class-teaching-learning-program-generated-data.bind="zoneReport.quranClassTeachingLearningProgramGeneratedData"
+                                weekend-islamic-school-teaching-learning-program-data.bind="zoneReport.weekendIslamicSchoolTeachingLearningProgramData"
+                                weekend-islamic-school-teaching-learning-program-generated-data.bind="zoneReport.weekendIslamicSchoolTeachingLearningProgramGeneratedData"
+                                memorizing-ayat-teaching-learning-program-data.bind="zoneReport.memorizingAyatTeachingLearningProgramData"
+                                memorizing-ayat-teaching-learning-program-generated-data.bind="zoneReport.memorizingAyatTeachingLearningProgramGeneratedData"
+                                memorizing-hadith-teaching-learning-program-data.bind="zoneReport.memorizingHadithTeachingLearningProgramData"
+                                memorizing-hadith-teaching-learning-program-generated-data.bind="zoneReport.memorizingHadithTeachingLearningProgramGeneratedData"
+                                memorizing-doa-teaching-learning-program-data.bind="zoneReport.memorizingDoaTeachingLearningProgramData"
+                                memorizing-doa-teaching-learning-program-generated-data.bind="zoneReport.memorizingDoaTeachingLearningProgramGeneratedData"
+                                state-learning-session-teaching-learning-program-data.bind="zoneReport.stateLearningSessionTeachingLearningProgramData"
+                                state-learning-session-teaching-learning-program-generated-data.bind="zoneReport.stateLearningSessionTeachingLearningProgramGeneratedData"
+                                state-qiyamul-lail-teaching-learning-program-data.bind="zoneReport.stateQiyamulLailTeachingLearningProgramData"
+                                state-qiyamul-lail-teaching-learning-program-generated-data.bind="zoneReport.stateQiyamulLailTeachingLearningProgramGeneratedData"
+                                other-teaching-learning-program-data.bind="zoneReport.otherTeachingLearningProgramData"
+                                other-teaching-learning-program-generated-data.bind="zoneReport.otherTeachingLearningProgramGeneratedData">                            </report-teaching-edit>
+                            <report-material-edit
+                                book-sale-material-data.bind="zoneReport.bookSaleMaterialData"
+                                book-sale-material-generated-data.bind="zoneReport.bookSaleMaterialGeneratedData"
+                                book-distribution-material-data.bind="zoneReport.bookDistributionMaterialData"
+                                book-distribution-material-generated-data.bind="zoneReport.bookDistributionMaterialGeneratedData"
+                                vhs-sale-material-data.bind="zoneReport.vhsSaleMaterialData"
+                                vhs-sale-material-generated-data.bind="zoneReport.vhsSaleMaterialGeneratedData"
+                                vhs-distribution-material-data.bind="zoneReport.vhsDistributionMaterialData"
+                                vhs-distribution-material-generated-data.bind="zoneReport.vhsDistributionMaterialGeneratedData"
+                                email-distribution-material-data.bind="zoneReport.emailDistributionMaterialData"
+                                email-distribution-material-generated-data.bind="zoneReport.emailDistributionMaterialGeneratedData"
+                                ipdc-leaflet-distribution-material-data.bind="zoneReport.ipdcLeafletDistributionMaterialData"
+                                ipdc-leaflet-distribution-material-generated-data.bind="zoneReport.ipdcLeafletDistributionMaterialGeneratedData"
+                                other-sale-material-data.bind="zoneReport.otherSaleMaterialData"
+                                other-sale-material-generated-data.bind="zoneReport.otherSaleMaterialGeneratedData"
+                                other-distribution-material-data.bind="zoneReport.otherDistributionMaterialData"
+                                other-distribution-material-generated-data.bind="zoneReport.otherDistributionMaterialGeneratedData">
+                            </report-material-edit>
+                            <report-library-edit
+                                book-library-stock-data.bind="zoneReport.bookLibraryStockData"
+                                book-library-stock-generated-data.bind="zoneReport.bookLibraryStockGeneratedData"
+                                vhs-library-stock-data.bind="zoneReport.vhsLibraryStockData"
+                                vhs-library-stock-generated-data.bind="zoneReport.vhsLibraryStockGeneratedData"
+                                other-library-stock-data.bind="zoneReport.otherLibraryStockData"
+                                other-library-stock-generated-data.bind="zoneReport.otherLibraryStockGeneratedData">
+                            </report-library-edit>
+                            <report-finance-edit
+                                baitul-mal-finance-data.bind="zoneReport.baitulMalFinanceData"
+                                baitul-mal-finance-generated-data.bind="zoneReport.baitulMalFinanceGeneratedData"
+                                a-day-masjid-project-finance-data.bind="zoneReport.aDayMasjidProjectFinanceData"
+                                a-day-masjid-project-finance-generated-data.bind="zoneReport.aDayMasjidProjectFinanceGeneratedData"
+                                masjid-table-bank-finance-data.bind="zoneReport.masjidTableBankFinanceData"
+                                masjid-table-bank-finance-generated-data.bind="zoneReport.masjidTableBankFinanceGeneratedData">
+                            </report-finance-edit>
+                            <report-socialwelfare-edit
+                                qarde-hasana-social-welfare-data.bind="zoneReport.qardeHasanaSocialWelfareData"
+                                qarde-hasana-social-welfare-generated-data.bind="zoneReport.qardeHasanaSocialWelfareGeneratedData"
+                                patient-visit-social-welfare-data.bind="zoneReport.patientVisitSocialWelfareData"
+                                patient-visit-social-welfare-generated-data.bind="zoneReport.patientVisitSocialWelfareGeneratedData"
+                                social-visit-social-welfare-data.bind="zoneReport.socialVisitSocialWelfareData"
+                                social-visit-social-welfare-generated-data.bind="zoneReport.socialVisitSocialWelfareGeneratedData"
+                                transport-social-welfare-data.bind="zoneReport.transportSocialWelfareData"
+                                transport-social-welfare-generated-data.bind="zoneReport.transportSocialWelfareGeneratedData"
+                                shifting-social-welfare-data.bind="zoneReport.shiftingSocialWelfareData"
+                                shifting-social-welfare-generated-data.bind="zoneReport.shiftingSocialWelfareGeneratedData"
+                                shopping-social-welfare-data.bind="zoneReport.shoppingSocialWelfareData"
+                                shopping-social-welfare-generated-data.bind="zoneReport.shoppingSocialWelfareGeneratedData"
+                                food-distribution-social-welfare-data.bind="zoneReport.foodDistributionSocialWelfareData"
+                                food-distribution-social-welfare-generated-data.bind="zoneReport.foodDistributionSocialWelfareGeneratedData"
+                                clean-up-australia-social-welfare-data.bind="zoneReport.cleanUpAustraliaSocialWelfareData"
+                                clean-up-australia-social-welfare-generated-data.bind="zoneReport.cleanUpAustraliaSocialWelfareGeneratedData"
+                                other-social-welfare-data.bind="zoneReport.otherSocialWelfareData"
+                                other-social-welfare-generated-data.bind="zoneReport.otherSocialWelfareGeneratedData">
+                            </report-socialwelfare-edit>
+                            <div>
+                                <h5 class="card-title">Comment</h5>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <textarea value.bind="zoneReport.comment" style="width: 100%" rows="10"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary" click.delegate="save()" disabled.bind="!canSave">
+                                <i class="fas fa-cloud-upload-alt" if.bind="!isSaving"></i>
+                                <i class="fas fa-spinner fa-spin" if.bind="isSaving"></i> Save
+                            </button>
+                            <button type="button" class="btn btn-warning" click.delegate="cancelChanges()" disabled.bind="!canCancel">
+                                <i class="fas fa-eraser" if.bind="!isCancelling"></i>
+                                <i class="fas fa-spinner fa-spin" if.bind="isCancelling"></i> Cancel Changes
+                            </button>
+                            <button type="button" class="btn btn-success" click.delegate="saveAndSubmitReport()" disabled.bind="!canSubmit">
+                                    <i class="fas fa-chart-line" if.bind="!isSubmitting"></i>
+                                    <i class="fas fa-spinner fa-spin" if.bind="isSubmitting"></i> Submit Report
+                            </button>
+                        </div>
+                    </div>
+                </plan-report-shell>
+            </div>
+        </div>
+    </div>
+</template>

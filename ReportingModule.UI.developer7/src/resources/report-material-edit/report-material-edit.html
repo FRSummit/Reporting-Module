@@ -1,0 +1,106 @@
+<template>
+    <div class="table-responsive">
+        <h5 class="card-title">Dawah Material Distribution</h5>
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Material</th>
+                    <th>Target</th>
+                    <th>Actual</th>
+                    <th>Comment</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr>
+                    <td>Book Sale</td>
+                    <td>
+                        ${bookSaleMaterialData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.bookSaleMaterialGeneratedData">
+                            &nbsp;${bookSaleMaterialGeneratedData.target}
+                        </span>
+                    </td>
+                    <td><input-number input-number.bind="bookSaleMaterialData.actual" generated.bind="bookSaleMaterialGeneratedData.actual"></input-number></td>
+                    <td><input class="form-control" value.bind="bookSaleMaterialData.comment"></td>
+                </tr>
+                <tr>
+                    <td>Book Distribution</td>
+                    <td>
+                        ${bookDistributionMaterialData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.bookDistributionMaterialGeneratedData">
+                            &nbsp;${bookDistributionMaterialGeneratedData.target}
+                        </span>
+                    </td>
+                    <td><input-number input-number.bind="bookDistributionMaterialData.actual" generated.bind="bookDistributionMaterialGeneratedData.actual"></input-number></td>
+                    <td><input class="form-control" value.bind="bookDistributionMaterialData.comment"></td>
+                </tr>
+                <tr>
+                    <td>VHS/DVD/VCD/CD/Audio Sale</td>
+                    <td>
+                        ${vhsSaleMaterialData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.vhsSaleMaterialGeneratedData">
+                            &nbsp;${vhsSaleMaterialGeneratedData.target}
+                        </span>
+                    </td>
+                    <td><input-number input-number.bind="vhsSaleMaterialData.actual" generated.bind="vhsSaleMaterialGeneratedData.actual"></input-number></td>
+                    <td><input class="form-control" value.bind="vhsSaleMaterialData.comment"></td>
+                </tr>
+                <tr>
+                    <td>VHS/DVD/VCD/CD/Audio Distribution</td>
+                    <td>
+                        ${vhsDistributionMaterialData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.vhsDistributionMaterialGeneratedData">
+                            &nbsp;${vhsDistributionMaterialGeneratedData.target}
+                        </span>
+                    </td>
+                    <td><input-number input-number.bind="vhsDistributionMaterialData.actual" generated.bind="vhsDistributionMaterialGeneratedData.actual"></input-number></td>
+                    <td><input class="form-control" value.bind="vhsDistributionMaterialData.comment"></td>
+                </tr>
+                <tr>
+                    <td>Email Distribution</td>
+                    <td>
+                        ${emailDistributionMaterialData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.emailDistributionMaterialGeneratedData">
+                            &nbsp;${emailDistributionMaterialGeneratedData.target}
+                        </span>
+                    </td>
+                    <td><input-number input-number.bind="emailDistributionMaterialData.actual" generated.bind="emailDistributionMaterialGeneratedData.actual"></input-number></td>
+                    <td><input class="form-control" value.bind="emailDistributionMaterialData.comment"></td>
+                </tr>
+                <tr>
+                    <td>IPDC Leaflet Distribution</td>
+                    <td>
+                        ${ipdcLeafletDistributionMaterialData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.ipdcLeafletDistributionMaterialGeneratedData">
+                            &nbsp;${ipdcLeafletDistributionMaterialGeneratedData.target}
+                        </span>                        
+                    </td>
+                    <td><input-number input-number.bind="ipdcLeafletDistributionMaterialData.actual" generated.bind="ipdcLeafletDistributionMaterialGeneratedData.actual"></input-number></td>
+                    <td><input class="form-control" value.bind="ipdcLeafletDistributionMaterialData.comment"></td>
+                </tr>
+                <tr>
+                    <td>Other Sale</td>
+                    <td>
+                        ${otherSaleMaterialData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.otherSaleMaterialGeneratedData">
+                            &nbsp;${otherSaleMaterialGeneratedData.target}
+                        </span>
+                    </td>
+                    <td><input-number input-number.bind="otherSaleMaterialData.actual" generated.bind="otherSaleMaterialGeneratedData.actual"></input-number></td>
+                    <td><input class="form-control" value.bind="otherSaleMaterialData.comment"></td>
+                </tr>
+                <tr>
+                    <td>Other Distribution</td>
+                    <td>
+                        ${otherDistributionMaterialData.target}
+                        <span class="badge badge-pill badge-info" if.bind="$this.otherDistributionMaterialGeneratedData">
+                            &nbsp;${otherDistributionMaterialGeneratedData.target}
+                        </span>
+                    </td>
+                    <td><input-number input-number.bind="otherDistributionMaterialData.actual" generated.bind="otherDistributionMaterialGeneratedData.actual"></input-number></td>
+                    <td><input class="form-control" value.bind="otherDistributionMaterialData.comment"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</template>

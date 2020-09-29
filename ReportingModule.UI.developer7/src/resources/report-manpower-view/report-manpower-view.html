@@ -1,0 +1,201 @@
+<template>
+    <div class="table-responsive">
+        <h5 class="card-title">Manpower & Personal Contacts</h5>
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Level</th>
+                    <th>Last Period</th>
+                    <th>Upgrade Target</th>
+                    <th>Increased</th>
+                    <th>Decreased</th>
+                    <th>This Period</th>
+                    <th>Personal Contacts</th>
+                    <th>Comments</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>  
+                    <td>MEMBER</td>
+                    <td>
+                        <div if.bind="$this.memberMemberGeneratedData">
+                            ${memberMemberData.lastPeriod} <span class="badge badge-pill badge-info">${memberMemberGeneratedData.lastPeriod}</span>                            
+                        </div>
+                        <div if.bind="!$this.memberMemberGeneratedData">
+                            ${memberMemberData.lastPeriod}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.memberMemberGeneratedData">
+                            ${memberMemberData.upgradeTarget} <span class="badge badge-pill badge-info">${memberMemberGeneratedData.upgradeTarget}</span>                            
+                        </div>
+                        <div if.bind="!$this.memberMemberGeneratedData">
+                            ${memberMemberData.upgradeTarget}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.memberMemberGeneratedData">
+                            ${memberMemberData.increased} <span class="badge badge-pill badge-info">${memberMemberGeneratedData.increased}</span>                            
+                        </div>
+                        <div if.bind="!$this.memberMemberGeneratedData">
+                            ${memberMemberData.increased}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.memberMemberGeneratedData">
+                            ${memberMemberData.decreased} <span class="badge badge-pill badge-info">${memberMemberGeneratedData.decreased}</span>
+                        </div>
+                        <div if.bind="!$this.memberMemberGeneratedData">
+                            ${memberMemberData.decreased}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.memberMemberGeneratedData">
+                            ${memberMemberData.thisPeriod} <span class="badge badge-pill badge-info">${memberMemberGeneratedData.thisPeriod}</span>                            
+                        </div>
+                        <div if.bind="!$this.memberMemberGeneratedData">
+                            ${memberMemberData.thisPeriod}
+                        </div>
+                    </td>
+                    <td>${memberMemberData.personalContact}</td>
+                    <td>${memberMemberData.comment}</td>
+                </tr>                
+                <tr>
+                    <td>Associate Member</td>
+                    <td>
+                        <div if.bind="$this.associateMemberGeneratedData">
+                            ${associateMemberData.lastPeriod} <span class="badge badge-pill badge-info">${associateMemberGeneratedData.lastPeriod}</span>
+                        </div>
+                        <div if.bind="!$this.associateMemberGeneratedData">
+                            ${associateMemberData.lastPeriod}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.associateMemberGeneratedData">
+                            ${associateMemberData.upgradeTarget} <span class="badge badge-pill badge-info">${associateMemberGeneratedData.upgradeTarget}</span>
+                        </div>
+                        <div if.bind="!$this.associateMemberGeneratedData">
+                            ${associateMemberData.upgradeTarget}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.associateMemberGeneratedData">
+                            ${associateMemberData.increased} <span class="badge badge-pill badge-info">${associateMemberGeneratedData.increased}</span>                            
+                        </div>
+                        <div if.bind="!$this.associateMemberGeneratedData">
+                            ${associateMemberData.increased}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.associateMemberGeneratedData">
+                            ${associateMemberData.decreased} <span class="badge badge-pill badge-info">${associateMemberGeneratedData.decreased}</span>                            
+                        </div>
+                        <div if.bind="!$this.associateMemberGeneratedData">
+                            ${associateMemberData.decreased}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.associateMemberGeneratedData">
+                            ${associateMemberData.thisPeriod} <span class="badge badge-pill badge-info">${associateMemberGeneratedData.thisPeriod}</span>                            
+                        </div>
+                        <div if.bind="!$this.associateMemberGeneratedData">
+                            ${associateMemberData.thisPeriod}
+                        </div>
+                    </td>
+                    <td>${associateMemberData.personalContact}</td>
+                    <td>${associateMemberData.comment}</td>
+                </tr>
+                <tr>
+                    <td>Preliminary Member</td>
+                    <td>
+                        <div if.bind="$this.preliminaryMemberGeneratedData">
+                            ${preliminaryMemberData.lastPeriod} <span class="badge badge-pill badge-info">${preliminaryMemberGeneratedData.lastPeriod}</span>                            
+                        </div>
+                        <div if.bind="!$this.preliminaryMemberGeneratedData">
+                            ${preliminaryMemberData.lastPeriod}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.preliminaryMemberGeneratedData">
+                            ${preliminaryMemberData.upgradeTarget} <span class="badge badge-pill badge-info">${preliminaryMemberGeneratedData.upgradeTarget}</span>                            
+                        </div>
+                        <div if.bind="!$this.preliminaryMemberGeneratedData">
+                            ${preliminaryMemberData.upgradeTarget}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.preliminaryMemberGeneratedData">
+                            ${preliminaryMemberData.increased} <span class="badge badge-pill badge-info">${preliminaryMemberGeneratedData.increased}</span>                            
+                        </div>
+                        <div if.bind="!$this.preliminaryMemberGeneratedData">
+                            ${preliminaryMemberData.increased}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.preliminaryMemberGeneratedData">
+                            ${preliminaryMemberData.decreased} <span class="badge badge-pill badge-info">${preliminaryMemberGeneratedData.decreased}</span>
+                        </div>
+                        <div if.bind="!$this.preliminaryMemberGeneratedData">
+                            ${preliminaryMemberData.decreased}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.preliminaryMemberGeneratedData">
+                            ${preliminaryMemberData.thisPeriod} <span class="badge badge-pill badge-info">${preliminaryMemberGeneratedData.thisPeriod}</span>                            
+                        </div>
+                        <div if.bind="!$this.preliminaryMemberGeneratedData">
+                            ${preliminaryMemberData.thisPeriod}
+                        </div>
+                    </td>
+                    <td>${preliminaryMemberData.personalContact}</td>
+                    <td>${preliminaryMemberData.comment}</td>
+                </tr>
+                <tr>
+                    <td>Supporter</td>
+                    <td>
+                        <div if.bind="$this.supporterMemberGeneratedData">
+                            ${supporterMemberData.lastPeriod} <span class="badge badge-pill badge-info">${supporterMemberGeneratedData.lastPeriod}</span>                            
+                        </div>
+                        <div if.bind="!$this.supporterMemberGeneratedData">
+                            ${supporterMemberData.lastPeriod}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.supporterMemberGeneratedData">
+                            ${supporterMemberData.upgradeTarget} <span class="badge badge-pill badge-info">${supporterMemberGeneratedData.upgradeTarget}</span>                            
+                        </div>
+                        <div if.bind="!$this.supporterMemberGeneratedData">
+                            ${supporterMemberData.upgradeTarget}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.supporterMemberGeneratedData">
+                            ${supporterMemberData.increased} <span class="badge badge-pill badge-info">${supporterMemberGeneratedData.increased}</span>                            
+                        </div>
+                        <div if.bind="!$this.supporterMemberGeneratedData">
+                            ${supporterMemberData.increased}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.supporterMemberGeneratedData">
+                            ${supporterMemberData.decreased} <span class="badge badge-pill badge-info">${supporterMemberGeneratedData.decreased}</span>
+                        </div>
+                        <div if.bind="!$this.supporterMemberGeneratedData">
+                            ${supporterMemberData.decreased}
+                        </div>
+                    </td>
+                    <td>
+                        <div if.bind="$this.supporterMemberGeneratedData">
+                            ${supporterMemberData.thisPeriod} <span class="badge badge-pill badge-info">${supporterMemberGeneratedData.thisPeriod}</span>                            
+                        </div>
+                        <div if.bind="!$this.supporterMemberGeneratedData">
+                            ${supporterMemberData.thisPeriod}
+                        </div>
+                    </td>
+                    <td>${supporterMemberData.personalContact}</td>
+                    <td>${supporterMemberData.comment}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</template>

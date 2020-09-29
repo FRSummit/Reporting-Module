@@ -1,0 +1,122 @@
+<template>
+    <div if.bind="unitPlan">
+        <div class="row">
+            <div class="col">
+                <plan-report-header header-data.bind="headerData"></plan-report-header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <plan-report-shell item-id.bind="planid" report-status.bind="unitPlan.reportStatus" organization-type.bind="unitPlan.organization.organizationType">
+                    <div class="card">
+                        <div class="card-header bg-info text-white" if.bind="!isDirty">
+                           <div class="row">
+                              <div class="col" align="left">
+                                  ${unitPlan.reportingPeriod | reportingPeriod}
+                              </div>
+                              <div class="col" align="right">
+                                ${unitPlan.timestamp | convertToLocalDate}
+                              </div>
+                            </div>
+                            
+                        </div>
+                        <div class="card-header bg-warning text-white" if.bind="isDirty">                        
+                           <div class="row">
+                              <div class="col" align="left">
+                                  ${unitPlan.reportingPeriod | reportingPeriod} - Unsaved Changes
+                              </div>
+                              <div class="col" align="right">
+                                ${unitPlan.timestamp | convertToLocalDate}
+                              </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <plan-manpower-edit
+                                associate-member-plan-data.bind="unitPlan.associateMemberPlanData"
+                                preliminary-member-plan-data.bind="unitPlan.preliminaryMemberPlanData"
+                                supporter-member-plan-data.bind="unitPlan.supporterMemberPlanData"
+                                member-member-plan-data.bind="unitPlan.memberMemberPlanData">
+                            </plan-manpower-edit>
+                            <plan-regular-meetings-edit
+                                worker-meeting-program-plan-data.bind="unitPlan.workerMeetingProgramPlanData"
+                                cms-meeting-program-plan-data.bind="unitPlan.cmsMeetingProgramPlanData"
+                                sm-meeting-program-plan-data.bind="unitPlan.smMeetingProgramPlanData"
+                                member-meeting-program-plan-data.bind="unitPlan.memberMeetingProgramPlanData"
+                                dawah-meeting-program-plan-data.bind="unitPlan.dawahMeetingProgramPlanData"
+                                state-leader-meeting-program-plan-data.bind="unitPlan.stateLeaderMeetingProgramPlanData"
+                                state-outing-meeting-program-plan-data.bind="unitPlan.stateOutingMeetingProgramPlanData"
+                                iftar-meeting-program-plan-data.bind="unitPlan.iftarMeetingProgramPlanData"
+                                learning-meeting-program-plan-data.bind="unitPlan.learningMeetingProgramPlanData"
+                                social-dawah-meeting-program-plan-data.bind="unitPlan.socialDawahMeetingProgramPlanData"
+                                dawah-group-meeting-program-plan-data.bind="unitPlan.dawahGroupMeetingProgramPlanData"
+                                next-g-meeting-program-plan-data.bind="unitPlan.nextGMeetingProgramPlanData"
+                                tafsir-meeting-program-plan-data.bind="unitPlan.tafsirMeetingProgramPlanData"
+                                unit-meeting-program-plan-data.bind="unitPlan.unitMeetingProgramPlanData"
+                                bbq-meeting-program-plan-data.bind="unitPlan.bbqMeetingProgramPlanData"
+                                gathering-meeting-program-plan-data.bind="unitPlan.gatheringMeetingProgramPlanData"
+                                family-visit-meeting-program-plan-data.bind="unitPlan.familyVisitMeetingProgramPlanData"
+                                eid-reunion-meeting-program-plan-data.bind="unitPlan.eidReunionMeetingProgramPlanData"
+                                other-meeting-program-plan-data.bind="unitPlan.otherMeetingProgramPlanData">
+                            </plan-regular-meetings-edit>
+                            <plan-teaching-edit
+                            group-study-teaching-learning-program-plan-data.bind="unitPlan.groupStudyTeachingLearningProgramPlanData"
+                            study-circle-for-associate-member-teaching-learning-program-plan-data.bind="unitPlan.studyCircleForAssociateMemberTeachingLearningProgramPlanData"
+                            study-circle-teaching-learning-program-plan-data.bind="unitPlan.studyCircleTeachingLearningProgramPlanData"
+                            practice-dars-teaching-learning-program-plan-data.bind="unitPlan.practiceDarsTeachingLearningProgramPlanData"
+                            state-learning-camp-teaching-learning-program-plan-data.bind="unitPlan.stateLearningCampTeachingLearningProgramPlanData"
+                            quran-study-teaching-learning-program-plan-data.bind="unitPlan.quranStudyTeachingLearningProgramPlanData"
+                            hadith-teaching-learning-program-plan-data.bind="unitPlan.hadithTeachingLearningProgramPlanData"
+                            quran-class-teaching-learning-program-plan-data.bind="unitPlan.quranClassTeachingLearningProgramPlanData"
+                            weekend-islamic-school-teaching-learning-program-plan-data.bind="unitPlan.weekendIslamicSchoolTeachingLearningProgramPlanData"
+                            memorizing-ayat-teaching-learning-program-plan-data.bind="unitPlan.memorizingAyatTeachingLearningProgramPlanData"
+                            memorizing-hadith-teaching-learning-program-plan-data.bind="unitPlan.memorizingHadithTeachingLearningProgramPlanData"
+                            memorizing-doa-teaching-learning-program-plan-data.bind="unitPlan.memorizingDoaTeachingLearningProgramPlanData"
+                            state-learning-session-teaching-learning-program-plan-data.bind="unitPlan.stateLearningSessionTeachingLearningProgramPlanData"
+                            state-qiyamul-lail-teaching-learning-program-plan-data.bind="unitPlan.stateQiyamulLailTeachingLearningProgramPlanData"
+                            other-teaching-learning-program-plan-data.bind="unitPlan.otherTeachingLearningProgramPlanData">
+                            </plan-teaching-edit>
+                            <plan-material-edit
+                                book-sale-material-plan-data.bind="unitPlan.bookSaleMaterialPlanData"
+                                book-distribution-material-plan-data.bind="unitPlan.bookDistributionMaterialPlanData"
+                                vhs-sale-material-plan-data.bind="unitPlan.vhsSaleMaterialPlanData"
+                                vhs-distribution-material-plan-data.bind="unitPlan.vhsDistributionMaterialPlanData"
+                                email-distribution-material-plan-data.bind="unitPlan.emailDistributionMaterialPlanData"
+                                ipdc-leaflet-distribution-material-plan-data.bind="unitPlan.ipdcLeafletDistributionMaterialPlanData"
+                                other-sale-material-plan-data.bind="unitPlan.otherSaleMaterialPlanData"
+                                other-distribution-material-plan-data.bind="unitPlan.otherDistributionMaterialPlanData">
+                            </plan-material-edit>
+                            <plan-finance-edit
+                                baitul-mal-finance-plan-data.bind="unitPlan.baitulMalFinancePlanData"
+                                a-day-masjid-project-finance-plan-data.bind="unitPlan.aDayMasjidProjectFinancePlanData"
+                                masjid-table-bank-finance-plan-data.bind="unitPlan.masjidTableBankFinancePlanData">
+                            </plan-finance-edit>
+                            <plan-socialwelfare-edit
+                                qarde-hasana-social-welfare-plan-data.bind="unitPlan.qardeHasanaSocialWelfarePlanData"
+                                patient-visit-social-welfare-plan-data.bind="unitPlan.patientVisitSocialWelfarePlanData"
+                                social-visit-social-welfare-plan-data.bind="unitPlan.socialVisitSocialWelfarePlanData"
+                                transport-social-welfare-plan-data.bind="unitPlan.transportSocialWelfarePlanData"
+                                shifting-social-welfare-plan-data.bind="unitPlan.shiftingSocialWelfarePlanData"
+                                shopping-social-welfare-plan-data.bind="unitPlan.shoppingSocialWelfarePlanData"
+                                food-distribution-social-welfare-plan-data.bind="unitPlan.foodDistributionSocialWelfarePlanData"
+                                clean-up-australia-social-welfare-plan-data.bind="unitPlan.cleanUpAustraliaSocialWelfarePlanData"
+                                other-social-welfare-plan-data.bind="unitPlan.otherSocialWelfarePlanData">
+                            </plan-socialwelfare-edit>
+                            <button type="button" class="btn btn-primary" click.delegate="save()" disabled.bind="!canSave">
+                                <i class="fas fa-cloud-upload-alt" if.bind="!isSaving"></i>
+                                <i class="fas fa-spinner fa-spin" if.bind="isSaving"></i> Save
+                            </button>&nbsp;
+                            <button type="button" class="btn btn-warning" click.delegate="cancelChanges()" disabled.bind="!canCancel">
+                                <i class="fas fa-eraser" if.bind="!isCancelling"></i>
+                                <i class="fas fa-spinner fa-spin" if.bind="isCancelling"></i> Cancel Changes
+                            </button>
+                            <button type="button" class="btn btn-success" click.delegate="saveAndSubmitPlan()" disabled.bind="!canSubmit">
+                                <i class="fas fa-chart-line" if.bind="!isSubmitting"></i>
+                                <i class="fas fa-spinner fa-spin" if.bind="isSubmitting"></i> Submit Plan
+                            </button>
+                        </div>
+                    </div>
+                </plan-report-shell>
+            </div>
+        </div>
+    </div>
+</template>

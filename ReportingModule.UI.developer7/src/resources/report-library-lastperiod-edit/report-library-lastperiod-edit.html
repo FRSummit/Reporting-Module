@@ -1,0 +1,100 @@
+<template>
+    <div class="table-responsive">
+        <h5 class="card-title">Library Status</h5>
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Library Stock</th>
+                    <th>Last Period</th>
+                    <th>Increased</th>
+                    <th>Decreased</th>
+                    <th>This Period</th>
+                    <th>Comment</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Book</td>
+                    <td>
+                        <input-number input-number.bind="bookLibraryStockData.lastPeriod" generated.bind="bookLibraryStockGeneratedData.lastPeriod"></input-number>
+                    </td>
+                    <td>
+                        ${bookLibraryStockData.increased}
+                        <span class="badge badge-pill badge-info" if.bind="$this.bookLibraryStockGeneratedData">
+                            &nbsp;${bookLibraryStockGeneratedData.increased}
+                        </span>
+                    </td>
+                    <td>
+                        ${bookLibraryStockData.decreased}
+                        <span class="badge badge-pill badge-info" if.bind="$this.bookLibraryStockGeneratedData">
+                            &nbsp;${bookLibraryStockGeneratedData.decreased}
+                        </span>
+                    </td>
+                    <td>
+                        ${bookLibraryStockData.thisPeriod}
+                        <span class="badge badge-pill badge-info" if.bind="$this.bookLibraryStockGeneratedData">
+                            &nbsp;${bookLibraryStockGeneratedData.thisPeriod}
+                        </span>
+                    </td>
+                    <td>
+                        ${bookLibraryStockData.comment}
+                    </td>
+                </tr>
+                <tr>
+                    <td>VHS/DVD/VCD/CD/Audio Sale</td>
+                    <td>
+                        <input-number input-number.bind="vhsLibraryStockData.lastPeriod" generated.bind="vhsLibraryStockGeneratedData.lastPeriod"></input-number>
+                    </td>
+                    <td>
+                        ${vhsLibraryStockData.increased}
+                        <span class="badge badge-pill badge-info" if.bind="$this.vhsLibraryStockGeneratedData">
+                            &nbsp;${vhsLibraryStockGeneratedData.increased}
+                        </span>
+                    </td>
+                    <td>
+                        ${vhsLibraryStockData.decreased}
+                        <span class="badge badge-pill badge-info" if.bind="$this.vhsLibraryStockGeneratedData">
+                            &nbsp;${vhsLibraryStockGeneratedData.decreased}
+                        </span>
+                    </td>
+                    <td>
+                        ${vhsLibraryStockData.thisPeriod}
+                        <span class="badge badge-pill badge-info" if.bind="$this.vhsLibraryStockGeneratedData">
+                            &nbsp;${vhsLibraryStockGeneratedData.thisPeriod}
+                        </span>
+                    </td>
+                    <td>
+                        ${vhsLibraryStockData.comment}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Other</td>
+                    <td>
+                        <input-number input-number.bind="otherLibraryStockData.lastPeriod" generated.bind="otherLibraryStockGeneratedData.lastPeriod"></input-number>
+                    </td>
+                    <td>
+                        ${otherLibraryStockData.increased}
+                        <span class="badge badge-pill badge-info" if.bind="$this.otherLibraryStockGeneratedData">
+                            &nbsp;${otherLibraryStockGeneratedData.increased}
+                        </span>
+                    </td>
+                    <td>
+                        ${otherLibraryStockData.decreased}
+                        <span class="badge badge-pill badge-info" if.bind="$this.otherLibraryStockGeneratedData">
+                            &nbsp;${otherLibraryStockGeneratedData.decreased}
+                        </span>
+                    </td>
+                    <td>
+                        ${otherLibraryStockData.thisPeriod}
+                        <span class="badge badge-pill badge-info" if.bind="$this.otherLibraryStockGeneratedData">
+                            &nbsp;${otherLibraryStockGeneratedData.thisPeriod}
+                        </span>
+                    </td>
+                    <td>
+                        ${otherLibraryStockData.comment}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</template>

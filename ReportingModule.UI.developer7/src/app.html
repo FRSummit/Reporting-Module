@@ -1,0 +1,15 @@
+<template>
+    <require from="./components/sidebar/sidebar"></require>
+    <require from="./components/top-navbar/top-navbar"></require>
+    <div class="wrapper">
+        <sidebar></sidebar>
+        <div class="main">
+            <top-navbar></top-navbar>
+            <main class="content">
+                <div class="container-fluid p-0">
+                    <router-view></router-view>
+                </div>
+            </main>
+        </div>
+    </div>
+</template>

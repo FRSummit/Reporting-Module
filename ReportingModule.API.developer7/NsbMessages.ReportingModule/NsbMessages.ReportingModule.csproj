@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{45E97D01-E594-4656-BE5C-B6AD7DD56F3D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ReportingModule</RootNamespace>
+    <AssemblyName>NsbMessages.ReportingModule</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Output\NsbMessages\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'QAS|AnyCPU'">
+    <OutputPath>bin\QAS\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AzureQAS|AnyCPU'">
+    <OutputPath>bin\AzureQAS\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging|AnyCPU'">
+    <OutputPath>bin\Staging\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commands\CopyCentralPlanCommand.cs" />
+    <Compile Include="Commands\CopyStatePlanCommand.cs" />
+    <Compile Include="Commands\CopyUnitPlanCommand.cs" />
+    <Compile Include="Commands\CopyZonePlanCommand.cs" />
+    <Compile Include="Commands\CreateCentralPlanCommand.cs" />
+    <Compile Include="Commands\CreateOrganizationUserCommand.cs" />
+    <Compile Include="Commands\CreateStatePlanCommand.cs" />
+    <Compile Include="Commands\CreateUnitPlanCommand.cs" />
+    <Compile Include="Commands\CreateOrganizationCommand.cs" />
+    <Compile Include="Commands\CreateZonePlanCommand.cs" />
+    <Compile Include="Commands\CreateZoneReportCommand.cs" />
+    <Compile Include="Commands\DeleteOrganizationCommand.cs" />
+    <Compile Include="Commands\DeleteOrganizationUserCommand.cs" />
+    <Compile Include="Commands\DeleteReportCommand.cs" />
+    <Compile Include="Commands\PingCommand.cs" />
+    <Compile Include="Commands\ConsolidateReportCommand.cs" />
+    <Compile Include="Commands\PromotePlanToCentralReportCommand.cs" />
+    <Compile Include="Commands\PromotePlanToStateReportCommand.cs" />
+    <Compile Include="Commands\PromotePlanToUnitReportCommand.cs" />
+    <Compile Include="Commands\PromotePlanToZoneReportCommand.cs" />
+    <Compile Include="Commands\SubmitReportCommand.cs" />
+    <Compile Include="Commands\UnSubmitReportCommand.cs" />
+    <Compile Include="Commands\UpdateCentralPlanCommand.cs" />
+    <Compile Include="Commands\UpdateCentralReportCommand.cs" />
+    <Compile Include="Commands\UpdateCentralReportGeneratedDataCommand.cs" />
+    <Compile Include="Commands\UpdateCentralReportLastPeriodDataCommand.cs" />
+    <Compile Include="Commands\UpdateOrganizationCommand.cs" />
+    <Compile Include="Commands\UpdateOrganizationUserCommand.cs" />
+    <Compile Include="Commands\UpdateReportCommand.cs" />
+    <Compile Include="Commands\UpdateStatePlanCommand.cs" />
+    <Compile Include="Commands\UpdateStateReportCommand.cs" />
+    <Compile Include="Commands\UpdateStateReportGeneratedDataCommand.cs" />
+    <Compile Include="Commands\UpdateStateReportLastPeriodDataCommand.cs" />
+    <Compile Include="Commands\UpdateUnitPlanCommand.cs" />
+    <Compile Include="Commands\UpdateUnitReportCommand.cs" />
+    <Compile Include="Commands\UpdateUnitReportLastPeriodDataCommand.cs" />
+    <Compile Include="Commands\UpdateZonePlanCommand.cs" />
+    <Compile Include="Commands\UpdateZoneReportCommand.cs" />
+    <Compile Include="Commands\UpdateZoneReportGeneratedDataCommand.cs" />
+    <Compile Include="Commands\UpdateZoneReportLastPeriodDataCommand.cs" />
+    <Compile Include="Common\Calculator.cs" />
+    <Compile Include="Events\ICentralPlanCopied.cs" />
+    <Compile Include="Events\ICentralPlanCopyFailed.cs" />
+    <Compile Include="Events\ICentralPlanCreated.cs" />
+    <Compile Include="Events\ICentralPlanCreateFailed.cs" />
+    <Compile Include="Events\ICentralPlanPromoted.cs" />
+    <Compile Include="Events\ICentralPlanPromoteFailed.cs" />
+    <Compile Include="Events\ICentralPlanUpdated.cs" />
+    <Compile Include="Events\ICentralPlanUpdateFailed.cs" />
+    <Compile Include="Events\ICentralReportUpdated.cs" />
+    <Compile Include="Events\ICentralReportUpdateFailed.cs" />
+    <Compile Include="Events\IConsolidateReportSucceeded.cs" />
+    <Compile Include="Events\IOrganizationCreated.cs" />
+    <Compile Include="Events\IOrganizationCreateFailed.cs" />
+    <Compile Include="Events\IOrganizationDeleted.cs" />
+    <Compile Include="Events\IOrganizationDeleteFailed.cs" />
+    <Compile Include="Events\IOrganizationUpdated.cs" />
+    <Compile Include="Events\IOrganizationUpdateFailed.cs" />
+    <Compile Include="Events\IOrganizationUserCreated.cs" />
+    <Compile Include="Events\IOrganizationUserCreateFailed.cs" />
+    <Compile Include="Events\IOrganizationUserDeleted.cs" />
+    <Compile Include="Events\IOrganizationUserDeleteFailed.cs" />
+    <Compile Include="Events\IPonged.cs" />
+    <Compile Include="Events\IConsolidateReportFailed.cs" />
+    <Compile Include="Events\IReportDeleted.cs" />
+    <Compile Include="Events\IReportDeleteFailed.cs" />
+    <Compile Include="Events\IReportSubmitFailed.cs" />
+    <Compile Include="Events\IReportUnSubmitFailed.cs" />
+    <Compile Include="Events\IReportUnSubmitted.cs" />
+    <Compile Include="Events\IStatePlanCopied.cs" />
+    <Compile Include="Events\IStatePlanCopyFailed.cs" />
+    <Compile Include="Events\IStatePlanCreated.cs" />
+    <Compile Include="Events\IStatePlanCreateFailed.cs" />
+    <Compile Include="Events\IStatePlanPromoted.cs" />
+    <Compile Include="Events\IStatePlanPromoteFailed.cs" />
+    <Compile Include="Events\IStatePlanUpdated.cs" />
+    <Compile Include="Events\IStateReportUpdated.cs" />
+    <Compile Include="Events\IStateReportUpdateFailed.cs" />
+    <Compile Include="Events\IUnitPlanCopied.cs" />
+    <Compile Include="Events\IUnitPlanCopyFailed.cs" />
+    <Compile Include="Events\IUnitPlanCreated.cs" />
+    <Compile Include="Events\IUnitPlanCreateFailed.cs" />
+    <Compile Include="Events\IUnitPlanPromoted.cs" />
+    <Compile Include="Events\IUnitPlanPromoteFailed.cs" />
+    <Compile Include="Events\IUnitPlanUpdated.cs" />
+    <Compile Include="Events\IReportSubmitted.cs" />
+    <Compile Include="Events\IUnitPlanUpdateFailed.cs" />
+    <Compile Include="Events\IUnitReportUpdated.cs" />
+    <Compile Include="Events\IUnitReportUpdateFailed.cs" />
+    <Compile Include="Events\IStatePlanUpdateFailed.cs" />
+    <Compile Include="Events\IZonePlanCopied.cs" />
+    <Compile Include="Events\IZonePlanCopyFailed.cs" />
+    <Compile Include="Events\IZonePlanCreated.cs" />
+    <Compile Include="Events\IZonePlanCreateFailed.cs" />
+    <Compile Include="Events\IZonePlanPromoted.cs" />
+    <Compile Include="Events\IZonePlanPromoteFailed.cs" />
+    <Compile Include="Events\IZonePlanUpdated.cs" />
+    <Compile Include="Events\IZonePlanUpdateFailed.cs" />
+    <Compile Include="Events\IZoneReportUpdated.cs" />
+    <Compile Include="Events\IZoneReportUpdateFailed.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValueObjects\ExcelReportType.cs" />
+    <Compile Include="ValueObjects\FinanceData.cs" />
+    <Compile Include="ValueObjects\FinancePlanData.cs" />
+    <Compile Include="ValueObjects\FinanceReportData.cs" />
+    <Compile Include="ValueObjects\ReportLastPeriodUpdateData.cs" />
+    <Compile Include="ValueObjects\LibraryStockData.cs" />
+    <Compile Include="ValueObjects\LibraryStockPlanData.cs" />
+    <Compile Include="ValueObjects\LibraryStockReportData.cs" />
+    <Compile Include="ValueObjects\MaterialData.cs" />
+    <Compile Include="ValueObjects\MaterialPlanData.cs" />
+    <Compile Include="ValueObjects\MaterialReportData.cs" />
+    <Compile Include="ValueObjects\ReopenedReportStatus.cs" />
+    <Compile Include="ValueObjects\ReportEventLogVisibility.cs" />
+    <Compile Include="ValueObjects\MeetingProgramData.cs" />
+    <Compile Include="ValueObjects\MeetingProgramPlanData.cs" />
+    <Compile Include="ValueObjects\MeetingProgramReportData.cs" />
+    <Compile Include="ValueObjects\MemberData.cs" />
+    <Compile Include="ValueObjects\MemberPlanData.cs" />
+    <Compile Include="ValueObjects\MemberReportData.cs" />
+    <Compile Include="ValueObjects\OrganizationReference.cs" />
+    <Compile Include="ValueObjects\OrganizationType.cs" />
+    <Compile Include="ValueObjects\ReportingPeriod.cs" />
+    <Compile Include="ValueObjects\ReportingFrequency.cs" />
+    <Compile Include="ValueObjects\ReportingTerm.cs" />
+    <Compile Include="ValueObjects\ReportData.cs" />
+    <Compile Include="ValueObjects\PlanData.cs" />
+    <Compile Include="ValueObjects\ReportStatus.cs" />
+    <Compile Include="ValueObjects\ReportUpdateData.cs" />
+    <Compile Include="ValueObjects\SocialWelfareData.cs" />
+    <Compile Include="ValueObjects\SocialWelfarePlanData.cs" />
+    <Compile Include="ValueObjects\SocialWelfareReportData.cs" />
+    <Compile Include="ValueObjects\TeachingLearningProgramData.cs" />
+    <Compile Include="ValueObjects\TeachingLearningProgramPlanData.cs" />
+    <Compile Include="ValueObjects\TeachingLearningProgramReportData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="paket.references" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExternalProjects\ReportingModule.Core\ReportingModule.Core.csproj">
+      <Project>{482d8201-8c6b-4ad5-8430-fbf8564fde0c}</Project>
+      <Name>ReportingModule.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Import Project="..\.paket\paket.targets" />
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="System.Configuration">
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="System.Security">
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="System.Transactions">
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="NServiceBus.Core">
+          <HintPath>..\packages\net472\NServiceBus\lib\net452\NServiceBus.Core.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <ItemGroup>
+    <Analyzer Include="..\packages\net472\NServiceBus\analyzers\dotnet\cs\NServiceBus.Core.Analyzer.dll">
+      <Paket>True</Paket>
+    </Analyzer>
+  </ItemGroup>
+</Project>

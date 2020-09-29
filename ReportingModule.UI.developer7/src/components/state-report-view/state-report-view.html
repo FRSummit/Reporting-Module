@@ -1,0 +1,174 @@
+<template>
+    <div if.bind="stateReport">
+    <div class="row">
+        <div class="col-lg-12">
+            <plan-report-header header-data.bind="headerData"></plan-report-header>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <plan-report-shell item-id.bind="reportid" report-status.bind="stateReport.reportStatus" organization-type.bind="stateReport.organization.organizationType">
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                           <div class="row">
+                              <div class="col" align="left">
+                                  ${stateReport.reportingPeriod | reportingPeriod}
+                              </div>
+                              <div class="col" align="right">
+                                ${stateReport.timestamp | convertToLocalDate}
+                              </div>
+                            </div>
+
+                    </div>
+                    <div class="card-body">
+                        <report-manpower-view
+                            associate-member-data.bind="stateReport.associateMemberData"
+                            associate-member-generated-data.bind="stateReport.associateMemberGeneratedData"
+                            preliminary-member-data.bind="stateReport.preliminaryMemberData"
+                            preliminary-member-generated-data.bind="stateReport.preliminaryMemberGeneratedData"
+                            supporter-member-data.bind="stateReport.supporterMemberData"
+                            supporter-member-generated-data.bind="stateReport.supporterMemberGeneratedData"
+                            member-member-data.bind="stateReport.memberMemberData"
+                            member-member-generated-data.bind="stateReport.memberMemberGeneratedData">
+                        </report-manpower-view>
+                        <report-regular-meetings-view
+                            worker-meeting-program-data.bind="stateReport.workerMeetingProgramData"
+                            worker-meeting-program-generated-data.bind="stateReport.workerMeetingProgramGeneratedData"
+                            cms-meeting-program-data.bind="stateReport.cmsMeetingProgramData"
+                            cms-meeting-program-generated-data.bind="stateReport.cmsMeetingProgramGeneratedData"
+                            sm-meeting-program-data.bind="stateReport.smMeetingProgramData"
+                            sm-meeting-program-generated-data.bind="stateReport.smMeetingProgramGeneratedData"
+                            member-meeting-program-data.bind="stateReport.memberMeetingProgramData"
+                            member-meeting-program-generated-data.bind="stateReport.memberMeetingProgramGeneratedData"
+                            dawah-meeting-program-data.bind="stateReport.dawahMeetingProgramData"
+                            dawah-meeting-program-generated-data.bind="stateReport.dawahMeetingProgramGeneratedData"
+                            state-leader-meeting-program-data.bind="stateReport.stateLeaderMeetingProgramData"
+                            state-leader-meeting-program-generated-data.bind="stateReport.stateLeaderMeetingProgramGeneratedData"
+                            state-outing-meeting-program-data.bind="stateReport.stateOutingMeetingProgramData"
+                            state-outing-meeting-program-generated-data.bind="stateReport.stateOutingMeetingProgramGeneratedData"
+                            iftar-meeting-program-data.bind="stateReport.iftarMeetingProgramData"
+                            iftar-meeting-program-generated-data.bind="stateReport.iftarMeetingProgramGeneratedData"
+                            learning-meeting-program-data.bind="stateReport.learningMeetingProgramData"
+                            learning-meeting-program-generated-data.bind="stateReport.learningMeetingProgramGeneratedData"
+                            social-dawah-meeting-program-data.bind="stateReport.socialDawahMeetingProgramData"
+                            social-dawah-meeting-program-generated-data.bind="stateReport.socialDawahMeetingProgramGeneratedData"
+                            dawah-group-meeting-program-data.bind="stateReport.dawahGroupMeetingProgramData"
+                            dawah-group-meeting-program-generated-data.bind="stateReport.dawahGroupMeetingProgramGeneratedData"
+                            next-g-meeting-program-data.bind="stateReport.nextGMeetingProgramData"
+                            next-g-meeting-program-generated-data.bind="stateReport.nextGMeetingProgramGeneratedData"
+                            tafsir-meeting-program-data.bind="stateReport.tafsirMeetingProgramData"
+                            tafsir-meeting-program-generated-data.bind="stateReport.tafsirMeetingProgramGeneratedData"
+                            unit-meeting-program-data.bind="stateReport.unitMeetingProgramData"
+                            unit-meeting-program-generated-data.bind="stateReport.unitMeetingProgramGeneratedData"
+                            bbq-meeting-program-data.bind="stateReport.bbqMeetingProgramData"
+                            bbq-meeting-program-generated-data.bind="stateReport.bbqMeetingProgramGeneratedData"
+                            gathering-meeting-program-data.bind="stateReport.gatheringMeetingProgramData"
+                            gathering-meeting-program-generated-data.bind="stateReport.gatheringMeetingProgramGeneratedData"
+                            family-visit-meeting-program-data.bind="stateReport.familyVisitMeetingProgramData"
+                            family-visit-meeting-program-generated-data.bind="stateReport.familyVisitMeetingProgramGeneratedData"
+                            eid-reunion-meeting-program-data.bind="stateReport.eidReunionMeetingProgramData"
+                            eid-reunion-meeting-program-generated-data.bind="stateReport.eidReunionMeetingProgramGeneratedData"
+                            other-meeting-program-data.bind="stateReport.otherMeetingProgramData"
+                            other-meeting-program-generated-data.bind="stateReport.otherMeetingProgramGeneratedData">
+                        </report-regular-meetings-view>
+                        <report-teaching-view
+                            group-study-teaching-learning-program-data.bind="stateReport.groupStudyTeachingLearningProgramData"
+                            group-study-teaching-learning-program-generated-data.bind="stateReport.groupStudyTeachingLearningProgramGeneratedData"
+                            study-circle-for-associate-member-teaching-learning-program-data.bind="stateReport.studyCircleForAssociateMemberTeachingLearningProgramData"
+                            study-circle-for-associate-member-teaching-learning-program-generated-data.bind="stateReport.studyCircleForAssociateMemberTeachingLearningProgramGeneratedData"
+                            study-circle-teaching-learning-program-data.bind="stateReport.studyCircleTeachingLearningProgramData"
+                            study-circle-teaching-learning-program-generated-data.bind="stateReport.studyCircleTeachingLearningProgramGeneratedData"
+                            practice-dars-teaching-learning-program-data.bind="stateReport.practiceDarsTeachingLearningProgramData"
+                            practice-dars-teaching-learning-program-generated-data.bind="stateReport.practiceDarsTeachingLearningProgramGeneratedData"
+                            state-learning-camp-teaching-learning-program-data.bind="stateReport.stateLearningCampTeachingLearningProgramData"
+                            state-learning-camp-teaching-learning-program-generated-data.bind="stateReport.stateLearningCampTeachingLearningProgramGeneratedData"
+                            quran-study-teaching-learning-program-data.bind="stateReport.quranStudyTeachingLearningProgramData"
+                            quran-study-teaching-learning-program-generated-data.bind="stateReport.quranStudyTeachingLearningProgramGeneratedData"
+                            hadith-teaching-learning-program-data.bind="stateReport.hadithTeachingLearningProgramData"
+                            hadith-teaching-learning-program-generated-data.bind="stateReport.hadithTeachingLearningProgramGeneratedData"
+                            quran-class-teaching-learning-program-data.bind="stateReport.quranClassTeachingLearningProgramData"
+                            quran-class-teaching-learning-program-generated-data.bind="stateReport.quranClassTeachingLearningProgramGeneratedData"
+                            weekend-islamic-school-teaching-learning-program-data.bind="stateReport.weekendIslamicSchoolTeachingLearningProgramData"
+                            weekend-islamic-school-teaching-learning-program-generated-data.bind="stateReport.weekendIslamicSchoolTeachingLearningProgramGeneratedData"
+                            memorizing-ayat-teaching-learning-program-data.bind="stateReport.memorizingAyatTeachingLearningProgramData"
+                            memorizing-ayat-teaching-learning-program-generated-data.bind="stateReport.memorizingAyatTeachingLearningProgramGeneratedData"
+                            memorizing-hadith-teaching-learning-program-data.bind="stateReport.memorizingHadithTeachingLearningProgramData"
+                            memorizing-hadith-teaching-learning-program-generated-data.bind="stateReport.memorizingHadithTeachingLearningProgramGeneratedData"
+                            memorizing-doa-teaching-learning-program-data.bind="stateReport.memorizingDoaTeachingLearningProgramData"
+                            memorizing-doa-teaching-learning-program-generated-data.bind="stateReport.memorizingDoaTeachingLearningProgramGeneratedData"
+                            state-learning-session-teaching-learning-program-data.bind="stateReport.stateLearningSessionTeachingLearningProgramData"
+                            state-learning-session-teaching-learning-program-generated-data.bind="stateReport.stateLearningSessionTeachingLearningProgramGeneratedData"
+                            state-qiyamul-lail-teaching-learning-program-data.bind="stateReport.stateQiyamulLailTeachingLearningProgramData"
+                            state-qiyamul-lail-teaching-learning-program-generated-data.bind="stateReport.stateQiyamulLailTeachingLearningProgramGeneratedData"
+                            other-teaching-learning-program-data.bind="stateReport.otherTeachingLearningProgramData"
+                            other-teaching-learning-program-generated-data.bind="stateReport.otherTeachingLearningProgramGeneratedData">
+                        </report-teaching-view>
+                        <report-material-view
+                            book-sale-material-data.bind="stateReport.bookSaleMaterialData"
+                            book-sale-material-generated-data.bind="stateReport.bookSaleMaterialGeneratedData"
+                            book-distribution-material-data.bind="stateReport.bookDistributionMaterialData"
+                            book-distribution-material-generated-data.bind="stateReport.bookDistributionMaterialGeneratedData"
+                            vhs-sale-material-data.bind="stateReport.vhsSaleMaterialData"
+                            vhs-sale-material-generated-data.bind="stateReport.vhsSaleMaterialGeneratedData"
+                            vhs-distribution-material-data.bind="stateReport.vhsDistributionMaterialData"
+                            vhs-distribution-material-generated-data.bind="stateReport.vhsDistributionMaterialGeneratedData"
+                            email-distribution-material-data.bind="stateReport.emailDistributionMaterialData"
+                            email-distribution-material-generated-data.bind="stateReport.emailDistributionMaterialGeneratedData"
+                            ipdc-leaflet-distribution-material-data.bind="stateReport.ipdcLeafletDistributionMaterialData"
+                            ipdc-leaflet-distribution-material-generated-data.bind="stateReport.ipdcLeafletDistributionMaterialGeneratedData"
+                            other-sale-material-data.bind="stateReport.otherSaleMaterialData"
+                            other-sale-material-generated-data.bind="stateReport.otherSaleMaterialGeneratedData"
+                            other-distribution-material-data.bind="stateReport.otherDistributionMaterialData"
+                            other-distribution-material-generated-data.bind="stateReport.otherDistributionMaterialGeneratedData">
+                        </report-material-view>
+                        <report-library-view
+                            book-library-stock-data.bind="stateReport.bookLibraryStockData"
+                            book-library-stock-generated-data.bind="stateReport.bookLibraryStockGeneratedData"
+                            vhs-library-stock-data.bind="stateReport.vhsLibraryStockData"
+                            vhs-library-stock-generated-data.bind="stateReport.vhsLibraryStockGeneratedData"
+                            other-library-stock-data.bind="stateReport.otherLibraryStockData"
+                            other-library-stock-generated-data.bind="stateReport.otherLibraryStockGeneratedData">
+                        </report-library-view>
+                        <report-finance-view
+                            baitul-mal-finance-data.bind="stateReport.baitulMalFinanceData"
+                            baitul-mal-finance-generated-data.bind="stateReport.baitulMalFinanceGeneratedData"
+                            a-day-masjid-project-finance-data.bind="stateReport.aDayMasjidProjectFinanceData"
+                            a-day-masjid-project-finance-generated-data.bind="stateReport.aDayMasjidProjectFinanceGeneratedData"
+                            masjid-table-bank-finance-data.bind="stateReport.masjidTableBankFinanceData"
+                            masjid-table-bank-finance-generated-data.bind="stateReport.masjidTableBankFinanceGeneratedData">
+                        </report-finance-view>
+                        <report-socialwelfare-view
+                            qarde-hasana-social-welfare-data.bind="stateReport.qardeHasanaSocialWelfareData"
+                            qarde-hasana-social-welfare-generated-data.bind="stateReport.qardeHasanaSocialWelfareGeneratedData"
+                            patient-visit-social-welfare-data.bind="stateReport.patientVisitSocialWelfareData"
+                            patient-visit-social-welfare-generated-data.bind="stateReport.patientVisitSocialWelfareGeneratedData"
+                            social-visit-social-welfare-data.bind="stateReport.socialVisitSocialWelfareData"
+                            social-visit-social-welfare-generated-data.bind="stateReport.socialVisitSocialWelfareGeneratedData"
+                            transport-social-welfare-data.bind="stateReport.transportSocialWelfareData"
+                            transport-social-welfare-generated-data.bind="stateReport.transportSocialWelfareGeneratedData"
+                            shifting-social-welfare-data.bind="stateReport.shiftingSocialWelfareData"
+                            shifting-social-welfare-generated-data.bind="stateReport.shiftingSocialWelfareGeneratedData"
+                            shopping-social-welfare-data.bind="stateReport.shoppingSocialWelfareData"
+                            shopping-social-welfare-generated-data.bind="stateReport.shoppingSocialWelfareGeneratedData"
+                            food-distribution-social-welfare-data.bind="stateReport.foodDistributionSocialWelfareData"
+                            food-distribution-social-welfare-generated-data.bind="stateReport.foodDistributionSocialWelfareGeneratedData"
+                            clean-up-australia-social-welfare-data.bind="stateReport.cleanUpAustraliaSocialWelfareData"
+                            clean-up-australia-social-welfare-generated-data.bind="stateReport.cleanUpAustraliaSocialWelfareGeneratedData"
+                            other-social-welfare-data.bind="stateReport.otherSocialWelfareData"
+                            other-social-welfare-generated-data.bind="stateReport.otherSocialWelfareGeneratedData">
+                        </report-socialwelfare-view>
+                        <div>
+                            <h5 class="card-title">Comment</h5>
+                            <div class="card">
+                                <div class="card-body">
+                                    <textarea value.bind="stateReport.comment" style="width: 100%" rows="10" disabled></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </plan-report-shell>
+        </div>
+    </div>
+    </div>
+</template>

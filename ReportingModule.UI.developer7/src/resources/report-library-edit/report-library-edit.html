@@ -1,0 +1,73 @@
+<template>
+    <div class="table-responsive">
+        <h5 class="card-title">Library Status</h5>
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Library Stock</th>
+                    <th>Last Period</th>
+                    <th>Increased</th>
+                    <th>Decreased</th>
+                    <th>This Period</th>
+                    <th>Comment</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Book</td>
+                    <td>
+                        ${bookLibraryStockData.lastPeriod}
+                        <span class="badge badge-pill badge-info" if.bind="$this.bookLibraryStockGeneratedData">
+                            &nbsp;${bookLibraryStockGeneratedData.lastPeriod}
+                        </span>
+                    </td>
+                    <td><input-number input-number.bind="bookLibraryStockData.increased" generated.bind="bookLibraryStockGeneratedData.increased"></input-number></td>
+                    <td><input-number input-number.bind="bookLibraryStockData.decreased" generated.bind="bookLibraryStockGeneratedData.decreased"></input-number></td>
+                    <td>
+                        <library-this-period library-stock-data.bind="bookLibraryStockData"></library-this-period>
+                        <span class="badge badge-pill badge-info" if.bind="$this.bookLibraryStockGeneratedData">
+                            &nbsp;${bookLibraryStockGeneratedData.thisPeriod}
+                        </span>
+                    </td>
+                    <td><input class="form-control" value.bind="bookLibraryStockData.comment"></td>
+                </tr>
+                <tr>
+                    <td>VHS/DVD/VCD/CD/Audio Sale</td>
+                    <td>
+                        ${vhsLibraryStockData.lastPeriod}
+                        <span class="badge badge-pill badge-info" if.bind="$this.vhsLibraryStockGeneratedData">
+                            &nbsp;${vhsLibraryStockGeneratedData.lastPeriod}
+                        </span>
+                    </td>
+                    <td><input-number input-number.bind="vhsLibraryStockData.increased" generated.bind="vhsLibraryStockGeneratedData.increased"></input-number></td>
+                    <td><input-number input-number.bind="vhsLibraryStockData.decreased" generated.bind="vhsLibraryStockGeneratedData.decreased"></input-number></td>
+                    <td>
+                        <library-this-period library-stock-data.bind="vhsLibraryStockData"></library-this-period>
+                        <span class="badge badge-pill badge-info" if.bind="$this.vhsLibraryStockGeneratedData">
+                            &nbsp;${vhsLibraryStockGeneratedData.thisPeriod}
+                        </span>
+                    </td>
+                    <td><input class="form-control" value.bind="vhsLibraryStockData.comment"></td>
+                </tr>
+                <tr>
+                    <td>Other</td>
+                    <td>
+                        ${otherLibraryStockData.lastPeriod}
+                        <span class="badge badge-pill badge-info" if.bind="$this.otherLibraryStockGeneratedData">
+                            &nbsp;${otherLibraryStockGeneratedData.lastPeriod}
+                        </span>
+                    </td>
+                    <td><input-number input-number.bind="otherLibraryStockData.increased" generated.bind="otherLibraryStockGeneratedData.increased"></input-number></td>
+                    <td><input-number input-number.bind="otherLibraryStockData.decreased" generated.bind="otherLibraryStockGeneratedData.decreased"></input-number></td>
+                    <td>
+                        <library-this-period library-stock-data.bind="otherLibraryStockData"></library-this-period>
+                        <span class="badge badge-pill badge-info" if.bind="$this.otherLibraryStockGeneratedData">
+                            &nbsp;${otherLibraryStockGeneratedData.thisPeriod}
+                        </span>
+                    </td>
+                    <td><input class="form-control" value.bind="otherLibraryStockData.comment"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</template>
